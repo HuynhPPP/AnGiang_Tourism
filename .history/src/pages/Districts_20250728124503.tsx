@@ -534,97 +534,69 @@ export default function DistrictsPage() {
 
         {/* Selected district detail */}
         {selectedDistrict && (
-          <Card className="mb-8 shadow-2xl bg-white/95 backdrop-blur-sm border-0 overflow-hidden">
-            <div className="relative h-96 overflow-hidden">
+          <Card className="mb-8">
+            <div className="relative h-96 overflow-hidden rounded-t-lg">
               <img
                 src={selectedDistrict.image}
                 alt={selectedDistrict.name}
                 className="object-cover w-full h-full"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-              <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                <h2 className="text-4xl font-bold mb-2 drop-shadow-lg">{selectedDistrict.name}</h2>
-                <p className="text-lg opacity-90 drop-shadow-md leading-relaxed">
-                  {selectedDistrict.description}
-                </p>
-              </div>
             </div>
-
-            <CardContent className="p-8">
+            <CardHeader>
+              <CardTitle className="text-2xl text-amber-900">{selectedDistrict.name}</CardTitle>
+              <CardDescription className="text-lg text-amber-700">
+                {selectedDistrict.description}
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
               <Tabs defaultValue="attractions" className="w-full">
-                <TabsList className="grid w-full grid-cols-2 bg-white/80 backdrop-blur-sm border border-amber-200 rounded-xl p-1 shadow-lg">
-                  <TabsTrigger
-                    value="attractions"
-                    className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-amber-500 data-[state=active]:to-orange-500 data-[state=active]:text-white rounded-lg transition-all duration-300 hover:scale-105"
-                  >
-                    🏛️ Điểm Du Lịch
-                  </TabsTrigger>
-                  <TabsTrigger
-                    value="cuisine"
-                    className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-amber-500 data-[state=active]:to-orange-500 data-[state=active]:text-white rounded-lg transition-all duration-300 hover:scale-105"
-                  >
-                    🍽️ Ẩm Thực
-                  </TabsTrigger>
+                <TabsList className="grid w-full grid-cols-2">
+                  <TabsTrigger value="attractions">Điểm Du Lịch</TabsTrigger>
+                  <TabsTrigger value="cuisine">Ẩm Thực</TabsTrigger>
                 </TabsList>
-
-                <TabsContent value="attractions" className="pt-8">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <TabsContent value="attractions">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
                     {selectedDistrict.attractions.map((attraction, index) => (
-                      <Card
-                        key={index}
-                        className="group overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-white/90 backdrop-blur-sm border-0 shadow-lg"
-                      >
+                      <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
                         <div className="relative h-80 overflow-hidden">
                           <img
                             src={attraction.image}
                             alt={attraction.name}
-                            className="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-500"
+                            className="object-cover w-full h-full transform hover:scale-105 transition-transform duration-300"
                             loading="lazy"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         </div>
-                        <CardHeader className="pb-4">
-                          <CardTitle className="text-xl text-amber-800 group-hover:text-amber-600 transition-colors duration-300">
-                            {attraction.name}
-                          </CardTitle>
-                          <CardDescription className="text-amber-700 leading-relaxed">
+                        <CardHeader>
+                          <CardTitle className="text-lg text-amber-900">{attraction.name}</CardTitle>
+                          <CardDescription className="text-amber-700">
                             {attraction.description}
                           </CardDescription>
                           {attraction.location && (
-                            <div className="mt-3 p-3 bg-gradient-to-r from-amber-50 to-orange-50 rounded-lg">
-                              <p className="text-sm text-amber-800 font-medium">
-                                📍 <span className="font-semibold">Địa chỉ:</span> {attraction.location}
-                              </p>
-                            </div>
+                            <p className="text-sm text-amber-600 mt-2">
+                              <span className="font-medium">Địa chỉ:</span> {attraction.location}
+                            </p>
                           )}
                         </CardHeader>
                       </Card>
                     ))}
                   </div>
                 </TabsContent>
-
-                <TabsContent value="cuisine" className="pt-8">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <TabsContent value="cuisine">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
                     {selectedDistrict.cuisine.map((dish, index) => (
-                      <Card
-                        key={index}
-                        className="group overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-white/90 backdrop-blur-sm border-0 shadow-lg"
-                      >
+                      <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
                         <div className="relative h-80 overflow-hidden">
                           <img
                             src={dish.image}
                             alt={dish.name}
-                            className="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-500"
+                            className="object-cover w-full h-full transform hover:scale-105 transition-transform duration-300"
                             loading="lazy"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         </div>
-                        <CardHeader className="pb-4">
-                          <CardTitle className="text-xl text-amber-800 group-hover:text-amber-600 transition-colors duration-300">
-                            {dish.name}
-                          </CardTitle>
-                          <CardDescription className="text-amber-700 leading-relaxed">
+                        <CardHeader>
+                          <CardTitle className="text-lg text-amber-900">{dish.name}</CardTitle>
+                          <CardDescription className="text-amber-700">
                             {dish.description}
                           </CardDescription>
                         </CardHeader>

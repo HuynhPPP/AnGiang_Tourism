@@ -534,6 +534,134 @@ export default function DistrictsPage() {
 
         {/* Selected district detail */}
         {selectedDistrict && (
+          <Card className="mb-8">
+            <div className="relative h-96 overflow-hidden rounded-t-lg">
+              <img
+                src={selectedDistrict.image}
+                alt={selectedDistrict.name}
+                className="object-cover w-full h-full"
+                loading="lazy"
+              />
+            </div>
+            <CardHeader>
+              <CardTitle className="text-2xl text-amber-900">{selectedDistrict.name}</CardTitle>
+              <CardDescription className="text-lg text-amber-700">
+                {selectedDistrict.description}
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Tabs defaultValue="attractions" className="w-full">
+                <TabsList className="grid w-full grid-cols-2">
+                  <TabsTrigger value="attractions">Điểm Du Lịch</TabsTrigger>
+                  <TabsTrigger value="cuisine">Ẩm Thực</TabsTrigger>
+                </TabsList>
+                <TabsContent value="attractions">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    {selectedDistrict.attractions.map((attraction, index) => (
+                      <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                        <div className="relative h-80 overflow-hidden">
+                          <img
+                            src={attraction.image}
+                            alt={attraction.name}
+                            className="object-cover w-full h-full transform hover:scale-105 transition-transform duration-300"
+                            loading="lazy"
+                          />
+                        </div>
+                        <CardHeader>
+                          <CardTitle className="text-lg text-amber-900">{attraction.name}</CardTitle>
+                          <CardDescription className="text-amber-700">
+                            {attraction.description}
+                          </CardDescription>
+                          {attraction.location && (
+                            <p className="text-sm text-amber-600 mt-2">
+                              <span className="font-medium">Địa chỉ:</span> {attraction.location}
+                            </p>
+                          )}
+                        </CardHeader>
+                      </Card>
+                    ))}
+                  </div>
+                </TabsContent>
+                <TabsContent value="cuisine">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    {selectedDistrict.cuisine.map((dish, index) => (
+                      <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                        <div className="relative h-80 overflow-hidden">
+                          <img
+                            src={dish.image}
+                            alt={dish.name}
+                            className="object-cover w-full h-full transform hover:scale-105 transition-transform duration-300"
+                            loading="lazy"
+                          />
+                        </div>
+                        <CardHeader>
+                          <CardTitle className="text-lg text-amber-900">{dish.name}</CardTitle>
+                          <CardDescription className="text-amber-700">
+                            {dish.description}
+                          </CardDescription>
+                        </CardHeader>
+                      </Card>
+                    ))}
+                  </div>
+                </TabsContent>
+              </Tabs>
+            </CardContent>
+          </Card>
+        )}
+      </main>
+    </div>
+  );
+}
+export default function DistrictsPage() {
+  const [selectedDistrict, setSelectedDistrict] = useState(districts[0]);
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
+      {/* Header với gradient đẹp */}
+      <div className="bg-gradient-to-r from-amber-600 to-orange-600 text-white py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h1 className="text-5xl font-bold text-center mb-4 tracking-tight">Các Huyện, Thị Xã và Thành Phố</h1>
+          <p className="text-xl text-center opacity-90 max-w-4xl mx-auto leading-relaxed">
+            An Giang gồm 11 đơn vị hành chính cấp huyện: 2 thành phố (Long Xuyên, Châu Đốc), 2 thị xã (Tân Châu, Tịnh Biên) và 7 huyện. Mỗi địa phương đều có nét văn hóa, ẩm thực và cảnh quan riêng biệt.
+          </p>
+        </div>
+      </div>
+
+      {/* Main content */}
+      <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        {/* Districts selection với thiết kế mới */}
+        <div className="mb-12">
+          <h2 className="text-3xl font-bold text-amber-900 mb-8 text-center">Chọn Địa Phương</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            {districts.map((district) => (
+              <Card
+                key={district.id}
+                className={`group cursor-pointer transition-all duration-500 transform hover:-translate-y-2 ${selectedDistrict.id === district.id
+                  ? 'border-amber-500 border-2 shadow-2xl bg-gradient-to-br from-amber-50 to-orange-50'
+                  : 'border-gray-200 hover:border-amber-300 hover:shadow-xl bg-white/90 backdrop-blur-sm'
+                  }`}
+                onClick={() => setSelectedDistrict(district)}
+              >
+                <div className="h-32 overflow-hidden rounded-t-lg relative">
+                  <img
+                    src={district.image}
+                    alt={district.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent group-hover:from-black/30 transition-all duration-300"></div>
+                </div>
+                <CardContent className="p-4">
+                  <h3 className="text-sm font-semibold text-center truncate text-amber-800 group-hover:text-amber-600 transition-colors duration-300">
+                    {district.name}
+                  </h3>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Selected district detail với thiết kế mới */}
+        {selectedDistrict && (
           <Card className="mb-8 shadow-2xl bg-white/95 backdrop-blur-sm border-0 overflow-hidden">
             <div className="relative h-96 overflow-hidden">
               <img

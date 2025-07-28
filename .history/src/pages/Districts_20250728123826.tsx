@@ -500,39 +500,52 @@ export default function DistrictsPage() {
   const [selectedDistrict, setSelectedDistrict] = useState(districts[0]);
 
   return (
-    <div className="min-h-screen bg-amber-50">
-      {/* Main content */}
-      <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="mb-10">
-          <h2 className="text-3xl font-bold text-amber-900 mb-4">Các Huyện, Thị Xã và Thành Phố của An Giang (trước 1/7/2025)</h2>
-          <p className="text-lg text-amber-800">
-            An Giang gồm 11 đơn vị hành chính cấp huyện: 2 thành phố (Long Xuyên, Châu Đốc), 2 thị xã (Tân Châu, Tịnh Biên) và 7 huyện (An Phú, Châu Phú, Châu Thành, Phú Tân, Thoại Sơn, Tri Tôn, Chợ Mới). Mỗi địa phương đều có nét văn hóa, ẩm thực và cảnh quan riêng biệt.
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
+      {/* Header với gradient đẹp */}
+      <div className="bg-gradient-to-r from-amber-600 to-orange-600 text-white py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h1 className="text-5xl font-bold text-center mb-4 tracking-tight">Các Huyện, Thị Xã và Thành Phố</h1>
+          <p className="text-xl text-center opacity-90 max-w-4xl mx-auto leading-relaxed">
+            An Giang gồm 11 đơn vị hành chính cấp huyện: 2 thành phố (Long Xuyên, Châu Đốc), 2 thị xã (Tân Châu, Tịnh Biên) và 7 huyện. Mỗi địa phương đều có nét văn hóa, ẩm thực và cảnh quan riêng biệt.
           </p>
         </div>
+      </div>
 
-        {/* Districts selection */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-10">
-          {districts.map((district) => (
-            <Card
-              key={district.id}
-              className={`cursor-pointer transition-all hover:shadow-lg ${selectedDistrict.id === district.id ? 'border-amber-500 border-2 shadow-lg' : 'border-gray-200'}`}
-              onClick={() => setSelectedDistrict(district)}
-            >
-              <div className="h-24 overflow-hidden rounded-t-lg">
-                <img
-                  src={district.image}
-                  alt={district.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <CardContent className="p-3">
-                <h3 className="text-sm font-medium text-center truncate">{district.name}</h3>
-              </CardContent>
-            </Card>
-          ))}
+      {/* Main content */}
+      <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        {/* Districts selection với thiết kế mới */}
+        <div className="mb-12">
+          <h2 className="text-3xl font-bold text-amber-900 mb-8 text-center">Chọn Địa Phương</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            {districts.map((district) => (
+              <Card
+                key={district.id}
+                className={`group cursor-pointer transition-all duration-500 transform hover:-translate-y-2 ${
+                  selectedDistrict.id === district.id 
+                    ? 'border-amber-500 border-2 shadow-2xl bg-gradient-to-br from-amber-50 to-orange-50' 
+                    : 'border-gray-200 hover:border-amber-300 hover:shadow-xl bg-white/90 backdrop-blur-sm'
+                }`}
+                onClick={() => setSelectedDistrict(district)}
+              >
+                <div className="h-32 overflow-hidden rounded-t-lg relative">
+                  <img
+                    src={district.image}
+                    alt={district.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent group-hover:from-black/30 transition-all duration-300"></div>
+                </div>
+                <CardContent className="p-4">
+                  <h3 className="text-sm font-semibold text-center truncate text-amber-800 group-hover:text-amber-600 transition-colors duration-300">
+                    {district.name}
+                  </h3>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
 
-        {/* Selected district detail */}
+        {/* Selected district detail với thiết kế mới */}
         {selectedDistrict && (
           <Card className="mb-8 shadow-2xl bg-white/95 backdrop-blur-sm border-0 overflow-hidden">
             <div className="relative h-96 overflow-hidden">
@@ -550,29 +563,29 @@ export default function DistrictsPage() {
                 </p>
               </div>
             </div>
-
+            
             <CardContent className="p-8">
               <Tabs defaultValue="attractions" className="w-full">
                 <TabsList className="grid w-full grid-cols-2 bg-white/80 backdrop-blur-sm border border-amber-200 rounded-xl p-1 shadow-lg">
-                  <TabsTrigger
+                  <TabsTrigger 
                     value="attractions"
                     className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-amber-500 data-[state=active]:to-orange-500 data-[state=active]:text-white rounded-lg transition-all duration-300 hover:scale-105"
                   >
                     🏛️ Điểm Du Lịch
                   </TabsTrigger>
-                  <TabsTrigger
+                  <TabsTrigger 
                     value="cuisine"
                     className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-amber-500 data-[state=active]:to-orange-500 data-[state=active]:text-white rounded-lg transition-all duration-300 hover:scale-105"
                   >
                     🍽️ Ẩm Thực
                   </TabsTrigger>
                 </TabsList>
-
+                
                 <TabsContent value="attractions" className="pt-8">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {selectedDistrict.attractions.map((attraction, index) => (
-                      <Card
-                        key={index}
+                      <Card 
+                        key={index} 
                         className="group overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-white/90 backdrop-blur-sm border-0 shadow-lg"
                       >
                         <div className="relative h-80 overflow-hidden">
@@ -603,12 +616,12 @@ export default function DistrictsPage() {
                     ))}
                   </div>
                 </TabsContent>
-
+                
                 <TabsContent value="cuisine" className="pt-8">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {selectedDistrict.cuisine.map((dish, index) => (
-                      <Card
-                        key={index}
+                      <Card 
+                        key={index} 
                         className="group overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-white/90 backdrop-blur-sm border-0 shadow-lg"
                       >
                         <div className="relative h-80 overflow-hidden">

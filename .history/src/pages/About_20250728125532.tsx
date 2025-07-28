@@ -4,6 +4,15 @@ import { Separator } from "@/components/ui/separator";
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
+      {/* Header với gradient đẹp */}
+      <div className="bg-gradient-to-r from-amber-600 to-orange-600 text-white py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 tracking-tight">Về Tỉnh An Giang</h1>
+          <p className="text-lg md:text-xl text-center opacity-90 max-w-4xl mx-auto leading-relaxed">
+            Vùng đất miền Tây với văn hóa đa dạng, lịch sử phong phú và cảnh quan thiên nhiên tuyệt đẹp
+          </p>
+        </div>
+      </div>
 
       {/* Main content */}
       <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">

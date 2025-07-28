@@ -132,6 +132,13 @@ const foodCategories = [
 export default function FoodPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">    
+      {/* Header với gradient đẹp */}
+      <div className="bg-gradient-to-r from-amber-600 to-orange-600 text-white py-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h1 className="text-4xl font-bold text-center mb-2">Ẩm Thực An Giang</h1>
+          <p className="text-xl text-center opacity-90">Khám phá hương vị đặc trưng của vùng đất miền Tây</p>
+        </div>
+      </div>
 
       {/* Nội dung chính */}
       <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">

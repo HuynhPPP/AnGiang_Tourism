@@ -73,12 +73,12 @@ const districts = [
         image: "/images/ChauDocImgs/cap-treo-nui-sam.jpg",
         location: "Khóm Vĩnh Tây 3, phường Núi Sam, Thành phố Châu Đốc, tỉnh An Giang."
       },
-      {
-        name: "Chùa Tây An Núi Sam",
-        description: "Chùa Tây An được Tổ chức Kỷ lục Việt Nam xác nhận là “ngôi chùa có kiến trúc kết hợp phong cách nghệ thuật Ấn Độ và kiến trúc cổ dân tộc đầu tiên tại Việt Nam” vào năm 1980.",
-        image: "/images/ChauDocImgs/chua-tay-an.jpg",
-        location: "Đường Vòng Núi Sam, phường Núi Sam, Châu Đốc, An Giang"
-      },
+              {
+          name: "Chùa Tây An Núi Sam",
+          description: "Chùa Tây An được Tổ chức Kỷ lục Việt Nam xác nhận là \"ngôi chùa có kiến trúc kết hợp phong cách nghệ thuật Ấn Độ và kiến trúc cổ dân tộc đầu tiên tại Việt Nam\" vào năm 1980.",
+          image: "/images/ChauDocImgs/chua-tay-an.jpg",
+          location: "Đường Vòng Núi Sam, phường Núi Sam, Châu Đốc, An Giang"
+        },
       {
         name: "Chùa hang",
         description: "Chùa Hang (Phước Điền Tự) tọa lạc trên triền núi Sam, là một trong những địa điểm du lịch Châu Đốc cho tín đồ hành hương đến chiêm bái. Xung quanh ngôi chùa được bao bọc bởi núi non hùng vĩ cùng nhiều loài hoa khoe sắc thắm quanh năm, tạo thành một bức tranh nên thơ cho chùa Hang cổ kính.",
@@ -91,12 +91,12 @@ const districts = [
         image: "/images/ChauDocImgs/chua-huynh-dao-chau-doc-1.jpg",
         location: "Quốc lộ 91 Tân Lộ Kiều Lương, Vĩnh Đông 2, Châu Đốc, An Giang"
       },
-      {
-        name: "Tượng phật Thích Ca ngồi thiền cao 81m Núi Sam",
-        description: "Tượng Phật Thích Ca cao 81m được đặt trên khu đất rộng 5.500m2, với chi phí đầu tư khoảng 255 tỷ đồng. Sau khi hoàn thành, đây là “tượng Phật ngồi thiền, khắc vào vách đá” cao nhất thế giới.",
-        image: "/images/ChauDocImgs/tuong-phat-nui-sam.jpg",
-        location: "731 Tân Lộ Kiều Lương, phường Núi Sam, Châu Đốc, An Giang"
-      },
+              {
+          name: "Tượng phật Thích Ca ngồi thiền cao 81m Núi Sam",
+          description: "Tượng Phật Thích Ca cao 81m được đặt trên khu đất rộng 5.500m2, với chi phí đầu tư khoảng 255 tỷ đồng. Sau khi hoàn thành, đây là \"tượng Phật ngồi thiền, khắc vào vách đá\" cao nhất thế giới.",
+          image: "/images/ChauDocImgs/tuong-phat-nui-sam.jpg",
+          location: "731 Tân Lộ Kiều Lương, phường Núi Sam, Châu Đốc, An Giang"
+        },
       {
         name: "Victoria Núi Sam Lodge",
         description: "Tọa lạc trên sườn núi Sam hùng vĩ, Victoria Nui Sam Lodge sở hữu vị trí đắc địa để du khách hòa mình vào thiên nhiên nguyên sơ, hít thở không khí trong lành và tận hưởng những trải nghiệm độc đáo.",
@@ -375,12 +375,12 @@ const districts = [
         image: "/images/TriTonImgs/nui-co-to.jpg",
         location: "Núi Cô Tô, Phú Thọ, Tri Tôn, An Giang"
       },
-      {
-        name: "Hồ Tà Pạ",
-        description: "Hồ nước trong vắt được bao bọc bởi những hàng cây, núi đá. Ngày nắng trong dưới nền trời xanh rọi xuống mặt hồ tạo nên khung cảnh đẹp lung linh. Mặt hồ bằng lặng, khung cảnh hoang sơ được ví như “Tuyệt tình Cốc” của miền Tây.",
-        image: "/images/TriTonImgs/ho_ta_pa.jpg",
-        location: "Ta Pa, Núi Tô, Tri Tôn, An Giang"
-      },
+              {
+          name: "Hồ Tà Pạ",
+          description: "Hồ nước trong vắt được bao bọc bởi những hàng cây, núi đá. Ngày nắng trong dưới nền trời xanh rọi xuống mặt hồ tạo nên khung cảnh đẹp lung linh. Mặt hồ bằng lặng, khung cảnh hoang sơ được ví như \"Tuyệt tình Cốc\" của miền Tây.",
+          image: "/images/TriTonImgs/ho_ta_pa.jpg",
+          location: "Ta Pa, Núi Tô, Tri Tôn, An Giang"
+        },
       {
         name: "Cánh đồng Tà Pạ",
         description: "Theo Kinh nghiệm khám phá cánh đồng Tà Pạ, đến đây vào lúc này, bạn sẽ có cơ hội chiêm ngưỡng cảnh sắc thiên nhiên vô cùng mênh mông bát ngát, tha hồ mà chụp ảnh và tận hưởng mùi hương của lúa.",
@@ -500,39 +500,52 @@ export default function DistrictsPage() {
   const [selectedDistrict, setSelectedDistrict] = useState(districts[0]);
 
   return (
-    <div className="min-h-screen bg-amber-50">
-      {/* Main content */}
-      <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="mb-10">
-          <h2 className="text-3xl font-bold text-amber-900 mb-4">Các Huyện, Thị Xã và Thành Phố của An Giang (trước 1/7/2025)</h2>
-          <p className="text-lg text-amber-800">
-            An Giang gồm 11 đơn vị hành chính cấp huyện: 2 thành phố (Long Xuyên, Châu Đốc), 2 thị xã (Tân Châu, Tịnh Biên) và 7 huyện (An Phú, Châu Phú, Châu Thành, Phú Tân, Thoại Sơn, Tri Tôn, Chợ Mới). Mỗi địa phương đều có nét văn hóa, ẩm thực và cảnh quan riêng biệt.
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
+      {/* Header với gradient đẹp */}
+      <div className="bg-gradient-to-r from-amber-600 to-orange-600 text-white py-12">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h1 className="text-5xl font-bold text-center mb-4 tracking-tight">Các Huyện, Thị Xã và Thành Phố</h1>
+          <p className="text-xl text-center opacity-90 max-w-4xl mx-auto leading-relaxed">
+            An Giang gồm 11 đơn vị hành chính cấp huyện: 2 thành phố (Long Xuyên, Châu Đốc), 2 thị xã (Tân Châu, Tịnh Biên) và 7 huyện. Mỗi địa phương đều có nét văn hóa, ẩm thực và cảnh quan riêng biệt.
           </p>
         </div>
+      </div>
 
-        {/* Districts selection */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-10">
-          {districts.map((district) => (
-            <Card
-              key={district.id}
-              className={`cursor-pointer transition-all hover:shadow-lg ${selectedDistrict.id === district.id ? 'border-amber-500 border-2 shadow-lg' : 'border-gray-200'}`}
-              onClick={() => setSelectedDistrict(district)}
-            >
-              <div className="h-24 overflow-hidden rounded-t-lg">
-                <img
-                  src={district.image}
-                  alt={district.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <CardContent className="p-3">
-                <h3 className="text-sm font-medium text-center truncate">{district.name}</h3>
-              </CardContent>
-            </Card>
-          ))}
+      {/* Main content */}
+      <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        {/* Districts selection với thiết kế mới */}
+        <div className="mb-12">
+          <h2 className="text-3xl font-bold text-amber-900 mb-8 text-center">Chọn Địa Phương</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            {districts.map((district) => (
+              <Card
+                key={district.id}
+                className={`group cursor-pointer transition-all duration-500 transform hover:-translate-y-2 ${
+                  selectedDistrict.id === district.id 
+                    ? 'border-amber-500 border-2 shadow-2xl bg-gradient-to-br from-amber-50 to-orange-50' 
+                    : 'border-gray-200 hover:border-amber-300 hover:shadow-xl bg-white/90 backdrop-blur-sm'
+                }`}
+                onClick={() => setSelectedDistrict(district)}
+              >
+                <div className="h-32 overflow-hidden rounded-t-lg relative">
+                  <img
+                    src={district.image}
+                    alt={district.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent group-hover:from-black/30 transition-all duration-300"></div>
+                </div>
+                <CardContent className="p-4">
+                  <h3 className="text-sm font-semibold text-center truncate text-amber-800 group-hover:text-amber-600 transition-colors duration-300">
+                    {district.name}
+                  </h3>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </div>
 
-        {/* Selected district detail */}
+        {/* Selected district detail với thiết kế mới */}
         {selectedDistrict && (
           <Card className="mb-8 shadow-2xl bg-white/95 backdrop-blur-sm border-0 overflow-hidden">
             <div className="relative h-96 overflow-hidden">
@@ -550,29 +563,29 @@ export default function DistrictsPage() {
                 </p>
               </div>
             </div>
-
+            
             <CardContent className="p-8">
               <Tabs defaultValue="attractions" className="w-full">
                 <TabsList className="grid w-full grid-cols-2 bg-white/80 backdrop-blur-sm border border-amber-200 rounded-xl p-1 shadow-lg">
-                  <TabsTrigger
+                  <TabsTrigger 
                     value="attractions"
                     className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-amber-500 data-[state=active]:to-orange-500 data-[state=active]:text-white rounded-lg transition-all duration-300 hover:scale-105"
                   >
                     🏛️ Điểm Du Lịch
                   </TabsTrigger>
-                  <TabsTrigger
+                  <TabsTrigger 
                     value="cuisine"
                     className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-amber-500 data-[state=active]:to-orange-500 data-[state=active]:text-white rounded-lg transition-all duration-300 hover:scale-105"
                   >
                     🍽️ Ẩm Thực
                   </TabsTrigger>
                 </TabsList>
-
+                
                 <TabsContent value="attractions" className="pt-8">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {selectedDistrict.attractions.map((attraction, index) => (
-                      <Card
-                        key={index}
+                      <Card 
+                        key={index} 
                         className="group overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-white/90 backdrop-blur-sm border-0 shadow-lg"
                       >
                         <div className="relative h-80 overflow-hidden">
@@ -603,12 +616,101 @@ export default function DistrictsPage() {
                     ))}
                   </div>
                 </TabsContent>
-
+                
                 <TabsContent value="cuisine" className="pt-8">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {selectedDistrict.cuisine.map((dish, index) => (
-                      <Card
-                        key={index}
+                      <Card 
+                        key={index} 
+                        className="group overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-white/90 backdrop-blur-sm border-0 shadow-lg"
+                      >
+                        <div className="relative h-80 overflow-hidden">
+                          <img
+                            src={dish.image}
+                            alt={dish.name}
+                            className="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-500"
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </div>
+                        <CardHeader className="pb-4">
+                          <CardTitle className="text-xl text-amber-800 group-hover:text-amber-600 transition-colors duration-300">
+                            {dish.name}
+                          </CardTitle>
+                          <CardDescription className="text-amber-700 leading-relaxed">
+                            {dish.description}
+                          </CardDescription>
+                        </CardHeader>
+                      </Card>
+                    ))}
+                  </div>
+                </TabsContent>
+              </Tabs>
+            </CardContent>
+          </Card>
+        )}
+      </main>
+    </div>
+  );
+}
+            <CardContent>
+              <Tabs defaultValue="attractions" className="w-full">
+                <TabsList className="grid w-full grid-cols-2 bg-white/80 backdrop-blur-sm border border-amber-200 rounded-xl p-1 shadow-lg">
+                  <TabsTrigger 
+                    value="attractions"
+                    className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-amber-500 data-[state=active]:to-orange-500 data-[state=active]:text-white rounded-lg transition-all duration-300 hover:scale-105"
+                  >
+                    🏛️ Điểm Du Lịch
+                  </TabsTrigger>
+                  <TabsTrigger 
+                    value="cuisine"
+                    className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-amber-500 data-[state=active]:to-orange-500 data-[state=active]:text-white rounded-lg transition-all duration-300 hover:scale-105"
+                  >
+                    🍽️ Ẩm Thực
+                  </TabsTrigger>
+                </TabsList>
+                
+                <TabsContent value="attractions" className="pt-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {selectedDistrict.attractions.map((attraction, index) => (
+                      <Card 
+                        key={index} 
+                        className="group overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-white/90 backdrop-blur-sm border-0 shadow-lg"
+                      >
+                        <div className="relative h-80 overflow-hidden">
+                          <img
+                            src={attraction.image}
+                            alt={attraction.name}
+                            className="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-500"
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </div>
+                        <CardHeader className="pb-4">
+                          <CardTitle className="text-xl text-amber-800 group-hover:text-amber-600 transition-colors duration-300">
+                            {attraction.name}
+                          </CardTitle>
+                          <CardDescription className="text-amber-700 leading-relaxed">
+                            {attraction.description}
+                          </CardDescription>
+                          {attraction.location && (
+                            <div className="mt-3 p-3 bg-gradient-to-r from-amber-50 to-orange-50 rounded-lg">
+                              <p className="text-sm text-amber-800 font-medium">
+                                📍 <span className="font-semibold">Địa chỉ:</span> {attraction.location}
+                              </p>
+                            </div>
+                          )}
+                        </CardHeader>
+                      </Card>
+                    ))}
+                  </div>
+                </TabsContent>
+                
+                <TabsContent value="cuisine" className="pt-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {selectedDistrict.cuisine.map((dish, index) => (
+                      <Card 
+                        key={index} 
                         className="group overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-white/90 backdrop-blur-sm border-0 shadow-lg"
                       >
                         <div className="relative h-80 overflow-hidden">

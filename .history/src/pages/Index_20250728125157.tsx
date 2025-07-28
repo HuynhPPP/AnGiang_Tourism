@@ -120,7 +120,6 @@ export default function HomePage() {
   
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
-      
 
       {/* Main content */}
       <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
