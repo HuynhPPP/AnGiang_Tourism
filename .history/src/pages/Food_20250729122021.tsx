@@ -31,22 +31,22 @@ const foodCategories = [
         image: "/images/LongXuyenImgs/Foods/bun_ca_long_xuyen_1.jpg"
       },
       {
-        name: "Bún mắm Châu Đốc",
-        description: "Bún Mắm Châu Đốc là một biểu tượng của ẩm thực miền Tây, nổi tiếng với hương vị đậm đà đặc trưng của mắm. Nước lèo bún mắm được nấu từ nhiều loại mắm cá linh, mắm sặc, cùng với xương heo, tôm, mực, cá, tạo nên một nồi nước dùng sánh đặc, ngọt thanh và thơm lừng mà không hề tanh.",
-        origin: "Châu Đốc, An Giang",
-        image: "/images/Foods/bun-mam.jpg"
+        name: "Bún mắm",
+        description: "Món bún mang đậm văn hóa Khmer với nước dùng đặc trưng từ cá và thịt heo, kèm các loại rau thơm. Phổ biến tại các cộng đồng người Khmer.",
+        origin: "Cộng đồng người Khmer ở An Giang",
+        image: "/images/Foods/bun-nuoc-leo.jpg"
       },
       {
-        name: "Bún Kèn",
-        description: "Bún Kèn An Giang cũng là món ăn lâu đời và có tiếng tại vùng đất Châu Đốc. Món ngon này được chế biến từ những nguyên liệu có sẵn của vùng sông nước miền Tây.",
-        origin: "Châu Đốc, An Giang",
-        image: "/images/Foods/bun-ken.jpg"
+        name: "Hủ Tiếu Sa Đéc",
+        description: "Món hủ tiếu nổi tiếng từ Sa Đéc và phổ biến khắp đồng bằng sông Cửu Long. Được nấu với thịt heo, tôm và rau thơm.",
+        origin: "Vùng đồng bằng sông Cửu Long",
+        image: "/images/Foods/hu-tieu.jpg"
       },
       {
-        name: "Bánh canh Khmer",
-        description: "Bánh canh Khmer (hay còn gọi là bánh canh Vĩnh Trung) rất được các bạn gần xa ưa chuộng nhé! Bắt nguồn từ xã Vĩnh Trung, huyện Tịnh Biên, món ăn này do một người phụ nữ Khmer tên là Neang Oanh Na chế biến ra cách đây hàng chục năm.",
-        origin: "An Giang",
-        image: "/images/Foods/banh-canh-khmer.jpeg"
+        name: "Bánh Canh",
+        description: "Bánh canh với sợi bánh từ bột gạo hoặc bột mì, thường ăn kèm cá hoặc thịt. Phiên bản An Giang thường dùng cá đồng.",
+        origin: "Nam Bộ, với biến thể đặc trưng của An Giang",
+        image: "/images/Foods/banh-canh.jpg"
       }
     ]
   },

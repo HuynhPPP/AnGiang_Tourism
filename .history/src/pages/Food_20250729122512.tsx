@@ -43,10 +43,10 @@ const foodCategories = [
         image: "/images/Foods/bun-ken.jpg"
       },
       {
-        name: "Bánh canh Khmer",
+        name: "bánh canh Khmer",
         description: "Bánh canh Khmer (hay còn gọi là bánh canh Vĩnh Trung) rất được các bạn gần xa ưa chuộng nhé! Bắt nguồn từ xã Vĩnh Trung, huyện Tịnh Biên, món ăn này do một người phụ nữ Khmer tên là Neang Oanh Na chế biến ra cách đây hàng chục năm.",
-        origin: "An Giang",
-        image: "/images/Foods/banh-canh-khmer.jpeg"
+        origin: "Nam Bộ, với biến thể đặc trưng của An Giang",
+        image: "/images/Foods/banh-canh.jpg"
       }
     ]
   },

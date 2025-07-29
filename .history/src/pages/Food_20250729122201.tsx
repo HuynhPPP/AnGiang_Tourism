@@ -38,15 +38,15 @@ const foodCategories = [
       },
       {
         name: "Bún Kèn",
-        description: "Bún Kèn An Giang cũng là món ăn lâu đời và có tiếng tại vùng đất Châu Đốc. Món ngon này được chế biến từ những nguyên liệu có sẵn của vùng sông nước miền Tây.",
-        origin: "Châu Đốc, An Giang",
-        image: "/images/Foods/bun-ken.jpg"
+        description: "Món hủ tiếu nổi tiếng từ Sa Đéc và phổ biến khắp đồng bằng sông Cửu Long. Được nấu với thịt heo, tôm và rau thơm.",
+        origin: "Vùng đồng bằng sông Cửu Long",
+        image: "/images/Foods/hu-tieu.jpg"
       },
       {
-        name: "Bánh canh Khmer",
-        description: "Bánh canh Khmer (hay còn gọi là bánh canh Vĩnh Trung) rất được các bạn gần xa ưa chuộng nhé! Bắt nguồn từ xã Vĩnh Trung, huyện Tịnh Biên, món ăn này do một người phụ nữ Khmer tên là Neang Oanh Na chế biến ra cách đây hàng chục năm.",
-        origin: "An Giang",
-        image: "/images/Foods/banh-canh-khmer.jpeg"
+        name: "Bánh Canh",
+        description: "Bánh canh với sợi bánh từ bột gạo hoặc bột mì, thường ăn kèm cá hoặc thịt. Phiên bản An Giang thường dùng cá đồng.",
+        origin: "Nam Bộ, với biến thể đặc trưng của An Giang",
+        image: "/images/Foods/banh-canh.jpg"
       }
     ]
   },

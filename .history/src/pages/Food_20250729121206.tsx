@@ -16,8 +16,14 @@ const foodCategories = [
         name: "Cơm Lá Sen",
         description: "Cơm được nấu trong lá sen, tạo hương vị thơm ngon đặc biệt. Thường được phục vụ kèm với các món đặc sản địa phương.",
         origin: "Vùng đồng bằng sông Cửu Long, bao gồm An Giang",
-        image: "/images/Foods/com-hap-la-sen.jpg"
+        image: "/images/Foods/rice-leaf.jpg"
       },
+      {
+        name: "Cơm Hến",
+        description: "Cơm với hến, rau thơm và các gia vị. Ở An Giang, món này thường sử dụng hến từ sông địa phương.",
+        origin: "Biến tấu từ món ăn miền Trung với nguyên liệu địa phương",
+        image: "/images/Foods/com-hen.jpg"
+      }
     ]
   },
   {
@@ -31,22 +37,22 @@ const foodCategories = [
         image: "/images/LongXuyenImgs/Foods/bun_ca_long_xuyen_1.jpg"
       },
       {
-        name: "Bún mắm Châu Đốc",
-        description: "Bún Mắm Châu Đốc là một biểu tượng của ẩm thực miền Tây, nổi tiếng với hương vị đậm đà đặc trưng của mắm. Nước lèo bún mắm được nấu từ nhiều loại mắm cá linh, mắm sặc, cùng với xương heo, tôm, mực, cá, tạo nên một nồi nước dùng sánh đặc, ngọt thanh và thơm lừng mà không hề tanh.",
-        origin: "Châu Đốc, An Giang",
-        image: "/images/Foods/bun-mam.jpg"
+        name: "Bún Nước Lèo",
+        description: "Món bún mang đậm văn hóa Khmer với nước dùng đặc trưng từ cá và thịt heo, kèm các loại rau thơm. Phổ biến tại các cộng đồng người Khmer.",
+        origin: "Cộng đồng người Khmer ở An Giang",
+        image: "/images/Foods/bun-nuoc-leo.jpg"
       },
       {
-        name: "Bún Kèn",
-        description: "Bún Kèn An Giang cũng là món ăn lâu đời và có tiếng tại vùng đất Châu Đốc. Món ngon này được chế biến từ những nguyên liệu có sẵn của vùng sông nước miền Tây.",
-        origin: "Châu Đốc, An Giang",
-        image: "/images/Foods/bun-ken.jpg"
+        name: "Hủ Tiếu Sa Đéc",
+        description: "Món hủ tiếu nổi tiếng từ Sa Đéc và phổ biến khắp đồng bằng sông Cửu Long. Được nấu với thịt heo, tôm và rau thơm.",
+        origin: "Vùng đồng bằng sông Cửu Long",
+        image: "/images/Foods/hu-tieu.jpg"
       },
       {
-        name: "Bánh canh Khmer",
-        description: "Bánh canh Khmer (hay còn gọi là bánh canh Vĩnh Trung) rất được các bạn gần xa ưa chuộng nhé! Bắt nguồn từ xã Vĩnh Trung, huyện Tịnh Biên, món ăn này do một người phụ nữ Khmer tên là Neang Oanh Na chế biến ra cách đây hàng chục năm.",
-        origin: "An Giang",
-        image: "/images/Foods/banh-canh-khmer.jpeg"
+        name: "Bánh Canh",
+        description: "Bánh canh với sợi bánh từ bột gạo hoặc bột mì, thường ăn kèm cá hoặc thịt. Phiên bản An Giang thường dùng cá đồng.",
+        origin: "Nam Bộ, với biến thể đặc trưng của An Giang",
+        image: "/images/Foods/banh-canh.jpg"
       }
     ]
   },
@@ -87,6 +93,36 @@ const foodCategories = [
     ]
   },
   {
+    id: "street-foods",
+    name: "Ẩm Thực Đường Phố",
+    items: [
+      {
+        name: "Bánh Xèo",
+        description: "Bánh xèo giòn với nhân giá, tôm và thịt. Phiên bản An Giang thường nhỏ hơn và giòn hơn so với các vùng khác.",
+        origin: "Nam Bộ, với đặc trưng riêng",
+        image: "/images/Foods/banh-xeo.jpg"
+      },
+      {
+        name: "Bánh Khọt",
+        description: "Bánh nhỏ tròn với tôm trên mặt, ăn kèm rau sống và nước chấm.",
+        origin: "Nam Bộ",
+        image: "/images/Foods/banh-khot.jpg"
+      },
+      {
+        name: "Bánh Bò Thốt Nốt",
+        description: "Bánh bò mềm, ngọt làm từ đường thốt nốt - đặc sản của An Giang.",
+        origin: "Tỉnh An Giang",
+        image: "/images/TriTonImgs/Foods/banh-bo-thot-not.jpeg"
+      },
+      {
+        name: "Chè Thốt Nốt",
+        description: "Chè ngọt làm từ trái thốt nốt - đặc sản của vùng.",
+        origin: "Tỉnh An Giang",
+        image: "/images/TriTonImgs/Foods/thot-not-sua.jpeg"
+      }
+    ]
+  },
+  {
     id: "local-specialties",
     name: "Đặc Sản Địa Phương",
     items: [
@@ -122,21 +158,9 @@ const foodCategories = [
       },
       {
         name: "Bánh bò thốt nốt",
-        description: "Đây là một món được nhắc đến khá nhiều khi bạn đến vùng An Giang, bánh bò được làm bằng đường thốt nốt - loài cây đặc trưng của xứ An Giang.",
-        origin: "An Giang",
-        image: "/images/Foods/banh-bo-thot-not.jpg"
-      },
-      {
-        name: "Gà đốt lá chúc Ô Thum",
-        description: "Bất kì ai đặt chân đến vùng đất An Giang cũng đều phải thử món gà đốt lá chúc Ô Thum huyền thoại. Món ăn có nguồn gốc từ Campuchia. Lá chúc như một loại gia vị đặc biệt tạo nên hương vị đặc trưng không lẫn vào đầu được cho món gà nướng.",
-        origin: "Tri Tôn, An Giang",
-        image: "/images/Foods/ga-dot.jpg"
-      },
-      {
-        name: "Cháo bò Tri Tôn",
-        description: "Cháo bò là món ăn quen thuộc của người dân địa phương huyện Tri Tôn. Gạo để nấu cháo bò phải dùng loại gạo lúa mùa “sóc Khmer” có hương thơm, độ dẻo đặc trưng.",
-        origin: "Tri Tôn, An Giang",
-        image: "/images/Foods/chao-bo.jpg"
+        description: "Một đặc sản vùng Châu Đốc khác cũng được khá nhiều thực khách ưa chuộng là món bò bảy món núi Sam.",
+        origin: "Châu Đốc, An Giang",
+        image: "/images/Foods/bo-7-mon.jpg"
       },
     ]
   }
@@ -152,7 +176,7 @@ export default function FoodPage() {
 
           {/* Tab danh mục món ăn */}
           <Tabs defaultValue="rice-dishes" className="w-full">
-            <TabsList className="grid grid-cols-2 md:grid-cols-4 w-full bg-white/80 backdrop-blur-sm border border-amber-200 rounded-xl p-1 shadow-lg">
+            <TabsList className="grid grid-cols-2 md:grid-cols-5 w-full bg-white/80 backdrop-blur-sm border border-amber-200 rounded-xl p-1 shadow-lg">
               {foodCategories.map((category) => (
                 <TabsTrigger
                   key={category.id}
