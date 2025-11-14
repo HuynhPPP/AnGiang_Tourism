@@ -7,6 +7,7 @@ import Index from './pages/Index';
 import About from './pages/About';
 import Food from './pages/Food';
 import Districts from './pages/Districts';
+import Adventure from './pages/Adventure';
 import NotFound from './pages/NotFound';
 import Admin from './pages/Admin';
 
@@ -23,6 +24,7 @@ const App = () => (
             <Route path='/about' element={<About />} />
             <Route path='/food' element={<Food />} />
             <Route path='/districts' element={<Districts />} />
+            <Route path='/adventure' element={<Adventure />} />
             <Route path='/admin' element={<Admin />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
