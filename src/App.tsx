@@ -8,6 +8,7 @@ import About from './pages/About';
 import Food from './pages/Food';
 import Districts from './pages/Districts';
 import NotFound from './pages/NotFound';
+import Admin from './pages/Admin';
 
 const queryClient = new QueryClient();
 
@@ -18,11 +19,12 @@ const App = () => (
       <BrowserRouter>
         <MainLayout>
           <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/food" element={<Food />} />
-            <Route path="/districts" element={<Districts />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path='/' element={<Index />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/food' element={<Food />} />
+            <Route path='/districts' element={<Districts />} />
+            <Route path='/admin' element={<Admin />} />
+            <Route path='*' element={<NotFound />} />
           </Routes>
         </MainLayout>
       </BrowserRouter>

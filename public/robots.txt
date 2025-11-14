@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://khuonghuynhit.id.vn/sitemap.xml

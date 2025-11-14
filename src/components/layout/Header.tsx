@@ -40,6 +40,7 @@ export function Header() {
               { path: '/about', label: 'Giới Thiệu' },
               { path: '/food', label: 'Ẩm Thực' },
               { path: '/districts', label: 'Huyện/Thị cũ' },
+              { path: '/admin', label: 'Quản Trị' },
             ].map(({ path, label }) => {
               const active = isActive(path);
               return (

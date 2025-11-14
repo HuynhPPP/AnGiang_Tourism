@@ -1,8 +1,14 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import { useDistrictsData } from "@/hooks/useData";
 
-const districts = [
+const useDistricts = () => {
+  const { items } = useDistrictsData();
+  return items;
+};
+
+const seed = [
   // Long Xuyên
   {
     id: "long-xuyen",
@@ -497,7 +503,10 @@ const districts = [
 
 
 export default function DistrictsPage() {
-  const [selectedDistrict, setSelectedDistrict] = useState(districts[0]);
+  const districts = useDistricts();
+  const first = useMemo(() => districts[0], [districts]);
+  const [selectedDistrict, setSelectedDistrict] = useState(first);
+  if (!first) return null;
 
   return (
     <div className="min-h-screen bg-amber-50">
