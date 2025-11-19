@@ -1,74 +1,94 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
+const navItems = [
+  { path: '/', label: 'Điểm Đến' },
+  { path: '/about', label: 'Giới Thiệu' },
+  { path: '/food', label: 'Ẩm Thực' },
+  { path: '/districts', label: 'Huyện/Thị' },
+];
+
+const headerHighlights = [
+  { label: 'Điểm check-in', value: '25+' },
+  { label: 'Món ngon bản địa', value: '40+' },
+  { label: 'Lễ hội quanh năm', value: '15+' },
+  { label: 'Giờ nắng đẹp/năm', value: '1.500h' },
+];
+
 export function Header() {
   const location = useLocation();
 
-  const isActive = (path: string) => {
-    return location.pathname === path;
-  };
+  const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="relative">
-      {/* Hero background with Thot Not palms */}
-      <div className="absolute inset-0 overflow-hidden z-0">
-        <img
-          src="/images/ThotNotPalms.jpg"
-          alt="Thốt nốt An Giang"
-          className="w-full h-full object-cover opacity-60"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-amber-950/70 to-amber-900/70"></div>
-      </div>
-
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between">
-          <div className="flex-shrink-0 mb-4 md:mb-0 flex items-center">
-            <img
-              src="/images/Logo_tỉnh_An_Giang.png"
-              alt="Logo Thốt Nốt"
-              height={140}
-              width={140}
-              className="h-14 w-14 mr-3 object-cover"
-            />
-            <Link to="/" className="flex items-center">
-              <span className="text-2xl font-bold text-amber-50">An Giang Tourism</span>
+    <header className='relative isolate overflow-hidden bg-gradient-to-br from-cyan-900/90 via-emerald-800/80 to-amber-700/90 text-white shadow-lg'>
+      <img
+        src='/images/TriTonImgs/thotnottraitim01.jpg'
+        alt='Cánh đồng thốt nốt An Giang'
+        className='absolute inset-0 h-full w-full object-cover opacity-40'
+      />
+      <div className='absolute inset-0 bg-gradient-to-b from-slate-900/50 via-transparent to-slate-900/70'></div>
+      <div className='relative z-10'>
+        <div className='mx-auto flex max-w-6xl flex-col gap-6 px-4 py-6 sm:px-6 lg:px-8'>
+          <div className='flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between'>
+            <Link to='/' className='flex items-center gap-3 text-white/90'>
+              <img
+                src='/images/Logo_tỉnh_An_Giang.png'
+                alt='Logo An Giang'
+                className='h-12 w-12 rounded-full border border-white/40 bg-white/10 object-cover shadow-lg'
+              />
+              <div>
+                <p className='text-xs uppercase tracking-[0.3em] text-amber-100'>
+                  Du lịch An Giang
+                </p>
+                <p className='text-xl font-semibold'>An Giang Tourism</p>
+              </div>
             </Link>
-          </div>
-          <nav className="flex items-center space-x-1 bg-amber-900/50 px-2 py-1 rounded-full backdrop-blur-sm">
-            {[
-              { path: '/', label: 'Điểm Đến' },
-              { path: '/about', label: 'Giới Thiệu' },
-              { path: '/food', label: 'Ẩm Thực' },
-              { path: '/districts', label: 'Huyện/Thị cũ' },
-              { path: '/admin', label: 'Quản Trị' },
-            ].map(({ path, label }) => {
-              const active = isActive(path);
-              return (
-                <Link to={path} key={path}>
-                  <Button
-                    variant={active ? 'secondary' : 'ghost'}
-                    className={`transition-colors duration-200 ${active
-                        ? '!bg-amber-700 !text-white font-semibold'
-                        : 'text-amber-50 hover:bg-amber-800/40 hover:!text-white'
+            <nav className='flex flex-wrap justify-center gap-2 rounded-full bg-white/10 p-1 backdrop-blur'>
+              {navItems.map(({ path, label }) => {
+                const active = isActive(path);
+                return (
+                  <Link to={path} key={path} aria-current={active ? 'page' : undefined}>
+                    <Button
+                      variant='ghost'
+                      className={`rounded-full px-5 py-2 text-sm font-medium transition ${
+                        active
+                          ? 'bg-white text-amber-800 shadow-lg hover:bg-white'
+                          : 'text-white/80 hover:bg-white/20 hover:text-white'
                       }`}
-                  >
-                    {label}
-                  </Button>
-                </Link>
-              );
-            })}
-          </nav>
-        </div>
-      </div>
+                    >
+                      {label}
+                    </Button>
+                  </Link>
+                );
+              })}
+            </nav>
+          </div>
 
-      {/* Hero content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 text-center">
-        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl text-amber-50 drop-shadow-lg">
-          Khám phá An Giang
-        </h1>
-        <p className="mt-6 max-w-3xl mx-auto text-xl text-amber-100">
-          Vẻ đẹp thiên nhiên, văn hóa đặc sắc và ẩm thực đa dạng của vùng đất Thất Sơn
-        </p>
+          <div className='flex flex-col gap-6 text-center lg:flex-row lg:items-center lg:justify-between lg:text-left'>
+            <div className='space-y-3'>
+              <p className='text-xs uppercase tracking-[0.5em] text-amber-100'>
+                Miền Tây sông nước
+              </p>
+              <h1 className='font-display text-3xl leading-tight sm:text-4xl'>
+                Khám phá An Giang – cảm nhận sắc xanh phù sa.
+              </h1>
+            </div>
+            <div className='grid grid-cols-2 gap-3 text-left text-sm text-white/90 sm:grid-cols-4 lg:grid-cols-2'>
+              {headerHighlights.map((highlight) => (
+                <div
+                  key={highlight.label}
+                  className='rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur'
+                >
+                  <p className='text-lg font-semibold'>{highlight.value}</p>
+                  <p className='text-xs uppercase tracking-widest text-white/70'>
+                    {highlight.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </header>
   );
