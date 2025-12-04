@@ -8,9 +8,17 @@ export type Destination = {
   name: string;
   description: string;
   description_news: string;
+  story: string;
   images: string[];
   images_news: string[];
   foods: DestinationFood[];
+};
+
+export type LocalTip = {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
 };
 
 export type FoodItem = {

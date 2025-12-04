@@ -10,9 +10,9 @@ const navItems = [
 
 const headerHighlights = [
   { label: 'Điểm check-in', value: '25+' },
-  { label: 'Món ngon bản địa', value: '40+' },
-  { label: 'Lễ hội quanh năm', value: '15+' },
-  { label: 'Giờ nắng đẹp/năm', value: '1.500h' },
+  { label: 'Món ngon bản địa', value: '20+' },
+  { label: 'Lễ hội lớn', value: '7+' },
+  { label: 'Dân số tỉnh', value: 'Hơn 4 triệu' },
 ];
 
 export function Header() {
@@ -48,7 +48,11 @@ export function Header() {
               {navItems.map(({ path, label }) => {
                 const active = isActive(path);
                 return (
-                  <Link to={path} key={path} aria-current={active ? 'page' : undefined}>
+                  <Link
+                    to={path}
+                    key={path}
+                    aria-current={active ? 'page' : undefined}
+                  >
                     <Button
                       variant='ghost'
                       className={`rounded-full px-5 py-2 text-sm font-medium transition ${
@@ -70,9 +74,13 @@ export function Header() {
               <p className='text-xs uppercase tracking-[0.5em] text-amber-100'>
                 Miền Tây sông nước
               </p>
-              <h1 className='font-display text-3xl leading-tight sm:text-4xl'>
+              <h1 className='font-display text-3xl leading-tight sm:text-3xl'>
                 Khám phá An Giang – cảm nhận sắc xanh phù sa.
               </h1>
+              <h2 className='font-display text-xl leading-tight sm:text-xl text-white/90'>
+                Một số thông tin đã cũ và chưa được cập nhật sau khi sáp nhập
+                tỉnh thành tỉnh
+              </h2>
             </div>
             <div className='grid grid-cols-2 gap-3 text-left text-sm text-white/90 sm:grid-cols-4 lg:grid-cols-2'>
               {headerHighlights.map((highlight) => (
