@@ -79,7 +79,7 @@ export function Header() {
               </h1>
               <h2 className='font-display text-xl leading-tight sm:text-xl text-white/90'>
                 Một số thông tin đã cũ và chưa được cập nhật sau khi sáp nhập
-                tỉnh thành tỉnh
+                tỉnh thành.
               </h2>
             </div>
             <div className='grid grid-cols-2 gap-3 text-left text-sm text-white/90 sm:grid-cols-4 lg:grid-cols-2'>

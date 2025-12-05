@@ -38,6 +38,7 @@ export const defaultDestinations: Destination[] = [
           'Đặc sản miền Tây với mắm cá ngon, dùng kèm rau rừng và các loại cá.',
       },
     ],
+    address: 'Châu Đốc, An Giang',
   },
   {
     id: 2,
@@ -68,6 +69,7 @@ export const defaultDestinations: Destination[] = [
           'Món súp với sợi bánh dày, thường được phục vụ với cá hoặc thịt heo.',
       },
     ],
+    address: 'Tinh Biên, An Giang',
   },
   {
     id: 3,
@@ -95,6 +97,7 @@ export const defaultDestinations: Destination[] = [
           'Món ăn kết hợp với ảnh hưởng của người Khmer, gồm nước dùng đậm đà và nhiều loại topping.',
       },
     ],
+    address: 'Tân Châu, An Giang',
   },
   {
     id: 4,
@@ -126,6 +129,7 @@ export const defaultDestinations: Destination[] = [
           'Bữa tiệc với thịt bò được chế biến theo bảy cách khác nhau, nổi tiếng trong khu vực.',
       },
     ],
+    address: 'Tịnh Biên, An Giang',
   },
   {
     id: 5,
@@ -134,7 +138,7 @@ export const defaultDestinations: Destination[] = [
       'Nằm ở huyện Tri Tôn, khu tưởng niệm này tưởng nhớ các nạn nhân của cuộc thảm sát Khmer Đỏ năm 1978. Mộ chứa hài cốt của hơn 3.000 nạn nhân và là lời nhắc nhở nghiêm túc về quá khứ.',
     description_news: null,
     story:
-      'Năm 1979, chính quyền và nhân dân tỉnh An Giang đã xây dựng khu nhà mồ Ba Chúc, trên diện tích 3.000m2 (còn gọi là khu chứng tích tội ác Pôn Pốt) nhằm tưởng nhớ những thường dân vô tội bị bọn diệt chủng Pôn Pốt sát hại, để những người yêu chuộng hòa bình trên toàn thế giới tận mắt chứng kiến. Bà Hà Thị Nga được người dân quen gọi "Má Tư nhà mồ", bởi không như những người từng chứng kiến tội ác man rợ của bọn Pôn Pốt thường phải rời bỏ quê hương vì không thể chịu nổi nỗi đau mất mát và cả những ký ức kinh hoàng đó. Bà Nga vẫn bám trụ tại quê hương và âm thầm trông coi nhà mồ vì một lẽ: "Tôi ở lại vì nơi đây còn có chồng con và người thân của tôi. Họ cần tôi chăm sóc, cầu nguyện".',
+      'Năm 1979, chính quyền và nhân dân tỉnh An Giang đã xây dựng khu nhà mồ Ba Chúc, trên diện tích 3.000m2 (còn gọi là khu chứng tích tội ác Pôn Pốt) nhằm tưởng nhớ những thường dân vô tội bị bọn diệt chủng Pôn Pốt sát hại, để những người yêu chuộng hòa bình trên toàn thế giới tận mắt chứng kiến. Bà Hà Thị Nga được người dân quen gọi "Má Tư nhà mồ", bởi không như những người từng chứng kiến tội ác man rợ của bọn Pôn Pốt thường phải rời bỏ quê hương vì không thể chịu nổi nỗi đau mất mát và cả những ký ức kinh hoàng đó. Bà Nga vẫn bám trụ tại quê hương và âm thầm trông coi nhà mồ vì một lẽ: "Tôi ở lại vì nơi đây còn có chồng con và người thân của tôi. Họ cần tôi chăm sóc, cầu nguyện"',
     images: [
       '/images/TriTonImgs/nha-mo-ba-chuc-4.jpg',
       '/images/TriTonImgs/nha-mo-ba-chuc-1.jpg',
@@ -154,6 +158,7 @@ export const defaultDestinations: Destination[] = [
         description: 'Các loại chè làm từ đậu, trái cây và nước cốt dừa.',
       },
     ],
+    address: 'Tri Tôn, An Giang',
   },
 ];
 

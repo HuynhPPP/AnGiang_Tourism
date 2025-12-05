@@ -12,6 +12,7 @@ export type Destination = {
   images: string[];
   images_news: string[];
   foods: DestinationFood[];
+  address: string;
 };
 
 export type LocalTip = {
