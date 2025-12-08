@@ -12,7 +12,7 @@ const headerHighlights = [
   { label: 'Điểm check-in', value: '25+' },
   { label: 'Món ngon bản địa', value: '20+' },
   { label: 'Lễ hội lớn', value: '7+' },
-  { label: 'Dân số tỉnh', value: 'Hơn 4 triệu' },
+  { label: 'Dân số tỉnh', value: 'Hơn 2 triệu' },
 ];
 
 export function Header() {

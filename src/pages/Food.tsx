@@ -1,29 +1,105 @@
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useFoodCategoriesData } from "@/hooks/useData";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from '@/components/ui/card';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { useFoodCategoriesData } from '@/hooks/useData';
+import { useState } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const useFoodCategories = () => {
   const { items } = useFoodCategoriesData();
   return items;
 };
 
+// Image Gallery Component
+interface ImageGalleryProps {
+  images: string[];
+  name: string;
+}
+
+function ImageGallery({ images, name }: ImageGalleryProps) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  if (!images || images.length === 0) return null;
+
+  const nextImage = () => {
+    setCurrentIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  return (
+    <div className='relative h-80 overflow-hidden group'>
+      <img
+        src={images[currentIndex]}
+        alt={`${name} - ${currentIndex + 1}`}
+        className='object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-500'
+        loading='lazy'
+      />
+
+      {images.length > 1 && (
+        <>
+          {/* Navigation Arrows */}
+          <button
+            onClick={prevImage}
+            className='absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-[#b25a13] rounded-full p-2 shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110'
+          >
+            <ChevronLeft className='h-5 w-5' />
+          </button>
+          <button
+            onClick={nextImage}
+            className='absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-[#b25a13] rounded-full p-2 shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110'
+          >
+            <ChevronRight className='h-5 w-5' />
+          </button>
+
+          {/* Image Counter */}
+          <div className='absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-semibold'>
+            {currentIndex + 1} / {images.length}
+          </div>
+
+          {/* Thumbnail Dots */}
+          <div className='absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5'>
+            {images.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  currentIndex === index
+                    ? 'bg-white w-6'
+                    : 'bg-white/50 hover:bg-white/75'
+                }`}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
 export default function FoodPage() {
   const foodCategories = useFoodCategories();
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
-
+    <div className='font-sans-soft min-h-screen bg-gradient-to-b from-[#fffdf5] via-[#fff4df] to-[#ffe6c9] text-[#6b4525]'>
       {/* Nội dung chính */}
-      <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="space-y-12">
-
+      <main className='mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8'>
+        <div className='space-y-12'>
           {/* Tab danh mục món ăn */}
-          <Tabs defaultValue="rice-dishes" className="w-full">
-            <TabsList className="grid grid-cols-2 md:grid-cols-4 w-full bg-white/80 backdrop-blur-sm border border-amber-200 rounded-xl p-1 shadow-lg">
+          <Tabs defaultValue='rice-dishes' className='w-full'>
+            <TabsList className='grid grid-cols-2 md:grid-cols-4 w-full bg-white/80 backdrop-blur-sm border border-[#ffd8a7] rounded-xl p-1 shadow-lg'>
               {foodCategories.map((category) => (
                 <TabsTrigger
                   key={category.id}
                   value={category.id}
-                  className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-amber-500 data-[state=active]:to-orange-500 data-[state=active]:text-white rounded-lg transition-all duration-300 hover:scale-105"
+                  className='data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#ffb347] data-[state=active]:to-[#ff7b54] data-[state=active]:text-white rounded-lg transition-all duration-300 hover:scale-105 font-sans-soft'
                 >
                   {category.name}
                 </TabsTrigger>
@@ -31,51 +107,33 @@ export default function FoodPage() {
             </TabsList>
 
             {foodCategories.map((category) => (
-              <TabsContent key={category.id} value={category.id} className="pt-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <TabsContent
+                key={category.id}
+                value={category.id}
+                className='pt-8'
+              >
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
                   {category.items.map((food, index) => (
                     <Card
                       key={index}
-                      className="group overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-white/90 backdrop-blur-sm border-0 shadow-lg hover:shadow-amber-200/50"
+                      className='group overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-white border border-[#f7d9aa] shadow-lg hover:shadow-[#ffb347]/30'
                     >
-                      <div className="relative h-80 overflow-hidden">
-                        {/* Ảnh món ăn */}
-                        <img
-                          src={food.image}
-                          alt={food.name}
-                          className="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-500"
-                          onError={(e) => {
-                            // Fallback khi ảnh không tải được
-                            const target = e.currentTarget as HTMLImageElement;
-                            target.style.display = 'none';
-                            const nextElement = target.nextElementSibling as HTMLElement;
-                            if (nextElement) {
-                              nextElement.style.display = 'flex';
-                            }
-                          }}
-                        />
-                        {/* Fallback khi không có ảnh hoặc ảnh lỗi */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-amber-200/20 to-orange-200/20 group-hover:scale-110 transition-transform duration-500 hidden">
-                          <div className="relative z-10 text-center w-full h-full flex items-center justify-center">
-                            <div className="w-16 h-16 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
-                              <span className="text-white text-2xl">🍽️</span>
-                            </div>
-                            <span className="text-amber-700 font-medium">
-                              {food.name}
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <CardHeader className="pb-4">
-                        <CardTitle className="text-xl text-amber-800 group-hover:text-amber-600 transition-colors duration-300">
+                      <ImageGallery
+                        images={food.image ? [food.image] : []}
+                        name={food.name}
+                      />
+                      <CardHeader className='pb-4'>
+                        <CardTitle className='text-xl font-display text-[#b25a13] group-hover:text-[#ff7b54] transition-colors duration-300'>
                           {food.name}
                         </CardTitle>
-                        <CardDescription className="text-sm text-amber-600 font-medium">
+                        <CardDescription className='text-sm text-[#a2763f] font-medium'>
                           📍 {food.origin}
                         </CardDescription>
                       </CardHeader>
                       <CardContent>
-                        <p className="text-gray-700 leading-relaxed">{food.description}</p>
+                        <p className='text-[#6b4525] leading-relaxed'>
+                          {food.description}
+                        </p>
                       </CardContent>
                     </Card>
                   ))}
@@ -85,104 +143,168 @@ export default function FoodPage() {
           </Tabs>
 
           {/* Mẹo ẩm thực với thiết kế mới */}
-          <Card className="shadow-xl bg-gradient-to-br from-amber-50 to-orange-50 border-0 overflow-hidden">
-            <div className="bg-gradient-to-r from-amber-600 to-orange-600 text-white p-6">
-              <CardTitle className="text-2xl font-bold">🍴 Hướng Dẫn Ẩm Thực Cho Du Khách</CardTitle>
+          <Card className='shadow-xl bg-white border border-[#f7d9aa] overflow-hidden'>
+            <div className='bg-gradient-to-r from-[#ffb347] to-[#ff7b54] text-white p-6'>
+              <CardTitle className='text-2xl font-display font-bold'>
+                🍴 Hướng Dẫn Ẩm Thực Cho Du Khách
+              </CardTitle>
             </div>
-            <CardContent className="p-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <div className="w-8 h-8 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center">
-                      <span className="text-white text-sm">⏰</span>
+            <CardContent className='p-8 bg-gradient-to-br from-[#fff8ec] to-white'>
+              <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
+                <div className='space-y-4'>
+                  <div className='flex items-center space-x-3 mb-4'>
+                    <div className='w-8 h-8 bg-gradient-to-br from-[#ffb347] to-[#ff7b54] rounded-full flex items-center justify-center'>
+                      <span className='text-white text-sm'>⏰</span>
                     </div>
-                    <h3 className="font-bold text-lg text-amber-800">Thời Điểm Ăn Uống</h3>
+                    <h3 className='font-bold text-lg font-display text-[#b25a13]'>
+                      Thời Điểm Ăn Uống
+                    </h3>
                   </div>
-                  <ul className="space-y-3">
-                    <li className="flex items-start space-x-3">
-                      <span className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0"></span>
-                      <span className="text-gray-700"><strong>Bữa sáng (6-9 giờ):</strong> Nên thử Bún Cá hoặc Hủ Tiếu</span>
+                  <ul className='space-y-3'>
+                    <li className='flex items-start space-x-3'>
+                      <span className='w-2 h-2 bg-[#ffb347] rounded-full mt-2 flex-shrink-0'></span>
+                      <span className='text-[#6b4525]'>
+                        <strong className='text-[#b25a13]'>
+                          Bữa sáng (6-9 giờ):
+                        </strong>{' '}
+                        Nên thử Bún Cá hoặc Hủ Tiếu
+                      </span>
                     </li>
-                    <li className="flex items-start space-x-3">
-                      <span className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0"></span>
-                      <span className="text-gray-700"><strong>Bữa trưa (11-13 giờ):</strong> Thích hợp cho các món cơm</span>
+                    <li className='flex items-start space-x-3'>
+                      <span className='w-2 h-2 bg-[#ffb347] rounded-full mt-2 flex-shrink-0'></span>
+                      <span className='text-[#6b4525]'>
+                        <strong className='text-[#b25a13]'>
+                          Bữa trưa (11-13 giờ):
+                        </strong>{' '}
+                        Thích hợp cho các món cơm
+                      </span>
                     </li>
-                    <li className="flex items-start space-x-3">
-                      <span className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0"></span>
-                      <span className="text-gray-700"><strong>Bữa tối (18-20 giờ):</strong> Lý tưởng cho lẩu và các món ăn chung</span>
+                    <li className='flex items-start space-x-3'>
+                      <span className='w-2 h-2 bg-[#ffb347] rounded-full mt-2 flex-shrink-0'></span>
+                      <span className='text-[#6b4525]'>
+                        <strong className='text-[#b25a13]'>
+                          Bữa tối (18-20 giờ):
+                        </strong>{' '}
+                        Lý tưởng cho lẩu và các món ăn chung
+                      </span>
                     </li>
                   </ul>
                 </div>
 
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <div className="w-8 h-8 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center">
-                      <span className="text-white text-sm">📍</span>
+                <div className='space-y-4'>
+                  <div className='flex items-center space-x-3 mb-4'>
+                    <div className='w-8 h-8 bg-gradient-to-br from-[#ffb347] to-[#ff7b54] rounded-full flex items-center justify-center'>
+                      <span className='text-white text-sm'>📍</span>
                     </div>
-                    <h3 className="font-bold text-lg text-amber-800">Địa Điểm Ăn Uống</h3>
+                    <h3 className='font-bold text-lg font-display text-[#b25a13]'>
+                      Địa Điểm Ăn Uống
+                    </h3>
                   </div>
-                  <ul className="space-y-3">
-                    <li className="flex items-start space-x-3">
-                      <span className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0"></span>
-                      <span className="text-gray-700"><strong>Chợ địa phương:</strong> Món ăn đường phố đích thực</span>
+                  <ul className='space-y-3'>
+                    <li className='flex items-start space-x-3'>
+                      <span className='w-2 h-2 bg-[#ffb347] rounded-full mt-2 flex-shrink-0'></span>
+                      <span className='text-[#6b4525]'>
+                        <strong className='text-[#b25a13]'>
+                          Chợ địa phương:
+                        </strong>{' '}
+                        Món ăn đường phố đích thực
+                      </span>
                     </li>
-                    <li className="flex items-start space-x-3">
-                      <span className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0"></span>
-                      <span className="text-gray-700"><strong>Thành phố Châu Đốc:</strong> Các món mắm ngon nhất</span>
+                    <li className='flex items-start space-x-3'>
+                      <span className='w-2 h-2 bg-[#ffb347] rounded-full mt-2 flex-shrink-0'></span>
+                      <span className='text-[#6b4525]'>
+                        <strong className='text-[#b25a13]'>
+                          Thành phố Châu Đốc:
+                        </strong>{' '}
+                        Các món mắm ngon nhất
+                      </span>
                     </li>
-                    <li className="flex items-start space-x-3">
-                      <span className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0"></span>
-                      <span className="text-gray-700"><strong>Nhà hàng ven sông:</strong> Hải sản tươi sống</span>
+                    <li className='flex items-start space-x-3'>
+                      <span className='w-2 h-2 bg-[#ffb347] rounded-full mt-2 flex-shrink-0'></span>
+                      <span className='text-[#6b4525]'>
+                        <strong className='text-[#b25a13]'>
+                          Nhà hàng ven sông:
+                        </strong>{' '}
+                        Hải sản tươi sống
+                      </span>
                     </li>
-                    <li className="flex items-start space-x-3">
-                      <span className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0"></span>
-                      <span className="text-gray-700"><strong>Homestay:</strong> Món ăn gia đình truyền thống</span>
+                    <li className='flex items-start space-x-3'>
+                      <span className='w-2 h-2 bg-[#ffb347] rounded-full mt-2 flex-shrink-0'></span>
+                      <span className='text-[#6b4525]'>
+                        <strong className='text-[#b25a13]'>Homestay:</strong>{' '}
+                        Món ăn gia đình truyền thống
+                      </span>
                     </li>
                   </ul>
                 </div>
 
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <div className="w-8 h-8 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center">
-                      <span className="text-white text-sm">🌱</span>
+                <div className='space-y-4'>
+                  <div className='flex items-center space-x-3 mb-4'>
+                    <div className='w-8 h-8 bg-gradient-to-br from-[#ffb347] to-[#ff7b54] rounded-full flex items-center justify-center'>
+                      <span className='text-white text-sm'>🌱</span>
                     </div>
-                    <h3 className="font-bold text-lg text-amber-800">Món Theo Mùa</h3>
+                    <h3 className='font-bold text-lg font-display text-[#b25a13]'>
+                      Món Theo Mùa
+                    </h3>
                   </div>
-                  <ul className="space-y-3">
-                    <li className="flex items-start space-x-3">
-                      <span className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0"></span>
-                      <span className="text-gray-700"><strong>Mùa nước nổi (8-11):</strong> Các món cá đồng</span>
+                  <ul className='space-y-3'>
+                    <li className='flex items-start space-x-3'>
+                      <span className='w-2 h-2 bg-[#ffb347] rounded-full mt-2 flex-shrink-0'></span>
+                      <span className='text-[#6b4525]'>
+                        <strong className='text-[#b25a13]'>
+                          Mùa nước nổi (8-11):
+                        </strong>{' '}
+                        Các món cá đồng
+                      </span>
                     </li>
-                    <li className="flex items-start space-x-3">
-                      <span className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0"></span>
-                      <span className="text-gray-700"><strong>Mùa gặt (12-1):</strong> Món cơm mới</span>
+                    <li className='flex items-start space-x-3'>
+                      <span className='w-2 h-2 bg-[#ffb347] rounded-full mt-2 flex-shrink-0'></span>
+                      <span className='text-[#6b4525]'>
+                        <strong className='text-[#b25a13]'>
+                          Mùa gặt (12-1):
+                        </strong>{' '}
+                        Món cơm mới
+                      </span>
                     </li>
-                    <li className="flex items-start space-x-3">
-                      <span className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0"></span>
-                      <span className="text-gray-700"><strong>Mùa hè (4-6):</strong> Các món tráng miệng từ trái cây</span>
+                    <li className='flex items-start space-x-3'>
+                      <span className='w-2 h-2 bg-[#ffb347] rounded-full mt-2 flex-shrink-0'></span>
+                      <span className='text-[#6b4525]'>
+                        <strong className='text-[#b25a13]'>
+                          Mùa hè (4-6):
+                        </strong>{' '}
+                        Các món tráng miệng từ trái cây
+                      </span>
                     </li>
                   </ul>
                 </div>
 
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-3 mb-4">
-                    <div className="w-8 h-8 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center">
-                      <span className="text-white text-sm">🤝</span>
+                <div className='space-y-4'>
+                  <div className='flex items-center space-x-3 mb-4'>
+                    <div className='w-8 h-8 bg-gradient-to-br from-[#ffb347] to-[#ff7b54] rounded-full flex items-center justify-center'>
+                      <span className='text-white text-sm'>🤝</span>
                     </div>
-                    <h3 className="font-bold text-lg text-amber-800">Phép Lịch Sự Khi Ăn</h3>
+                    <h3 className='font-bold text-lg font-display text-[#b25a13]'>
+                      Phép Lịch Sự Khi Ăn
+                    </h3>
                   </div>
-                  <ul className="space-y-3">
-                    <li className="flex items-start space-x-3">
-                      <span className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0"></span>
-                      <span className="text-gray-700">Luôn dùng tay phải khi gắp thức ăn</span>
+                  <ul className='space-y-3'>
+                    <li className='flex items-start space-x-3'>
+                      <span className='w-2 h-2 bg-[#ffb347] rounded-full mt-2 flex-shrink-0'></span>
+                      <span className='text-[#6b4525]'>
+                        Luôn dùng tay phải khi gắp thức ăn
+                      </span>
                     </li>
-                    <li className="flex items-start space-x-3">
-                      <span className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0"></span>
-                      <span className="text-gray-700">Nên thử tất cả các món khi ăn chung</span>
+                    <li className='flex items-start space-x-3'>
+                      <span className='w-2 h-2 bg-[#ffb347] rounded-full mt-2 flex-shrink-0'></span>
+                      <span className='text-[#6b4525]'>
+                        Nên thử tất cả các món khi ăn chung
+                      </span>
                     </li>
-                    <li className="flex items-start space-x-3">
-                      <span className="w-2 h-2 bg-amber-500 rounded-full mt-2 flex-shrink-0"></span>
-                      <span className="text-gray-700">Húp bún, phở là điều bình thường và được đánh giá cao</span>
+                    <li className='flex items-start space-x-3'>
+                      <span className='w-2 h-2 bg-[#ffb347] rounded-full mt-2 flex-shrink-0'></span>
+                      <span className='text-[#6b4525]'>
+                        Húp bún, phở là điều bình thường và được đánh giá cao
+                      </span>
                     </li>
                   </ul>
                 </div>
