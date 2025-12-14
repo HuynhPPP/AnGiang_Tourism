@@ -12,36 +12,41 @@ export function Footer() {
       </div>
       <div className='absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#041b1a]/80 to-transparent'></div>
 
-      <div className='relative z-10 mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8'>
-        <div className='grid gap-8 lg:grid-cols-[1.3fr,1fr,1fr]'>
-          <div className='space-y-3'>
-          <Link to='/' className='flex items-center gap-3 text-white/90'>
+      <div className='relative z-10 mx-auto max-w-6xl px-3 sm:px-4 py-8 sm:py-10 lg:px-8'>
+        <div className='grid gap-6 sm:gap-8 lg:grid-cols-[1.3fr,1fr,1fr]'>
+          <div className='space-y-2 sm:space-y-3'>
+            <Link
+              to='/'
+              className='flex items-center gap-2 sm:gap-3 text-white/90 justify-center lg:justify-start'
+            >
               <img
                 src='/images/Logo_tỉnh_An_Giang.png'
                 alt='Logo An Giang'
-                className='h-12 w-12 rounded-full border border-white/40 bg-white/10 object-cover shadow-lg'
+                className='h-10 w-10 sm:h-12 sm:w-12 rounded-full border border-white/40 bg-white/10 object-cover shadow-lg'
               />
               <div>
-                <p className='text-xs uppercase tracking-[0.3em] text-amber-100'>
+                <p className='text-[0.65rem] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em] text-amber-100'>
                   Du lịch An Giang
                 </p>
-                <p className='text-xl font-semibold'>An Giang Tourism</p>
+                <p className='text-lg sm:text-xl font-semibold'>
+                  An Giang Tourism
+                </p>
               </div>
             </Link>
-            <h3 className='text-2xl font-semibold text-white'>
+            <h3 className='text-xl sm:text-2xl font-semibold text-white text-center lg:text-left'>
               Chạm sắc xanh miền Tây, giữ trọn ký ức phù sa.
             </h3>
-            <p className='text-sm text-emerald-100/80'>
+            <p className='text-xs sm:text-sm text-emerald-100/80 text-center lg:text-left'>
               Thông tin chính thức từ Sở Du lịch An Giang – nơi cập nhật hành
               trình, lễ hội và bản đồ trải nghiệm.
             </p>
           </div>
 
-          <div className='space-y-4 rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur'>
-            <p className='text-sm uppercase tracking-[0.3em] text-emerald-100'>
+          <div className='space-y-3 sm:space-y-4 rounded-2xl sm:rounded-3xl border border-white/10 bg-white/5 p-4 sm:p-5 backdrop-blur'>
+            <p className='text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em] text-emerald-100'>
               Liên hệ
             </p>
-            <div className='space-y-2 text-sm text-amber-50/90'>
+            <div className='space-y-2 text-xs sm:text-sm text-amber-50/90'>
               <div className='flex items-center gap-2'>
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
@@ -79,12 +84,12 @@ export function Footer() {
             </div>
           </div>
 
-          <div className='space-y-4 rounded-3xl border border-white/10 bg-white/5 p-5 text-sm text-amber-50/90 backdrop-blur'>
-            <p className='text-sm uppercase tracking-[0.3em] text-emerald-100'>
+          <div className='space-y-3 sm:space-y-4 rounded-2xl sm:rounded-3xl border border-white/10 bg-white/5 p-4 sm:p-5 text-xs sm:text-sm text-amber-50/90 backdrop-blur'>
+            <p className='text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.3em] text-emerald-100'>
               Kết nối
             </p>
             <p>Nhận tin nhanh về lễ hội, thời tiết đẹp và hành trình mới.</p>
-            <div className='flex space-x-4'>
+            <div className='flex space-x-3 sm:space-x-4'>
               {[
                 {
                   label: 'Facebook',
@@ -105,17 +110,27 @@ export function Footer() {
                   className='text-amber-100 transition hover:text-white'
                 >
                   <span className='sr-only'>{social.label}</span>
-                  <svg className='h-6 w-6' fill='currentColor' viewBox='0 0 24 24'>
-                    <path fillRule='evenodd' d={social.path} clipRule='evenodd' />
+                  <svg
+                    className='h-5 w-5 sm:h-6 sm:w-6'
+                    fill='currentColor'
+                    viewBox='0 0 24 24'
+                  >
+                    <path
+                      fillRule='evenodd'
+                      d={social.path}
+                      clipRule='evenodd'
+                    />
                   </svg>
                 </a>
               ))}
             </div>
-            <p className='text-xs text-emerald-100/70'>&copy; 2025 Sở Du Lịch An Giang</p>
+            <p className='text-[0.65rem] sm:text-xs text-emerald-100/70'>
+              &copy; 2025 Sở Du Lịch An Giang
+            </p>
           </div>
         </div>
 
-        <div className='mt-8 border-t border-white/15 pt-6 text-center text-sm text-emerald-100/80'>
+        <div className='mt-6 sm:mt-8 border-t border-white/15 pt-4 sm:pt-6 text-center text-xs sm:text-sm text-emerald-100/80'>
           “Đến với An Giang, khách du lịch được hòa mình vào thiên nhiên kỳ vĩ
           với núi non hùng vĩ, đồng bằng xanh tươi và các di tích lịch sử văn
           hóa đặc sắc.”

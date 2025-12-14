@@ -386,6 +386,7 @@ export const defaultDistricts: District[] = [
         image: '/images/LongXuyenImgs/Foods/com-tam-LX.jpg',
       },
     ],
+    video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
   },
   // châu đốc
   {
@@ -489,6 +490,7 @@ export const defaultDistricts: District[] = [
           'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTxpPzZsEd1fzOYlNQyoZN0YRoKukMd_6b_A&usqp=CAU',
       },
     ],
+    video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
   },
   // tân châu
   {
@@ -548,6 +550,7 @@ export const defaultDistricts: District[] = [
         image: 'https://i.ytimg.com/vi/Hx-PwK3oras/maxresdefault.jpg',
       },
     ],
+    video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
   },
   // tịnh biên
   {
@@ -588,6 +591,7 @@ export const defaultDistricts: District[] = [
         image: 'https://statics.vinpearl.com/bo-cap-xao-la-me-3_1630904643.jpg',
       },
     ],
+    video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
   },
   // an phú
   {
@@ -628,6 +632,7 @@ export const defaultDistricts: District[] = [
           'https://cdn.tgdd.vn/Files/2018/04/29/1084925/uong-nuoc-thot-not-co-tac-dung-gi-8-cach-su-dung-nuoc-thot-not-2-760x367.jpg',
       },
     ],
+    video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
   },
   // châu phú
   {
@@ -668,6 +673,7 @@ export const defaultDistricts: District[] = [
           'https://cdn.tgdd.vn/Files/2018/04/29/1084925/uong-nuoc-thot-not-co-tac-dung-gi-8-cach-su-dung-nuoc-thot-not-2-760x367.jpg',
       },
     ],
+    video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
   },
   // châu thành
   {
@@ -708,6 +714,7 @@ export const defaultDistricts: District[] = [
           'https://cdn.tgdd.vn/Files/2018/04/29/1084925/uong-nuoc-thot-not-co-tac-dung-gi-8-cach-su-dung-nuoc-thot-not-2-760x367.jpg',
       },
     ],
+    video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
   },
   // phú tân
   {
@@ -748,6 +755,7 @@ export const defaultDistricts: District[] = [
           'https://cdn.tgdd.vn/Files/2018/04/29/1084925/uong-nuoc-thot-not-co-tac-dung-gi-8-cach-su-dung-nuoc-thot-not-2-760x367.jpg',
       },
     ],
+    video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
   },
   // thoại sơn
   {
@@ -781,6 +789,7 @@ export const defaultDistricts: District[] = [
           'https://cdn3.ivivu.com/2014/10/10-dieu-thu-vi-o-le-hoi-ok-om-bok-cua-nguoi-khmer-iVIVU.com-1.jpg',
       },
     ],
+    video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
   },
   // tri tôn
   {
@@ -893,6 +902,7 @@ export const defaultDistricts: District[] = [
         image: '/images/TriTonImgs/Foods/banh-bo-thot-not.jpeg',
       },
     ],
+    video: '/videos/gioi_thieu_tri_ton_1.mp4',
   },
   // chợ mới
   {
@@ -939,5 +949,6 @@ export const defaultDistricts: District[] = [
           'https://statics.vinpearl.com/chao-ga-nam-huong-sapa-0_1634895251.jpg',
       },
     ],
+    video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
   },
 ];

@@ -55,4 +55,5 @@ export type District = {
   description: string;
   attractions: Attraction[];
   cuisine: Dish[];
+  video?: string; // URL to local video or YouTube link
 };
