@@ -94,12 +94,12 @@ export default function FoodPage() {
         <div className='space-y-12'>
           {/* Tab danh mục món ăn */}
           <Tabs defaultValue='rice-dishes' className='w-full'>
-            <TabsList className='grid grid-cols-2 md:grid-cols-4 w-full bg-white/80 backdrop-blur-sm border border-[#ffd8a7] rounded-xl p-1 shadow-lg'>
+            <TabsList className='flex overflow-x-auto bg-white/80 backdrop-blur-sm border border-[#ffd8a7] rounded-xl p-1 shadow-lg scrollbar-hide'>
               {foodCategories.map((category) => (
                 <TabsTrigger
                   key={category.id}
                   value={category.id}
-                  className='data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#ffb347] data-[state=active]:to-[#ff7b54] data-[state=active]:text-white rounded-lg transition-all duration-300 hover:scale-105 font-sans-soft'
+                  className='data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#ffb347] data-[state=active]:to-[#ff7b54] data-[state=active]:text-white rounded-lg transition-all duration-300 font-sans-soft text-sm px-8 py-2.5 whitespace-nowrap flex-shrink-0'
                 >
                   {category.name}
                 </TabsTrigger>
@@ -149,21 +149,21 @@ export default function FoodPage() {
                 🍴 Hướng Dẫn Ẩm Thực Cho Du Khách
               </CardTitle>
             </div>
-            <CardContent className='p-8 bg-gradient-to-br from-[#fff8ec] to-white'>
-              <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
-                <div className='space-y-4'>
-                  <div className='flex items-center space-x-3 mb-4'>
-                    <div className='w-8 h-8 bg-gradient-to-br from-[#ffb347] to-[#ff7b54] rounded-full flex items-center justify-center'>
-                      <span className='text-white text-sm'>⏰</span>
+            <CardContent className='p-4 sm:p-6 md:p-8 bg-gradient-to-br from-[#fff8ec] to-white'>
+              <div className='grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8'>
+                <div className='space-y-3 sm:space-y-4'>
+                  <div className='flex items-center space-x-2 sm:space-x-3 mb-3 sm:mb-4'>
+                    <div className='w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-[#ffb347] to-[#ff7b54] rounded-full flex items-center justify-center flex-shrink-0'>
+                      <span className='text-white text-xs sm:text-sm'>⏰</span>
                     </div>
-                    <h3 className='font-bold text-lg font-display text-[#b25a13]'>
+                    <h3 className='font-bold text-sm sm:text-base md:text-lg font-display text-[#b25a13]'>
                       Thời Điểm Ăn Uống
                     </h3>
                   </div>
-                  <ul className='space-y-3'>
+                  <ul className='space-y-2 sm:space-y-3'>
                     <li className='flex items-start space-x-3'>
-                      <span className='w-2 h-2 bg-[#ffb347] rounded-full mt-2 flex-shrink-0'></span>
-                      <span className='text-[#6b4525]'>
+                      <span className='w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#ffb347] rounded-full mt-1.5 sm:mt-2 flex-shrink-0'></span>
+                      <span className='text-xs sm:text-sm text-[#6b4525]'>
                         <strong className='text-[#b25a13]'>
                           Bữa sáng (6-9 giờ):
                         </strong>{' '}
@@ -191,16 +191,16 @@ export default function FoodPage() {
                   </ul>
                 </div>
 
-                <div className='space-y-4'>
-                  <div className='flex items-center space-x-3 mb-4'>
-                    <div className='w-8 h-8 bg-gradient-to-br from-[#ffb347] to-[#ff7b54] rounded-full flex items-center justify-center'>
-                      <span className='text-white text-sm'>📍</span>
+                <div className='space-y-3 sm:space-y-4'>
+                  <div className='flex items-center space-x-2 sm:space-x-3 mb-3 sm:mb-4'>
+                    <div className='w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-[#ffb347] to-[#ff7b54] rounded-full flex items-center justify-center flex-shrink-0'>
+                      <span className='text-white text-xs sm:text-sm'>📍</span>
                     </div>
-                    <h3 className='font-bold text-lg font-display text-[#b25a13]'>
+                    <h3 className='font-bold text-sm sm:text-base md:text-lg font-display text-[#b25a13]'>
                       Địa Điểm Ăn Uống
                     </h3>
                   </div>
-                  <ul className='space-y-3'>
+                  <ul className='space-y-2 sm:space-y-3'>
                     <li className='flex items-start space-x-3'>
                       <span className='w-2 h-2 bg-[#ffb347] rounded-full mt-2 flex-shrink-0'></span>
                       <span className='text-[#6b4525]'>
@@ -238,16 +238,16 @@ export default function FoodPage() {
                   </ul>
                 </div>
 
-                <div className='space-y-4'>
-                  <div className='flex items-center space-x-3 mb-4'>
-                    <div className='w-8 h-8 bg-gradient-to-br from-[#ffb347] to-[#ff7b54] rounded-full flex items-center justify-center'>
-                      <span className='text-white text-sm'>🌱</span>
+                <div className='space-y-3 sm:space-y-4'>
+                  <div className='flex items-center space-x-2 sm:space-x-3 mb-3 sm:mb-4'>
+                    <div className='w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-[#ffb347] to-[#ff7b54] rounded-full flex items-center justify-center flex-shrink-0'>
+                      <span className='text-white text-xs sm:text-sm'>🌱</span>
                     </div>
-                    <h3 className='font-bold text-lg font-display text-[#b25a13]'>
+                    <h3 className='font-bold text-sm sm:text-base md:text-lg font-display text-[#b25a13]'>
                       Món Theo Mùa
                     </h3>
                   </div>
-                  <ul className='space-y-3'>
+                  <ul className='space-y-2 sm:space-y-3'>
                     <li className='flex items-start space-x-3'>
                       <span className='w-2 h-2 bg-[#ffb347] rounded-full mt-2 flex-shrink-0'></span>
                       <span className='text-[#6b4525]'>
@@ -273,37 +273,6 @@ export default function FoodPage() {
                           Mùa hè (4-6):
                         </strong>{' '}
                         Các món tráng miệng từ trái cây
-                      </span>
-                    </li>
-                  </ul>
-                </div>
-
-                <div className='space-y-4'>
-                  <div className='flex items-center space-x-3 mb-4'>
-                    <div className='w-8 h-8 bg-gradient-to-br from-[#ffb347] to-[#ff7b54] rounded-full flex items-center justify-center'>
-                      <span className='text-white text-sm'>🤝</span>
-                    </div>
-                    <h3 className='font-bold text-lg font-display text-[#b25a13]'>
-                      Phép Lịch Sự Khi Ăn
-                    </h3>
-                  </div>
-                  <ul className='space-y-3'>
-                    <li className='flex items-start space-x-3'>
-                      <span className='w-2 h-2 bg-[#ffb347] rounded-full mt-2 flex-shrink-0'></span>
-                      <span className='text-[#6b4525]'>
-                        Luôn dùng tay phải khi gắp thức ăn
-                      </span>
-                    </li>
-                    <li className='flex items-start space-x-3'>
-                      <span className='w-2 h-2 bg-[#ffb347] rounded-full mt-2 flex-shrink-0'></span>
-                      <span className='text-[#6b4525]'>
-                        Nên thử tất cả các món khi ăn chung
-                      </span>
-                    </li>
-                    <li className='flex items-start space-x-3'>
-                      <span className='w-2 h-2 bg-[#ffb347] rounded-full mt-2 flex-shrink-0'></span>
-                      <span className='text-[#6b4525]'>
-                        Húp bún, phở là điều bình thường và được đánh giá cao
                       </span>
                     </li>
                   </ul>

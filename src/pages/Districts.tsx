@@ -209,21 +209,21 @@ export default function DistrictsPage() {
                 <TabsList className='grid w-full grid-cols-3 bg-white/80 backdrop-blur-sm border border-[#ffd8a7] rounded-xl p-1 shadow-lg'>
                   <TabsTrigger
                     value='attractions'
-                    className='data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#ffb347] data-[state=active]:to-[#ff7b54] data-[state=active]:text-white rounded-lg transition-all duration-300 hover:scale-105 font-sans-soft'
+                    className='data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#ffb347] data-[state=active]:to-[#ff7b54] data-[state=active]:text-white rounded-lg transition-all duration-300 hover:scale-105 font-sans-soft text-xs sm:text-sm px-2 sm:px-4 py-2'
                   >
-                    🏛️ Điểm Du Lịch
+                    <span className='hidden sm:inline'>🏛️ </span>Điểm Du Lịch
                   </TabsTrigger>
                   <TabsTrigger
                     value='cuisine'
-                    className='data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#ffb347] data-[state=active]:to-[#ff7b54] data-[state=active]:text-white rounded-lg transition-all duration-300 hover:scale-105 font-sans-soft'
+                    className='data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#ffb347] data-[state=active]:to-[#ff7b54] data-[state=active]:text-white rounded-lg transition-all duration-300 hover:scale-105 font-sans-soft text-xs sm:text-sm px-2 sm:px-4 py-2'
                   >
-                    🍽️ Ẩm Thực
+                    <span className='hidden sm:inline'>🍽️ </span>Ẩm Thực
                   </TabsTrigger>
                   <TabsTrigger
                     value='video'
-                    className='data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#ffb347] data-[state=active]:to-[#ff7b54] data-[state=active]:text-white rounded-lg transition-all duration-300 hover:scale-105 font-sans-soft'
+                    className='data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#ffb347] data-[state=active]:to-[#ff7b54] data-[state=active]:text-white rounded-lg transition-all duration-300 hover:scale-105 font-sans-soft text-xs sm:text-sm px-2 sm:px-4 py-2'
                   >
-                    🎬 Video Giới Thiệu
+                    <span className='hidden sm:inline'>🎬 </span>Video
                   </TabsTrigger>
                 </TabsList>
 

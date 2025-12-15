@@ -53,6 +53,8 @@ import {
   Star,
   Award,
   TrendingUp,
+  MapPin,
+  Check,
 } from 'lucide-react';
 
 // ImageGallery Component with Lightbox
@@ -365,6 +367,41 @@ export default function HomePage() {
     return destinations[0];
   }, [destinations, selectedDestinationId]);
 
+  // News image slider state
+  const [newsImageIndex, setNewsImageIndex] = useState(0);
+  const [isNewsLightboxOpen, setIsNewsLightboxOpen] = useState(false);
+
+  // Reset news image index when destination changes
+  useEffect(() => {
+    setNewsImageIndex(0);
+  }, [selectedDestination]);
+
+  // News image navigation functions
+  const nextNewsImage = () => {
+    if (!selectedDestination) return;
+    setNewsImageIndex(
+      (prev) => (prev + 1) % selectedDestination.images_news.length
+    );
+  };
+
+  const prevNewsImage = () => {
+    if (!selectedDestination) return;
+    setNewsImageIndex(
+      (prev) =>
+        (prev - 1 + selectedDestination.images_news.length) %
+        selectedDestination.images_news.length
+    );
+  };
+
+  const openNewsLightbox = (index: number) => {
+    setNewsImageIndex(index);
+    setIsNewsLightboxOpen(true);
+  };
+
+  const closeNewsLightbox = () => {
+    setIsNewsLightboxOpen(false);
+  };
+
   const signatureExperiences = useMemo(() => {
     if (!selectedDestination) return [];
     const mainImageFallback =
@@ -520,39 +557,84 @@ export default function HomePage() {
             </Carousel>
           </section>
 
-          <section className='grid gap-6 lg:grid-cols-[320px,1fr]'>
+          <section className='grid gap-6 lg:grid-cols-[380px,1fr]'>
             <div className='space-y-5'>
-              <Card className='overflow-hidden border border-[#f7d9aa] bg-white shadow-xl'>
-                <CardHeader className='pb-0'>
-                  <CardTitle className='text-xl text-[#b25a13]'>
-                    Điểm đến gợi ý
-                  </CardTitle>
-                  <CardDescription className='text-sm text-[#a2763f]'>
-                    Chọn địa danh để xem câu chuyện nổi bật.
-                  </CardDescription>
+              <Card className='overflow-hidden border-2 border-[#ffd8a7] bg-gradient-to-br from-white to-[#fffdf5] shadow-2xl'>
+                <CardHeader className='pb-3 bg-gradient-to-r from-[#ffb347] to-[#ff7b54] text-white'>
+                  <div className='flex items-center gap-3'>
+                    <div className='flex h-10 w-10 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm'>
+                      <MapPin className='h-5 w-5 text-white' />
+                    </div>
+                    <div>
+                      <CardTitle className='text-xl text-white'>
+                        Điểm đến gợi ý
+                      </CardTitle>
+                    </div>
+                  </div>
                 </CardHeader>
-                <CardContent className='pt-4'>
-                  <ScrollArea className='h-[420px] pr-3'>
-                    <div className='space-y-3'>
+                <CardContent className='pt-4 px-3'>
+                  <ScrollArea className='pr-2'>
+                    <div className='space-y-2'>
                       {destinations.map((dest) => {
                         const isActive = selectedDestination.id === dest.id;
+                        const thumbnail =
+                          dest.images?.[0] || '/images/placeholder.jpg';
                         return (
-                          <Button
+                          <button
                             key={dest.id}
-                            variant='ghost'
-                            className={`w-full justify-start rounded-2xl border text-left text-sm transition-all ${
+                            className={`w-full text-left rounded-xl border-2 transition-all duration-300 overflow-hidden group ${
                               isActive
-                                ? 'border-transparent bg-gradient-to-r from-[#ffb347] to-[#ff7b54] text-white shadow-lg'
-                                : 'border-transparent bg-[#fff8ec] text-[#6f4525] hover:border-[#ffd8a7]'
+                                ? ''
+                                : 'border-transparent bg-[#fff8ec] hover:border-[#ffd8a7] hover:shadow-md'
                             }`}
                             onClick={() => setSelectedDestinationId(dest.id)}
                           >
-                            <div className='flex w-full items-center gap-3'>
-                              <div className='flex-1'>
-                                <p className='font-semibold'>{dest.name}</p>
+                            <div className='flex gap-3 p-2'>
+                              {/* Thumbnail */}
+                              <div className='relative flex-shrink-0'>
+                                <div
+                                  className={`w-20 h-20 rounded-lg overflow-hidden ${
+                                    isActive ? 'ring-2 ring-[#ffb347]' : ''
+                                  }`}
+                                >
+                                  <img
+                                    src={thumbnail}
+                                    alt={dest.name}
+                                    className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-110'
+                                  />
+                                </div>
+                                {isActive && (
+                                  <div className='absolute -top-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-gradient-to-br from-[#ffb347] to-[#ff7b54] shadow-lg'>
+                                    <Check className='h-3 w-3 text-white' />
+                                  </div>
+                                )}
+                              </div>
+
+                              {/* Content */}
+                              <div className='flex-1 min-w-0 py-1'>
+                                <p
+                                  className={`font-semibold text-sm mb-1 line-clamp-2 transition-colors ${
+                                    isActive
+                                      ? 'text-[#b25a13]'
+                                      : 'text-[#6f4525] group-hover:text-[#b25a13]'
+                                  }`}
+                                >
+                                  {dest.name}
+                                </p>
+                                <p className='text-xs text-[#a2763f] line-clamp-2'>
+                                  {dest.address}
+                                </p>
+                                {isActive && (
+                                  <div className='mt-2 flex items-center gap-1'>
+                                    <Sparkles className='h-3 w-3 text-[#ffb347]' />
+                                    <span className='text-[0.65rem] font-semibold text-[#ffb347] uppercase tracking-wide'>
+                                      Đang xem
+                                    </span>
+                                  </div>
+                                )}
                               </div>
                             </div>
-                          </Button>
+                          </button>
                         );
                       })}
                     </div>
@@ -690,98 +772,166 @@ export default function HomePage() {
                   <TabsContent value='news' className='pt-6'>
                     {hasNews ? (
                       <div className='space-y-6'>
-                        {/* News Header */}
-                        <div className='flex items-center gap-3'>
-                          <div className='flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg'>
-                            <Newspaper className='h-5 w-5 text-white' />
+                        {/* News Description */}
+                        {selectedDestination.description_news && (
+                          <div className='rounded-2xl border-2 border-[#ffd8a7] bg-gradient-to-br from-[#fff8ec] via-white to-[#fffdf5] p-6 shadow-lg'>
+                            <div className='flex items-start gap-4'>
+                              <div className='flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#ffb347] to-[#ff7b54] shadow-lg'>
+                                <Newspaper className='h-6 w-6 text-white' />
+                              </div>
+                              <div className='flex-1'>
+                                <h3 className='font-semibold text-lg text-[#b25a13] mb-2'>
+                                  Thông tin cập nhật
+                                </h3>
+                                <p className='text-sm leading-relaxed text-[#6b4525]'>
+                                  {selectedDestination.description_news}
+                                </p>
+                              </div>
+                            </div>
                           </div>
-                          <div>
-                            <h3 className='font-semibold text-[#b25a13]'>
-                              Tin tức & Sự kiện
-                            </h3>
-                            <p className='text-xs text-[#a2763f]'>
-                              Cập nhật mới nhất về {selectedDestination.name}
+                        )}
+
+                        {/* Image Slider */}
+                        <div className='space-y-4'>
+                          <div className='flex items-center gap-2'>
+                            <div className='h-1 w-8 rounded-full bg-gradient-to-r from-[#ffb347] to-[#ff7b54]'></div>
+                            <p className='text-sm font-semibold uppercase tracking-wider text-[#b25a13]'>
+                              Hình ảnh ({selectedDestination.images_news.length}
+                              )
                             </p>
                           </div>
-                          <Badge className='ml-auto bg-gradient-to-r from-orange-500 to-red-500 text-white'>
-                            <Sparkles className='mr-1 h-3 w-3' />
-                            Mới
-                          </Badge>
-                        </div>
 
-                        {/* News Timeline */}
-                        <div className='space-y-4'>
-                          {selectedDestination.images_news.map(
-                            (image, index) => (
-                              <div
-                                key={index}
-                                className='group relative overflow-hidden rounded-2xl border border-[#f7d9aa] bg-white shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-1'
+                          {/* Main Image Slider */}
+                          <div className='relative group'>
+                            <div className='aspect-video overflow-hidden rounded-2xl border-2 border-[#f7d9aa] shadow-xl'>
+                              <img
+                                src={
+                                  selectedDestination.images_news[
+                                    newsImageIndex
+                                  ]
+                                }
+                                alt={`${selectedDestination.name} - Ảnh ${
+                                  newsImageIndex + 1
+                                }`}
+                                className='h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 cursor-pointer'
+                                onClick={() => openNewsLightbox(newsImageIndex)}
+                                loading='lazy'
+                              />
+                            </div>
+
+                            {/* Overlay controls */}
+                            <div className='absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl flex items-end justify-between p-4'>
+                              <Button
+                                size='sm'
+                                className='bg-white/90 text-[#b25a13] hover:bg-white backdrop-blur-sm'
+                                onClick={() => openNewsLightbox(newsImageIndex)}
                               >
-                                {/* Timeline dot */}
-                                {index <
-                                  selectedDestination.images_news.length -
-                                    1 && (
-                                  <div className='absolute left-8 top-full h-4 w-0.5 bg-gradient-to-b from-[#ffb347] to-transparent z-10'></div>
-                                )}
+                                <Maximize2 className='h-4 w-4 mr-2' />
+                                Xem toàn màn hình
+                              </Button>
+                              <div className='text-white text-sm font-semibold bg-black/40 px-3 py-1 rounded-full backdrop-blur-sm'>
+                                {newsImageIndex + 1} /{' '}
+                                {selectedDestination.images_news.length}
+                              </div>
+                            </div>
 
-                                <div className='grid gap-4 md:grid-cols-[200px,1fr] p-4'>
-                                  {/* Image */}
-                                  <div className='relative aspect-video md:aspect-square overflow-hidden rounded-xl'>
+                            {/* Navigation Arrows */}
+                            {selectedDestination.images_news.length > 1 && (
+                              <>
+                                <button
+                                  onClick={prevNewsImage}
+                                  className='absolute left-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-[#b25a13] rounded-full p-2.5 shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110'
+                                >
+                                  <ChevronLeft className='h-5 w-5' />
+                                </button>
+                                <button
+                                  onClick={nextNewsImage}
+                                  className='absolute right-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-[#b25a13] rounded-full p-2.5 shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110'
+                                >
+                                  <ChevronRight className='h-5 w-5' />
+                                </button>
+                              </>
+                            )}
+                          </div>
+
+                          {/* Thumbnail Grid */}
+                          {selectedDestination.images_news.length > 1 && (
+                            <div className='grid grid-cols-4 sm:grid-cols-6 gap-2'>
+                              {selectedDestination.images_news.map(
+                                (image, index) => (
+                                  <div
+                                    key={index}
+                                    onClick={() => setNewsImageIndex(index)}
+                                    className={`aspect-square overflow-hidden rounded-lg cursor-pointer transition-all duration-300 ${
+                                      newsImageIndex === index
+                                        ? 'ring-3 ring-[#ffb347] shadow-lg scale-105'
+                                        : 'ring-2 ring-transparent hover:ring-[#ffd8a7] hover:scale-105 opacity-70 hover:opacity-100'
+                                    }`}
+                                  >
                                     <img
                                       src={image}
                                       alt={`${
                                         selectedDestination.name
-                                      } tin tức ${index + 1}`}
-                                      className='h-full w-full object-cover transition-transform duration-500 group-hover:scale-110'
+                                      } thumbnail ${index + 1}`}
+                                      className='h-full w-full object-cover'
                                       loading='lazy'
                                     />
-                                    {/* Overlay badge */}
-                                    <div className='absolute top-2 right-2 rounded-full bg-white/90 backdrop-blur-sm px-2 py-1 text-xs font-semibold text-[#b25a13]'>
-                                      #{index + 1}
-                                    </div>
                                   </div>
-
-                                  {/* Content */}
-                                  <div className='flex flex-col justify-center space-y-2'>
-                                    <div className='flex items-center gap-2'>
-                                      <div className='flex h-6 w-6 items-center justify-center rounded-full bg-[#ffb347]'>
-                                        <Bell className='h-3 w-3 text-white' />
-                                      </div>
-                                      <span className='text-xs font-semibold uppercase tracking-wider text-[#b25a13]'>
-                                        Tin tức địa phương
-                                      </span>
-                                    </div>
-                                    <p className='text-sm leading-relaxed text-[#6b4525]'>
-                                      {selectedDestination.description_news ||
-                                        `Khám phá những điều thú vị và cập nhật mới nhất về ${selectedDestination.name}. Đây là điểm đến không thể bỏ lỡ khi du lịch An Giang.`}
-                                    </p>
-                                    <div className='flex items-center gap-2 pt-2'>
-                                      <Award className='h-4 w-4 text-amber-600' />
-                                      <span className='text-xs text-amber-700'>
-                                        Điểm đến nổi bật
-                                      </span>
-                                    </div>
-                                  </div>
-                                </div>
-
-                                {/* Decorative corner */}
-                                <div className='absolute top-0 right-0 h-20 w-20 opacity-10'>
-                                  <div className='absolute top-0 right-0 h-full w-full bg-gradient-to-bl from-[#ffb347] to-transparent rounded-bl-full'></div>
-                                </div>
-                              </div>
-                            )
+                                )
+                              )}
+                            </div>
                           )}
                         </div>
 
-                        {/* Additional info if description exists */}
-                        {selectedDestination.description_news && (
-                          <div className='rounded-2xl border border-[#ffd8a7] bg-gradient-to-r from-[#fff8ec] to-white p-4'>
-                            <div className='flex items-start gap-3'>
-                              <TrendingUp className='h-5 w-5 text-[#ffb347] flex-shrink-0 mt-0.5' />
-                              <p className='text-sm text-[#7c4a1f] leading-relaxed'>
-                                {selectedDestination.description_news}
-                              </p>
+                        {/* Lightbox Modal for News Images */}
+                        {isNewsLightboxOpen && (
+                          <div className='fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center'>
+                            {/* Close Button */}
+                            <button
+                              onClick={closeNewsLightbox}
+                              className='absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-white rounded-full p-3 transition-all duration-300 hover:scale-110 z-50'
+                            >
+                              <X className='h-6 w-6' />
+                            </button>
+
+                            {/* Image Counter */}
+                            <div className='absolute top-4 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-md text-white px-6 py-2 rounded-full text-sm font-semibold z-50'>
+                              {newsImageIndex + 1} /{' '}
+                              {selectedDestination.images_news.length}
                             </div>
+
+                            {/* Main Image */}
+                            <div className='relative max-w-7xl max-h-[90vh] w-full h-full flex items-center justify-center p-4'>
+                              <img
+                                src={
+                                  selectedDestination.images_news[
+                                    newsImageIndex
+                                  ]
+                                }
+                                alt={`${selectedDestination.name} - Ảnh ${
+                                  newsImageIndex + 1
+                                }`}
+                                className='max-w-full max-h-full object-contain rounded-lg'
+                              />
+                            </div>
+
+                            {/* Navigation Arrows in Lightbox */}
+                            {selectedDestination.images_news.length > 1 && (
+                              <>
+                                <button
+                                  onClick={prevNewsImage}
+                                  className='absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white rounded-full p-4 transition-all duration-300 hover:scale-110 z-50'
+                                >
+                                  <ChevronLeft className='h-6 w-6' />
+                                </button>
+                                <button
+                                  onClick={nextNewsImage}
+                                  className='absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white rounded-full p-4 transition-all duration-300 hover:scale-110 z-50'
+                                >
+                                  <ChevronRight className='h-6 w-6' />
+                                </button>
+                              </>
+                            )}
                           </div>
                         )}
                       </div>
