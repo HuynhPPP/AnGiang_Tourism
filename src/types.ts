@@ -38,14 +38,14 @@ export type FoodCategory = {
 export type Attraction = {
   name: string;
   description: string;
-  image: string;
+  images: string[]; // Changed from single image to array of images
   location?: string;
 };
 
 export type Dish = {
   name: string;
   description: string;
-  image: string;
+  images: string[]; // Changed from single image to array of images
 };
 
 export type District = {

@@ -7,6 +7,7 @@ import {
 } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useMemo, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { useDistrictsData } from '@/hooks/useData';
 import { ChevronLeft, ChevronRight, Play } from 'lucide-react';
 
@@ -102,19 +103,40 @@ function VideoPlayer({ videoUrl, districtName }: VideoPlayerProps) {
     );
   }
 
-  // Check if it's a YouTube URL
-  const isYouTube =
-    videoUrl.includes('youtube.com') || videoUrl.includes('youtu.be');
+  // Helper to format embed URLs for external providers
+  const getEmbedUrl = (url: string) => {
+    if (url.includes('youtube.com') || url.includes('youtu.be')) {
+      if (url.includes('embed/')) return url;
+      const videoId = url.split('v=')[1]?.split('&')[0] || url.split('/').pop();
+      return `https://www.youtube.com/embed/${videoId}`;
+    }
+
+    if (url.includes('drive.google.com')) {
+      // Convert standard Drive share links to preview embed links
+      return url
+        .replace(/\/view.*$/, '/preview')
+        .replace(/\/edit.*$/, '/preview');
+    }
+
+    return url;
+  };
+
+  const isExternal =
+    videoUrl.includes('youtube.com') ||
+    videoUrl.includes('youtu.be') ||
+    videoUrl.includes('drive.google.com');
+
+  const embedUrl = getEmbedUrl(videoUrl);
 
   return (
     <div
       className='relative w-full overflow-hidden rounded-lg shadow-2xl bg-black'
       style={{ paddingBottom: '56.25%' }}
     >
-      {isYouTube ? (
+      {isExternal ? (
         <iframe
           className='absolute top-0 left-0 w-full h-full border-0'
-          src={videoUrl}
+          src={embedUrl}
           title={`Video giới thiệu ${districtName}`}
           allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
           allowFullScreen
@@ -135,9 +157,38 @@ function VideoPlayer({ videoUrl, districtName }: VideoPlayerProps) {
 
 export default function DistrictsPage() {
   const districts = useDistricts();
-  const first = useMemo(() => districts[0], [districts]);
-  const [selectedDistrict, setSelectedDistrict] = useState(first);
-  if (!first) return null;
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // Get active district ID from URL or default to first
+  const districtIdFromUrl = searchParams.get('id');
+  const selectedDistrict = useMemo(() => {
+    return districts?.find((d) => d.id === districtIdFromUrl) || districts[0];
+  }, [districts, districtIdFromUrl]);
+
+  // Get active tab from URL or default to 'attractions'
+  const activeTab = searchParams.get('tab') || 'attractions';
+
+  if (!selectedDistrict) return null;
+
+  const handleDistrictSelect = (district: any) => {
+    setSearchParams(
+      (prev) => {
+        prev.set('id', district.id);
+        return prev;
+      },
+      { replace: true }
+    );
+  };
+
+  const handleTabChange = (value: string) => {
+    setSearchParams(
+      (prev) => {
+        prev.set('tab', value);
+        return prev;
+      },
+      { replace: true }
+    );
+  };
 
   return (
     <div className='font-sans-soft min-h-screen bg-gradient-to-b from-[#fffdf5] via-[#fff4df] to-[#ffe6c9] text-[#6b4525]'>
@@ -155,27 +206,34 @@ export default function DistrictsPage() {
           </p>
         </div>
 
-        {/* Districts selection */}
-        <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-10'>
+        {/* Districts selection grid */}
+        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mb-12'>
           {districts.map((district) => (
             <Card
               key={district.id}
-              className={`cursor-pointer transition-all hover:shadow-lg ${
+              className={`group cursor-pointer overflow-hidden transition-all duration-300 transform hover:-translate-y-1 ${
                 selectedDistrict.id === district.id
-                  ? 'border-[#ffb347] border-2 shadow-lg shadow-[#ffb347]/30'
-                  : 'border-[#ffd8a7]'
+                  ? 'ring-2 ring-[#ffb347] border-transparent shadow-xl shadow-[#ffb347]/20 scale-105'
+                  : 'border-[#ffd8a7] hover:border-[#ffb347] hover:shadow-lg'
               }`}
-              onClick={() => setSelectedDistrict(district)}
+              onClick={() => handleDistrictSelect(district)}
             >
-              <div className='h-24 overflow-hidden rounded-t-lg'>
+              <div className='relative aspect-[16/10] overflow-hidden bg-[#fff8ec]'>
                 <img
                   src={district.image}
                   alt={district.name}
-                  className='w-full h-full object-cover'
+                  className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-110'
                 />
+                <div className='absolute inset-0 bg-gradient-to-t from-black/20 to-transparent' />
               </div>
-              <CardContent className='p-3'>
-                <h3 className='text-sm font-semibold text-center truncate text-[#b25a13]'>
+              <CardContent className='p-3 bg-white'>
+                <h3
+                  className={`text-xs sm:text-sm font-bold text-center truncate transition-colors duration-300 ${
+                    selectedDistrict.id === district.id
+                      ? 'text-[#ff7b54]'
+                      : 'text-[#b25a13]'
+                  }`}
+                >
                   {district.name}
                 </h3>
               </CardContent>
@@ -185,27 +243,43 @@ export default function DistrictsPage() {
 
         {/* Selected district detail */}
         {selectedDistrict && (
-          <Card className='mb-8 shadow-2xl bg-white border border-[#f7d9aa] overflow-hidden'>
-            <div className='relative h-96 overflow-hidden'>
-              <img
-                src={selectedDistrict.image}
-                alt={selectedDistrict.name}
-                className='object-cover w-full h-full'
-                loading='lazy'
+          <Card className='mb-12 shadow-2xl bg-white border border-[#f7d9aa] overflow-hidden rounded-[2rem]'>
+            <div className='relative h-[300px] md:h-[450px] overflow-hidden'>
+              {/* Blurred background layer to handle low-res images */}
+              <div
+                className='absolute inset-0 bg-cover bg-center blur-2xl scale-110 opacity-40'
+                style={{ backgroundImage: `url(${selectedDistrict.image})` }}
               />
-              <div className='absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent'></div>
-              <div className='absolute bottom-0 left-0 right-0 p-8 text-white'>
-                <h2 className='text-4xl font-display font-bold mb-2 drop-shadow-lg'>
-                  {selectedDistrict.name}
-                </h2>
-                <p className='text-lg opacity-90 drop-shadow-md leading-relaxed'>
-                  {selectedDistrict.description}
-                </p>
+
+              {/* Main Image */}
+              <div className='relative w-full h-full flex items-center justify-center p-4 md:p-8'>
+                <img
+                  src={selectedDistrict.image}
+                  alt={selectedDistrict.name}
+                  className='w-full h-full object-cover rounded-2xl shadow-2xl border border-white/20'
+                  loading='lazy'
+                />
+
+                {/* Overlay Text Content */}
+                <div className='absolute inset-0 bg-gradient-to-t from-[#6b4525]/90 via-[#6b4525]/20 to-transparent pointer-events-none' />
+
+                <div className='absolute bottom-0 left-0 right-0 p-6 md:p-10 pointer-events-none'>
+                  <h2 className='text-3xl md:text-5xl font-display font-bold text-white mb-3 drop-shadow-2xl animate-in fade-in slide-in-from-bottom-4 duration-700'>
+                    {selectedDistrict.name}
+                  </h2>
+                  <p className='text-white/90 text-sm md:text-xl max-w-3xl leading-relaxed drop-shadow-lg line-clamp-2 md:line-clamp-none animate-in fade-in slide-in-from-bottom-6 duration-1000'>
+                    {selectedDistrict.description}
+                  </p>
+                </div>
               </div>
             </div>
 
             <CardContent className='p-8'>
-              <Tabs defaultValue='attractions' className='w-full'>
+              <Tabs
+                value={activeTab}
+                onValueChange={handleTabChange}
+                className='w-full'
+              >
                 <TabsList className='grid w-full grid-cols-3 bg-white/80 backdrop-blur-sm border border-[#ffd8a7] rounded-xl p-1 shadow-lg'>
                   <TabsTrigger
                     value='attractions'
@@ -235,7 +309,7 @@ export default function DistrictsPage() {
                         className='group overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-white border border-[#f7d9aa] shadow-lg hover:shadow-[#ffb347]/30'
                       >
                         <ImageGallery
-                          images={attraction.image ? [attraction.image] : []}
+                          images={attraction.images || []}
                           name={attraction.name}
                         />
                         <CardHeader className='pb-4'>
@@ -270,7 +344,7 @@ export default function DistrictsPage() {
                         className='group overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 bg-white border border-[#f7d9aa] shadow-lg hover:shadow-[#ffb347]/30'
                       >
                         <ImageGallery
-                          images={dish.image ? [dish.image] : []}
+                          images={dish.images || []}
                           name={dish.name}
                         />
                         <CardHeader className='pb-4'>

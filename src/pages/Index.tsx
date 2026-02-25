@@ -1,4 +1,5 @@
 import { useMemo, useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import type { Destination } from '@/types';
 import { Button } from '@/components/ui/button';
 import {
@@ -352,9 +353,11 @@ const travelTips = [
 
 export default function HomePage() {
   const destinations = useDestinations();
-  const [selectedDestinationId, setSelectedDestinationId] = useState<
-    number | null
-  >(null);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // Get selected destination ID from URL or default to first
+  const destIdFromUrl = searchParams.get('id');
+  const selectedDestinationId = destIdFromUrl ? parseInt(destIdFromUrl) : null;
 
   const selectedDestination = useMemo<Destination | null>(() => {
     if (!destinations.length) return null;
@@ -366,6 +369,29 @@ export default function HomePage() {
     }
     return destinations[0];
   }, [destinations, selectedDestinationId]);
+
+  // Get active tab from URL or default to 'overview'
+  const activeTab = searchParams.get('tab') || 'overview';
+
+  const handleDestinationSelect = (id: number) => {
+    setSearchParams(
+      (prev) => {
+        prev.set('id', id.toString());
+        return prev;
+      },
+      { replace: true }
+    );
+  };
+
+  const handleTabChange = (value: string) => {
+    setSearchParams(
+      (prev) => {
+        prev.set('tab', value);
+        return prev;
+      },
+      { replace: true }
+    );
+  };
 
   // News image slider state
   const [newsImageIndex, setNewsImageIndex] = useState(0);
@@ -587,7 +613,7 @@ export default function HomePage() {
                                 ? ''
                                 : 'border-transparent bg-[#fff8ec] hover:border-[#ffd8a7] hover:shadow-md'
                             }`}
-                            onClick={() => setSelectedDestinationId(dest.id)}
+                            onClick={() => handleDestinationSelect(dest.id)}
                           >
                             <div className='flex gap-3 p-2'>
                               {/* Thumbnail */}
@@ -645,7 +671,11 @@ export default function HomePage() {
 
             <Card className='border border-[#f6d9ab] bg-white shadow-2xl'>
               <CardContent className='space-y-6 bg-[#fff9ef] p-6 h-full'>
-                <Tabs defaultValue='overview' className='w-full'>
+                <Tabs
+                  value={activeTab}
+                  onValueChange={handleTabChange}
+                  className='w-full'
+                >
                   <TabsList className='grid w-full grid-cols-3 rounded-2xl bg-[#fef3d4] p-1 text-[#c26a1f]'>
                     {[
                       { value: 'overview', label: 'Câu chuyện' },

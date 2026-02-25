@@ -8,6 +8,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useFoodCategoriesData } from '@/hooks/useData';
 import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -87,13 +88,33 @@ function ImageGallery({ images, name }: ImageGalleryProps) {
 
 export default function FoodPage() {
   const foodCategories = useFoodCategories();
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // Get active tab from URL or default to first category ID
+  const activeTab =
+    searchParams.get('tab') || foodCategories[0]?.id || 'rice-dishes';
+
+  const handleTabChange = (value: string) => {
+    setSearchParams(
+      (prev) => {
+        prev.set('tab', value);
+        return prev;
+      },
+      { replace: true }
+    );
+  };
+
   return (
     <div className='font-sans-soft min-h-screen bg-gradient-to-b from-[#fffdf5] via-[#fff4df] to-[#ffe6c9] text-[#6b4525]'>
       {/* Nội dung chính */}
       <main className='mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8'>
         <div className='space-y-12'>
           {/* Tab danh mục món ăn */}
-          <Tabs defaultValue='rice-dishes' className='w-full'>
+          <Tabs
+            value={activeTab}
+            onValueChange={handleTabChange}
+            className='w-full'
+          >
             <TabsList className='flex overflow-x-auto bg-white/80 backdrop-blur-sm border border-[#ffd8a7] rounded-xl p-1 shadow-lg scrollbar-hide'>
               {foodCategories.map((category) => (
                 <TabsTrigger
