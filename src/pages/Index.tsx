@@ -1,6 +1,7 @@
 import { useMemo, useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import type { Destination } from '@/types';
+import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -56,6 +57,8 @@ import {
   TrendingUp,
   MapPin,
   Check,
+  Play,
+  Video,
 } from 'lucide-react';
 
 // ImageGallery Component with Lightbox
@@ -320,6 +323,85 @@ function ImageGallery({ images, destinationName }: ImageGalleryProps) {
             </ScrollArea>
           </div>
         </div>
+      )}
+    </div>
+  );
+}
+
+// Video Player Component
+interface VideoPlayerProps {
+  videoUrl?: string;
+  name: string;
+  className?: string;
+}
+
+function VideoPlayer({ videoUrl, name, className }: VideoPlayerProps) {
+  if (!videoUrl) {
+    return (
+      <div
+        className={cn(
+          'flex flex-col items-center justify-center h-64 md:h-96 bg-gradient-to-br from-[#fff8ec] to-[#ffe6c9] rounded-lg border-2 border-dashed border-[#ffd8a7]',
+          className
+        )}
+      >
+        <Play className='h-16 w-16 text-[#ffb347] mb-4 opacity-50' />
+        <p className='text-[#6b4525] text-lg font-medium'>
+          Chưa có video giới thiệu
+        </p>
+      </div>
+    );
+  }
+
+  const getEmbedUrl = (url: string) => {
+    if (url.includes('youtube.com') || url.includes('youtu.be')) {
+      if (url.includes('embed/')) return url;
+      const videoId = url.split('v=')[1]?.split('&')[0] || url.split('/').pop();
+      return `https://www.youtube.com/embed/${videoId}`;
+    }
+
+    if (url.includes('drive.google.com')) {
+      return url
+        .replace(/\/view.*$/, '/preview')
+        .replace(/\/edit.*$/, '/preview');
+    }
+
+    return url;
+  };
+
+  const isExternal =
+    videoUrl.includes('youtube.com') ||
+    videoUrl.includes('youtu.be') ||
+    videoUrl.includes('drive.google.com');
+
+  const embedUrl = getEmbedUrl(videoUrl);
+
+  return (
+    <div
+      className={cn(
+        'relative w-full overflow-hidden rounded-3xl shadow-2xl bg-black',
+        className
+      )}
+      style={
+        !className?.includes('h-') ? { paddingBottom: '56.25%' } : undefined
+      }
+    >
+      {isExternal ? (
+        <iframe
+          className='absolute top-0 left-0 w-full h-full border-0'
+          src={embedUrl}
+          title={`Video giới thiệu ${name}`}
+          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+          allowFullScreen
+        />
+      ) : (
+        <video
+          className='absolute top-0 left-0 w-full h-full object-contain'
+          controls
+          preload='metadata'
+        >
+          <source src={videoUrl} type='video/mp4' />
+          Trình duyệt của bạn không hỗ trợ video.
+        </video>
       )}
     </div>
   );
@@ -672,14 +754,15 @@ export default function HomePage() {
             <Card className='border border-[#f6d9ab] bg-white shadow-2xl'>
               <CardContent className='space-y-6 bg-[#fff9ef] p-6 h-full'>
                 <Tabs
+                  key={`${selectedDestination.id}-${activeTab}`}
                   value={activeTab}
                   onValueChange={handleTabChange}
                   className='w-full'
                 >
                   <TabsList className='grid w-full grid-cols-3 rounded-2xl bg-[#fef3d4] p-1 text-[#c26a1f]'>
                     {[
-                      { value: 'overview', label: 'Câu chuyện' },
                       { value: 'gallery', label: 'Thư viện' },
+                      { value: 'overview', label: 'Câu chuyện' },
                       { value: 'news', label: 'Thông tin' },
                     ].map((tab) => (
                       <TabsTrigger
@@ -755,6 +838,18 @@ export default function HomePage() {
                           })}
                       </div>
 
+                      {/* Video Introduction - Only render when overview tab is active to stop video on tab switch */}
+                      {activeTab === 'overview' &&
+                        selectedDestination.video && (
+                          <div className='animate-in fade-in slide-in-from-bottom-4 duration-700'>
+                            <VideoPlayer
+                              videoUrl={selectedDestination.video}
+                              name={selectedDestination.name}
+                              className='w-full mb-8'
+                            />
+                          </div>
+                        )}
+
                       {/* Key highlights section */}
                       <div className='mt-8 grid gap-3 sm:grid-cols-2'>
                         <div className='flex items-start gap-3 rounded-xl bg-gradient-to-br from-[#fff8ec] to-white p-4 shadow-sm'>
@@ -779,6 +874,7 @@ export default function HomePage() {
                               />
                             </svg>
                           </div>
+
                           <div>
                             <p className='font-semibold text-[#b25a13]'>
                               Vị trí

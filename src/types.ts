@@ -13,6 +13,7 @@ export type Destination = {
   images_news: string[];
   foods: DestinationFood[];
   address: string;
+  video?: string; // URL to local video or YouTube link
 };
 
 export type LocalTip = {
@@ -40,12 +41,16 @@ export type Attraction = {
   description: string;
   images: string[]; // Changed from single image to array of images
   location?: string;
+  video?: string; // URL to local video or YouTube link
+  badge?: string; // e.g., 'Hot', 'Trending', 'New'
 };
 
 export type Dish = {
   name: string;
   description: string;
   images: string[]; // Changed from single image to array of images
+  video?: string; // URL to local video or YouTube link
+  badge?: string; // e.g., 'Hot', 'Trending', 'New'
 };
 
 export type District = {

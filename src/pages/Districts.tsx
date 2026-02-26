@@ -9,7 +9,24 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useDistrictsData } from '@/hooks/useData';
-import { ChevronLeft, ChevronRight, Play } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
+import {
+  ChevronLeft,
+  ChevronRight,
+  Play,
+  Video,
+  Flame,
+  Sparkles,
+  Star,
+} from 'lucide-react';
 
 const useDistricts = () => {
   const { items } = useDistrictsData();
@@ -20,9 +37,10 @@ const useDistricts = () => {
 interface ImageGalleryProps {
   images: string[];
   name: string;
+  badge?: string;
 }
 
-function ImageGallery({ images, name }: ImageGalleryProps) {
+function ImageGallery({ images, name, badge }: ImageGalleryProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   if (!images || images.length === 0) return null;
@@ -35,8 +53,44 @@ function ImageGallery({ images, name }: ImageGalleryProps) {
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
+  const getBadgeStyles = (text: string) => {
+    const t = text.toLowerCase();
+    if (t.includes('hot') || t.includes('nóng')) {
+      return 'from-[#ff4d4d] to-[#f9cb28] shadow-[#ff4d4d]/30';
+    }
+    if (t.includes('trending') || t.includes('xu hướng')) {
+      return 'from-[#8e2de2] to-[#4a00e0] shadow-[#8e2de2]/30';
+    }
+    if (t.includes('new') || t.includes('mới')) {
+      return 'from-[#11998e] to-[#38ef7d] shadow-[#11998e]/30';
+    }
+    return 'from-[#ffb347] to-[#ff7b54] shadow-[#ffb347]/30';
+  };
+
+  const getBadgeIcon = (text: string) => {
+    const t = text.toLowerCase();
+    if (t.includes('hot') || t.includes('nóng'))
+      return <Flame className='w-3 h-3 mr-1 animate-pulse' />;
+    if (t.includes('trending') || t.includes('xu hướng'))
+      return <Sparkles className='w-3 h-3 mr-1' />;
+    if (t.includes('new') || t.includes('mới'))
+      return <Star className='w-3 h-3 mr-1 fill-white' />;
+    return null;
+  };
+
   return (
     <div className='relative h-80 overflow-hidden group'>
+      {badge && (
+        <div
+          className={cn(
+            'absolute top-4 left-4 z-20 flex items-center px-3 py-1.5 rounded-full text-white text-[10px] font-bold uppercase tracking-wider shadow-lg bg-gradient-to-r backdrop-blur-sm',
+            getBadgeStyles(badge)
+          )}
+        >
+          {getBadgeIcon(badge)}
+          {badge}
+        </div>
+      )}
       <img
         src={images[currentIndex]}
         alt={`${name} - ${currentIndex + 1}`}
@@ -89,12 +143,18 @@ function ImageGallery({ images, name }: ImageGalleryProps) {
 interface VideoPlayerProps {
   videoUrl?: string;
   districtName: string;
+  className?: string;
 }
 
-function VideoPlayer({ videoUrl, districtName }: VideoPlayerProps) {
+function VideoPlayer({ videoUrl, districtName, className }: VideoPlayerProps) {
   if (!videoUrl) {
     return (
-      <div className='flex flex-col items-center justify-center h-64 md:h-96 bg-gradient-to-br from-[#fff8ec] to-[#ffe6c9] rounded-lg border-2 border-dashed border-[#ffd8a7]'>
+      <div
+        className={cn(
+          'flex flex-col items-center justify-center h-64 md:h-96 bg-gradient-to-br from-[#fff8ec] to-[#ffe6c9] rounded-lg border-2 border-dashed border-[#ffd8a7]',
+          className
+        )}
+      >
         <Play className='h-16 w-16 text-[#ffb347] mb-4 opacity-50' />
         <p className='text-[#6b4525] text-lg font-medium'>
           Chưa có video giới thiệu
@@ -130,8 +190,13 @@ function VideoPlayer({ videoUrl, districtName }: VideoPlayerProps) {
 
   return (
     <div
-      className='relative w-full overflow-hidden rounded-lg shadow-2xl bg-black'
-      style={{ paddingBottom: '56.25%' }}
+      className={cn(
+        'relative w-full overflow-hidden rounded-lg shadow-2xl bg-black',
+        className
+      )}
+      style={
+        !className?.includes('h-') ? { paddingBottom: '56.25%' } : undefined
+      }
     >
       {isExternal ? (
         <iframe
@@ -276,6 +341,7 @@ export default function DistrictsPage() {
 
             <CardContent className='p-8'>
               <Tabs
+                key={`${selectedDistrict.id}-${activeTab}`}
                 value={activeTab}
                 onValueChange={handleTabChange}
                 className='w-full'
@@ -297,7 +363,8 @@ export default function DistrictsPage() {
                     value='video'
                     className='data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#ffb347] data-[state=active]:to-[#ff7b54] data-[state=active]:text-white rounded-lg transition-all duration-300 hover:scale-105 font-sans-soft text-xs sm:text-sm px-2 sm:px-4 py-2'
                   >
-                    <span className='hidden sm:inline'>🎬 </span>Video
+                    <span className='hidden sm:inline'>🎬 </span>Video giới
+                    thiệu
                   </TabsTrigger>
                 </TabsList>
 
@@ -311,12 +378,47 @@ export default function DistrictsPage() {
                         <ImageGallery
                           images={attraction.images || []}
                           name={attraction.name}
+                          badge={attraction.badge}
                         />
                         <CardHeader className='pb-4'>
-                          <CardTitle className='text-xl font-display text-[#b25a13] group-hover:text-[#ff7b54] transition-colors duration-300'>
-                            {attraction.name}
-                          </CardTitle>
-                          <CardDescription className='text-[#6b4525] leading-relaxed'>
+                          <div className='flex justify-between items-start gap-4'>
+                            <CardTitle className='text-xl font-display text-[#b25a13] group-hover:text-[#ff7b54] transition-colors duration-300'>
+                              {attraction.name}
+                            </CardTitle>
+                            {attraction.video && (
+                              <Dialog>
+                                <DialogTrigger asChild>
+                                  <Button
+                                    variant='outline'
+                                    size='sm'
+                                    className='flex items-center gap-2 border-[#ffb347] text-[#b25a13] hover:bg-[#ffb347] hover:text-white transition-all duration-300'
+                                  >
+                                    <Video className='h-5 w-5' />
+                                    <span className='hidden sm:inline'>
+                                      Video giới thiệu
+                                    </span>
+                                  </Button>
+                                </DialogTrigger>
+                                <DialogContent className='max-w-4xl bg-white/95 backdrop-blur-md border-[#ffd8a7]'>
+                                  <DialogHeader>
+                                    <DialogTitle className='text-2xl font-display text-[#b25a13]'>
+                                      Video giới thiệu: {attraction.name}
+                                    </DialogTitle>
+                                  </DialogHeader>
+                                  <div className='mt-4'>
+                                    {activeTab === 'attractions' && (
+                                      <VideoPlayer
+                                        className='w-full h-[600px]'
+                                        videoUrl={attraction.video}
+                                        districtName={attraction.name}
+                                      />
+                                    )}
+                                  </div>
+                                </DialogContent>
+                              </Dialog>
+                            )}
+                          </div>
+                          <CardDescription className='text-[#6b4525] leading-relaxed pt-5'>
                             {attraction.description}
                           </CardDescription>
                           {attraction.location && (
@@ -346,12 +448,47 @@ export default function DistrictsPage() {
                         <ImageGallery
                           images={dish.images || []}
                           name={dish.name}
+                          badge={dish.badge}
                         />
                         <CardHeader className='pb-4'>
-                          <CardTitle className='text-xl font-display text-[#b25a13] group-hover:text-[#ff7b54] transition-colors duration-300'>
-                            {dish.name}
-                          </CardTitle>
-                          <CardDescription className='text-[#6b4525] leading-relaxed'>
+                          <div className='flex justify-between items-start gap-4'>
+                            <CardTitle className='text-xl font-display text-[#b25a13] group-hover:text-[#ff7b54] transition-colors duration-300'>
+                              {dish.name}
+                            </CardTitle>
+                            {dish.video && (
+                              <Dialog>
+                                <DialogTrigger asChild>
+                                  <Button
+                                    variant='outline'
+                                    size='sm'
+                                    className='flex items-center gap-2 border-[#ffb347] text-[#b25a13] hover:bg-[#ffb347] hover:text-white transition-all duration-300'
+                                  >
+                                    <Video className='h-5 w-5' />
+                                    <span className='hidden sm:inline'>
+                                      Video giới thiệu
+                                    </span>
+                                  </Button>
+                                </DialogTrigger>
+                                <DialogContent className='max-w-4xl bg-white/95 backdrop-blur-md border-[#ffd8a7]'>
+                                  <DialogHeader>
+                                    <DialogTitle className='text-2xl font-display text-[#b25a13]'>
+                                      Video giới thiệu: {dish.name}
+                                    </DialogTitle>
+                                  </DialogHeader>
+                                  <div className='mt-4'>
+                                    {activeTab === 'cuisine' && (
+                                      <VideoPlayer
+                                        className='w-full h-[600px]'
+                                        videoUrl={dish.video}
+                                        districtName={dish.name}
+                                      />
+                                    )}
+                                  </div>
+                                </DialogContent>
+                              </Dialog>
+                            )}
+                          </div>
+                          <CardDescription className='text-[#6b4525] leading-relaxed pt-5'>
                             {dish.description}
                           </CardDescription>
                         </CardHeader>
@@ -362,10 +499,12 @@ export default function DistrictsPage() {
 
                 <TabsContent value='video' className='pt-8'>
                   <div className='max-w-5xl mx-auto'>
-                    <VideoPlayer
-                      videoUrl={selectedDistrict.video}
-                      districtName={selectedDistrict.name}
-                    />
+                    {activeTab === 'video' && (
+                      <VideoPlayer
+                        videoUrl={selectedDistrict.video}
+                        districtName={selectedDistrict.name}
+                      />
+                    )}
                     {selectedDistrict.video && (
                       <div className='mt-6 p-4 bg-gradient-to-r from-[#fff8ec] to-white rounded-lg border border-[#ffd8a7]'>
                         <p className='text-sm text-[#6b4525] leading-relaxed'>
