@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
+import { getImgUrl } from '@/data/defaults';
 
 export function Footer() {
   return (
     <footer className='relative isolate mt-16 overflow-hidden bg-gradient-to-b from-[#0b5c55] via-[#0a4a45] to-[#082f2d] text-amber-50'>
       <div className='absolute inset-0 opacity-20'>
         <img
-          src='/images/ThtNt.jpg'
+          src={getImgUrl('ThtNt.jpg')}
           alt='Thốt Nốt Background'
           className='h-full w-full object-cover'
         />
@@ -20,7 +21,7 @@ export function Footer() {
               className='flex items-center gap-2 sm:gap-3 text-white/90 justify-center lg:justify-start'
             >
               <img
-                src='/images/Logo_tỉnh_An_Giang.png'
+                src={getImgUrl('Logo_tỉnh_An_Giang.png')}
                 alt='Logo An Giang'
                 className='h-10 w-10 sm:h-12 sm:w-12 rounded-full border border-white/40 bg-white/10 object-cover shadow-lg'
               />

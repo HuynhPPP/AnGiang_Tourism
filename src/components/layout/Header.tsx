@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { getImgUrl } from '@/data/defaults';
 
 const navItems = [
   { path: '/', label: 'Điểm Đến' },
@@ -23,7 +24,7 @@ export function Header() {
   return (
     <header className='relative isolate overflow-hidden bg-gradient-to-br from-cyan-900/90 via-emerald-800/80 to-amber-700/90 text-white shadow-lg'>
       <img
-        src='/images/TriTonImgs/thotnottraitim01.jpg'
+        src={getImgUrl('TriTonImgs/thotnottraitim01.jpg')}
         alt='Cánh đồng thốt nốt An Giang'
         className='absolute inset-0 h-full w-full object-cover opacity-40'
       />
@@ -36,7 +37,7 @@ export function Header() {
               className='flex items-center gap-2 sm:gap-3 text-white/90 justify-center lg:justify-start'
             >
               <img
-                src='/images/Logo_tỉnh_An_Giang.png'
+                src={getImgUrl('Logo_tỉnh_An_Giang.png')}
                 alt='Logo An Giang'
                 className='h-10 w-10 sm:h-12 sm:w-12 rounded-full border border-white/40 bg-white/10 object-cover shadow-lg'
               />

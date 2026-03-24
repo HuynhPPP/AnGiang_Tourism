@@ -1,5 +1,8 @@
 import type { Destination, FoodCategory, District, LocalTip } from '@/types';
 
+export const getImgUrl = (path: string) => new URL(`../assets/images/${path}`, import.meta.url).href;
+export const getVideoUrl = (path: string) => new URL(`../assets/videos/${path}`, import.meta.url).href;
+
 export const defaultDestinations: Destination[] = [
   // Núi Sam
   {
@@ -12,20 +15,20 @@ export const defaultDestinations: Destination[] = [
     story:
       'Câu chuyện thú vị về núi Sam xoay quanh những truyền thuyết về sự linh thiêng của Miếu Bà Chúa Xứ, như việc tượng Bà được 9 cô gái đồng trinh khiêng từ núi xuống, hay lời đồn về việc Bà phù hộ người dân tránh khỏi thiên tai, điển hình là trận lụt lớn năm 2000 không ngập được miếu. Một bí ẩn khác là nghi vấn về tượng Bà Chúa Xứ: có giả thuyết cho rằng đây là tượng Phật của người Khmer, bị người Việt sử dụng và trang điểm thành tượng Bà Chúa Xứ. ',
     images: [
-      '/images/ChauDocImgs/mieu-ba-chua-xu-nui-sam-an-giang.jpg',
-      '/images/ChauDocImgs/SamMountain.jpg',
-      '/images/ChauDocImgs/nui-sam-5.jpg',
-      '/images/ChauDocImgs/Nui-Sam-8.jpg',
-      '/images/ChauDocImgs/nui_sam_1.jpg',
-      '/images/ChauDocImgs/nui_sam_2.jpg',
-      '/images/ChauDocImgs/nui_sam_3.jpg',
-      '/images/ChauDocImgs/nui_sam_9.jpg',
+      getImgUrl('ChauDocImgs/mieu-ba-chua-xu-nui-sam-an-giang.jpg'),
+      getImgUrl('ChauDocImgs/SamMountain.jpg'),
+      getImgUrl('ChauDocImgs/nui-sam-5.jpg'),
+      getImgUrl('ChauDocImgs/Nui-Sam-8.jpg'),
+      getImgUrl('ChauDocImgs/nui_sam_1.jpg'),
+      getImgUrl('ChauDocImgs/nui_sam_2.jpg'),
+      getImgUrl('ChauDocImgs/nui_sam_3.jpg'),
+      getImgUrl('ChauDocImgs/nui_sam_9.jpg'),
     ],
     images_news: [
-      '/images/ChauDocImgs/tuong-phat-nui-sam.jpg',
-      '/images/ChauDocImgs/tuong-phat-nui-sam-2.png',
-      '/images/ChauDocImgs/tuong-phat-nui-sam-3.jpg',
-      '/images/ChauDocImgs/tuong-phat-nui-sam-4.jpg',
+      getImgUrl('ChauDocImgs/tuong-phat-nui-sam.jpg'),
+      getImgUrl('ChauDocImgs/tuong-phat-nui-sam-2.png'),
+      getImgUrl('ChauDocImgs/tuong-phat-nui-sam-3.jpg'),
+      getImgUrl('ChauDocImgs/tuong-phat-nui-sam-4.jpg'),
     ],
     foods: [
       {
@@ -40,7 +43,7 @@ export const defaultDestinations: Destination[] = [
       },
     ],
     address: 'Châu Đốc, An Giang',
-    video: '/videos/Chau_Doc/gioi-thieu-nui-sam-le-hoi.mp4',
+    video: getVideoUrl('Chau_Doc/gioi-thieu-nui-sam-le-hoi.mp4'),
   },
   // Núi Cấm
   {
@@ -52,13 +55,13 @@ export const defaultDestinations: Destination[] = [
     story:
       'Núi Cấm có nhiều câu chuyện thú vị về nguồn gốc tên gọi, trong đó phổ biến nhất là chuyện vua Gia Long ẩn náu tại đây và ra lệnh cấm người dân lên núi. Một truyền thuyết khác kể rằng núi có nhiều hổ dữ, được gọi là Núi Cấm để bảo vệ người dân. Bên cạnh đó, còn có truyền thuyết về rắn hổ mây khổng lồ và câu chuyện về một con bạch hổ được tu hành nhưng cuối cùng lại bị người dân giết hại.',
     images: [
-      '/images/TinhBienImgs/Nui_cam/nui-cam-1.jpg',
-      '/images/TinhBienImgs/Nui_cam/nui-cam-2.jpg',
-      '/images/TinhBienImgs/Nui_cam/nui-cam-3.jpg',
-      '/images/TinhBienImgs/Nui_cam/nui-cam-4.jpg',
-      '/images/TinhBienImgs/Nui_cam/nui-cam-5.jpg',
-      '/images/TinhBienImgs/Nui_cam/nui-cam-6.jpg',
-      '/images/TinhBienImgs/Nui_cam/nui-cam-7.jpg',
+      getImgUrl('TinhBienImgs/Nui_cam/nui-cam-1.jpg'),
+      getImgUrl('TinhBienImgs/Nui_cam/nui-cam-2.jpg'),
+      getImgUrl('TinhBienImgs/Nui_cam/nui-cam-3.jpg'),
+      getImgUrl('TinhBienImgs/Nui_cam/nui-cam-4.jpg'),
+      getImgUrl('TinhBienImgs/Nui_cam/nui-cam-5.jpg'),
+      getImgUrl('TinhBienImgs/Nui_cam/nui-cam-6.jpg'),
+      getImgUrl('TinhBienImgs/Nui_cam/nui-cam-7.jpg'),
     ],
     images_news: [],
     foods: [
@@ -74,7 +77,7 @@ export const defaultDestinations: Destination[] = [
       },
     ],
     address: 'Tinh Biên, An Giang',
-    video: '/videos/Tinh_Bien/gioi-thieu-nui-cam.mp4',
+    video: getVideoUrl('Tinh_Bien/gioi-thieu-nui-cam.mp4'),
   },
   // Làng Chăm
   {
@@ -86,10 +89,10 @@ export const defaultDestinations: Destination[] = [
     story:
       'Điều làm nên giá trị độc đáo của thổ cẩm Châu Phong chính là sự tinh tế trong từng công đoạn, từ xe sợi, nhuộm màu, căng khung đến dệt thành phẩm. Không có máy móc hỗ trợ, mọi thao tác đều được thực hiện thủ công bằng đôi tay khéo léo với sự kiên trì, bền bỉ và kỹ thuật được truyền thừa từ bao đời. Khác với thổ cẩm của nhiều nơi khác, sản phẩm ở làng dệt thổ cẩm An Giang nổi bật với gam màu nóng rực rỡ như đỏ, cam, vàng, tím… được phối hài hòa để tạo nên những hoa văn hình học và họa tiết cách điệu mang ý nghĩa tâm linh sâu sắc. Đặc biệt, kỹ thuật “canh sợi dọc” để tạo hoa văn trực tiếp trên khung go là bí quyết riêng chỉ còn ít nghệ nhân có thể thực hiện. Nguyên liệu được dùng ở làng nghề dệt thổ cẩm An Giang hoàn toàn tự nhiên, được nhuộm từ vỏ cây, củ nghệ, trái mặc nưa… giúp màu sắc bền đẹp và thân thiện với môi trường. Nhờ đó, các sản phẩm thổ cẩm của làng càng dùng càng mềm mại, bóng đẹp và mang giá trị thẩm mỹ cao.',
     images: [
-      '/images/TanChauImgs/lang-cham-1.jpg',
-      '/images/TanChauImgs/lang-cham-2.jpg',
-      '/images/TanChauImgs/lang-cham-3.jpg',
-      '/images/TanChauImgs/lang-cham-4.jpg',
+      getImgUrl('TanChauImgs/lang-cham-1.jpg'),
+      getImgUrl('TanChauImgs/lang-cham-2.jpg'),
+      getImgUrl('TanChauImgs/lang-cham-3.jpg'),
+      getImgUrl('TanChauImgs/lang-cham-4.jpg'),
     ],
     images_news: [],
     foods: [
@@ -104,7 +107,7 @@ export const defaultDestinations: Destination[] = [
       },
     ],
     address: 'Tân Châu, An Giang',
-    video: '/videos/Tan_Chau/gioi-thieu-lang-cham.mp4',
+    video: getVideoUrl('Tan_Chau/gioi-thieu-lang-cham.mp4'),
   },
   // Rừng tràm Trà Sư
   {
@@ -116,13 +119,13 @@ export const defaultDestinations: Destination[] = [
     story:
       'Rừng tràm Trà Sư, An Giang nổi tiếng với câu chuyện về sự hình thành trên đất phèn ngập nước, biến thành “bảo tàng sống” của hệ sinh thái miền Tây, và nỗ lực bảo tồn với nhiều chương trình phục hồi và quản lý. Nơi đây còn thú vị vì vẻ đẹp hoang sơ của rừng ngập nước, với rặng tràm xanh mướt, thảm bèo phủ kín mặt nước, cùng sự đa dạng của hơn 140 loài thực vật và 70 loài chim. ',
     images: [
-      '/images/TinhBienImgs/rung_tram_8.jpg',
-      '/images/TinhBienImgs/rung_tram_2.jpg',
-      '/images/TinhBienImgs/rung_tram_3.jpg',
-      '/images/TinhBienImgs/rung_tram_4.jpg',
-      '/images/TinhBienImgs/rung_tram_5.jpg',
-      '/images/TinhBienImgs/rung_tram_6.jpg',
-      '/images/TinhBienImgs/rung_tram_7.jpg',
+      getImgUrl('TinhBienImgs/rung_tram_8.jpg'),
+      getImgUrl('TinhBienImgs/rung_tram_2.jpg'),
+      getImgUrl('TinhBienImgs/rung_tram_3.jpg'),
+      getImgUrl('TinhBienImgs/rung_tram_4.jpg'),
+      getImgUrl('TinhBienImgs/rung_tram_5.jpg'),
+      getImgUrl('TinhBienImgs/rung_tram_6.jpg'),
+      getImgUrl('TinhBienImgs/rung_tram_7.jpg'),
     ],
     images_news: [],
     foods: [
@@ -138,7 +141,7 @@ export const defaultDestinations: Destination[] = [
       },
     ],
     address: 'Ấp Văn Trà, Văn Giáo, Tịnh Biên, An Giang',
-    video: '/videos/Tinh_Bien/gioi-thieu-rung-cham-tra-su.mp4',
+    video: getVideoUrl('Tinh_Bien/gioi-thieu-rung-cham-tra-su.mp4'),
   },
   // Nhà Mồ Ba Chúc
   {
@@ -150,11 +153,11 @@ export const defaultDestinations: Destination[] = [
     story:
       'Năm 1979, chính quyền và nhân dân tỉnh An Giang đã xây dựng khu nhà mồ Ba Chúc, trên diện tích 3.000m2 (còn gọi là khu chứng tích tội ác Pôn Pốt) nhằm tưởng nhớ những thường dân vô tội bị bọn diệt chủng Pôn Pốt sát hại, để những người yêu chuộng hòa bình trên toàn thế giới tận mắt chứng kiến. Bà Hà Thị Nga được người dân quen gọi "Má Tư nhà mồ", bởi không như những người từng chứng kiến tội ác man rợ của bọn Pôn Pốt thường phải rời bỏ quê hương vì không thể chịu nổi nỗi đau mất mát và cả những ký ức kinh hoàng đó. Bà Nga vẫn bám trụ tại quê hương và âm thầm trông coi nhà mồ vì một lẽ: "Tôi ở lại vì nơi đây còn có chồng con và người thân của tôi. Họ cần tôi chăm sóc, cầu nguyện"',
     images: [
-      '/images/TriTonImgs/nha-mo-ba-chuc-4.jpg',
-      '/images/TriTonImgs/nha-mo-ba-chuc-1.jpg',
-      '/images/TriTonImgs/nha-mo-ba-chuc-2.jpg',
-      '/images/TriTonImgs/nha-mo-ba-chuc-3.jpg',
-      '/images/TriTonImgs/nha-mo-ba-chuc-5.jpg',
+      getImgUrl('TriTonImgs/nha-mo-ba-chuc-4.jpg'),
+      getImgUrl('TriTonImgs/nha-mo-ba-chuc-1.jpg'),
+      getImgUrl('TriTonImgs/nha-mo-ba-chuc-2.jpg'),
+      getImgUrl('TriTonImgs/nha-mo-ba-chuc-3.jpg'),
+      getImgUrl('TriTonImgs/nha-mo-ba-chuc-5.jpg'),
     ],
     images_news: [],
     foods: [
@@ -169,6 +172,7 @@ export const defaultDestinations: Destination[] = [
       },
     ],
     address: 'Tri Tôn, An Giang',
+    video: getVideoUrl('Tri_Ton/nha_mo_ba_chuc_home_page.mp4'),
   },
 ];
 
@@ -178,7 +182,7 @@ export const localTipsFood: LocalTip[] = [
     title: 'Món ăn đặc sản',
     description:
       'Món ăn đặc sản của An Giang là cơm tấm Long Xuyên, cơm lá sen và bánh giò.',
-    image: '/images/LongXuyenImgs/Foods/com-tam-LX.jpg',
+    image: getImgUrl('LongXuyenImgs/Foods/com-tam-LX.jpg'),
   },
 ];
 
@@ -192,14 +196,14 @@ export const defaultFoodCategories: FoodCategory[] = [
         description:
           'Cơm tấm với thịt heo sắt, trứng và rau. Món ăn phổ biến ở miền Nam Việt Nam với hương vị đặc trưng của An Giang.',
         origin: 'Long Xuyên, An Giang',
-        image: '/images/LongXuyenImgs/Foods/com-tam-LX.jpg',
+        image: getImgUrl('LongXuyenImgs/Foods/com-tam-LX.jpg'),
       },
       {
         name: 'Cơm Lá Sen',
         description:
           'Cơm được nấu trong lá sen, tạo hương vị thơm ngon đặc biệt. Thường được phục vụ kèm với các món đặc sản địa phương.',
         origin: 'Vùng đồng bằng sông Cửu Long, bao gồm An Giang',
-        image: '/images/Foods/com-hap-la-sen.jpg',
+        image: getImgUrl('Foods/com-hap-la-sen.jpg'),
       },
     ],
   },
@@ -212,28 +216,28 @@ export const defaultFoodCategories: FoodCategory[] = [
         description:
           'Đặc sản Châu Đốc, với bún, cá lóc, chả cá và rau trong nước dùng ngọt thanh từ xương cá.',
         origin: 'Châu Đốc, An Giang',
-        image: '/images/LongXuyenImgs/Foods/bun_ca_long_xuyen_1.jpg',
+        image: getImgUrl('LongXuyenImgs/Foods/bun_ca_long_xuyen_1.jpg'),
       },
       {
         name: 'Bún mắm Châu Đốc',
         description:
           'Bún Mắm Châu Đốc là một biểu tượng của ẩm thực miền Tây, nổi tiếng với hương vị đậm đà đặc trưng của mắm. Nước lèo bún mắm được nấu từ nhiều loại mắm cá linh, mắm sặc, cùng với xương heo, tôm, mực, cá, tạo nên một nồi nước dùng sánh đặc, ngọt thanh và thơm lừng mà không hề tanh.',
         origin: 'Châu Đốc, An Giang',
-        image: '/images/Foods/bun-mam.jpg',
+        image: getImgUrl('Foods/bun-mam.jpg'),
       },
       {
         name: 'Bún Kèn',
         description:
           'Bún Kèn An Giang cũng là món ăn lâu đời và có tiếng tại vùng đất Châu Đốc. Món ngon này được chế biến từ những nguyên liệu có sẵn của vùng sông nước miền Tây.',
         origin: 'Châu Đốc, An Giang',
-        image: '/images/Foods/bun-ken.jpg',
+        image: getImgUrl('Foods/bun-ken.jpg'),
       },
       {
         name: 'Bánh canh Khmer',
         description:
           'Bánh canh Khmer (hay còn gọi là bánh canh Vĩnh Trung) rất được các bạn gần xa ưa chuộng nhé! Bắt nguồn từ xã Vĩnh Trung, huyện Tịnh Biên, món ăn này do một người phụ nữ Khmer tên là Neang Oanh Na chế biến ra cách đây hàng chục năm.',
         origin: 'An Giang',
-        image: '/images/Foods/banh-canh-khmer.jpeg',
+        image: getImgUrl('Foods/banh-canh-khmer.jpeg'),
       },
     ],
   },
@@ -246,35 +250,35 @@ export const defaultFoodCategories: FoodCategory[] = [
         description:
           'Từ khi ra đời đến nay, mắm Châu Đốc đã có gần 150 năm tuổi thọ với hàng trăm loại mắm có hương vị hoàn toàn khác nhau.',
         origin: 'Châu Đốc, An Giang',
-        image: '/images/Foods/Mam/mam_chau_doc.jpg',
+        image: getImgUrl('Foods/Mam/mam_chau_doc.jpg'),
       },
       {
         name: 'Lẩu mắm',
         description:
           'Món lẩu đặc trưng với nước dùng từ mắm, rau và các loại thịt. Món ăn đặc sản của vùng đồng bằng sông Cửu Long.',
         origin: 'Vùng đồng bằng sông Cửu Long, bao gồm An Giang',
-        image: '/images/Foods/Mam/lau-mam.jpeg',
+        image: getImgUrl('Foods/Mam/lau-mam.jpeg'),
       },
       {
         name: 'Mắm cá linh',
         description:
           'Mắm ruốc dùng làm gia vị hoặc nguyên liệu nấu ăn. Phiên bản An Giang có hương vị đặc trưng riêng.',
         origin: 'An Giang',
-        image: '/images/Foods/Mam/mam-ca-linh.jpg',
+        image: getImgUrl('Foods/Mam/mam-ca-linh.jpg'),
       },
       {
         name: 'Mắm Thái',
         description:
           'Mắm thái An Giang, đặc biệt là mắm thái Châu Đốc, là một món đặc sản nổi tiếng của vùng An Giang, được làm từ cá lóc và đu đủ, kết hợp cùng các loại gia vị tạo nên hương vị thơm ngon đặc trưng.',
         origin: 'Vùng đồng bằng sông Cửu Long',
-        image: '/images/Foods/Mam/mam-thai.jpg',
+        image: getImgUrl('Foods/Mam/mam-thai.jpg'),
       },
       {
         name: 'Mắm cá lóc',
         description:
           'Mắm cá lóc là một món đặc sản nổi tiếng của vùng Châu Đốc, An Giang, được làm từ cá lóc tươi ngon và các nguyên liệu truyền thống.',
         origin: 'Châu Đốc, An Giang',
-        image: '/images/Foods/Mam/mam-ca-loc.jpg',
+        image: getImgUrl('Foods/Mam/mam-ca-loc.jpg'),
       },
     ],
   },
@@ -287,56 +291,56 @@ export const defaultFoodCategories: FoodCategory[] = [
         description:
           'Món ăn đặc trưng của Châu Đốc, thường được làm trong dịp lễ hội Bà Chúa Xứ.',
         origin: 'Châu Đốc, An Giang',
-        image: '/images/Foods/heo-quay.jpg',
+        image: getImgUrl('Foods/heo-quay.jpg'),
       },
       {
         name: 'Bánh tằm bì Tân Châu',
         description:
           'Món bánh tằm đặc trưng của Tân Châu, ăn kèm với bì heo và nước cốt dừa.',
         origin: 'Tân Châu, An Giang',
-        image: '/images/Foods/banh-tam-bi.jpg',
+        image: getImgUrl('Foods/banh-tam-bi.jpg'),
       },
       {
         name: 'Bánh xèo núi Cấm',
         description:
           'Bánh xèo được ăn kèm với các loại rau rừng đặc trưng của vùng Thất Sơn.',
         origin: 'Tịnh Biên, An Giang',
-        image: '/images/Foods/banh-xeo-nui-cam.jpg',
+        image: getImgUrl('Foods/banh-xeo-nui-cam.jpg'),
       },
       {
         name: 'Cơm nị - cà púa',
         description:
           'Món ăn truyền thống của người Chăm, được làm từ gạo nếp và các loại gia vị đặc trưng.',
         origin: 'An Phú, An Giang',
-        image: '/images/Foods/com-ni-ca-pua.jpg',
+        image: getImgUrl('Foods/com-ni-ca-pua.jpg'),
       },
       {
         name: 'Thịt bò bảy món',
         description:
           'Một đặc sản vùng Châu Đốc khác cũng được khá nhiều thực khách ưa chuộng là món bò bảy món núi Sam.',
         origin: 'Châu Đốc, An Giang',
-        image: '/images/Foods/bo-7-mon.jpg',
+        image: getImgUrl('Foods/bo-7-mon.jpg'),
       },
       {
         name: 'Bánh bò thốt nốt',
         description:
           'Đây là một món được nhắc đến khá nhiều khi bạn đến vùng An Giang, bánh bò được làm bằng đường thốt nốt - loài cây đặc trưng của xứ An Giang.',
         origin: 'An Giang',
-        image: '/images/Foods/banh-bo-thot-not.jpg',
+        image: getImgUrl('Foods/banh-bo-thot-not.jpg'),
       },
       {
         name: 'Gà đốt lá chúc Ô Thum',
         description:
           'Bất kì ai đặt chân đến vùng đất An Giang cũng đều phải thử món gà đốt lá chúc Ô Thum huyền thoại. Món ăn có nguồn gốc từ Campuchia. Lá chúc như một loại gia vị đặc biệt tạo nên hương vị đặc trưng không lẫn vào đầu được cho món gà nướng.',
         origin: 'Tri Tôn, An Giang',
-        image: '/images/Foods/ga-dot.jpg',
+        image: getImgUrl('Foods/ga-dot.jpg'),
       },
       {
         name: 'Cháo bò Tri Tôn',
         description:
           'Cháo bò là món ăn quen thuộc của người dân địa phương huyện Tri Tôn. Gạo để nấu cháo bò phải dùng loại gạo lúa mùa “sóc Khmer” có hương thơm, độ dẻo đặc trưng.',
         origin: 'Tri Tôn, An Giang',
-        image: '/images/Foods/chao-bo.jpg',
+        image: getImgUrl('Foods/chao-bo.jpg'),
       },
     ],
   },
@@ -347,7 +351,7 @@ export const defaultDistricts: District[] = [
   {
     id: 'long-xuyen',
     name: 'Thành phố Long Xuyên',
-    image: '/images/LongXuyenImgs/BieuTuong/den_4_ngon_lx.jpg',
+    image: getImgUrl('LongXuyenImgs/BieuTuong/den_4_ngon_lx.jpg'),
     description:
       'Thành phố Long Xuyên là tỉnh lỵ của tỉnh An Giang, nằm bên bờ sông Hậu. Là trung tâm chính trị, kinh tế, văn hóa của tỉnh An Giang.',
     attractions: [
@@ -356,10 +360,10 @@ export const defaultDistricts: District[] = [
         description:
           'Khu vực trung tâm thành phố với nhiều cửa hàng và khu chợ truyền thống, nơi bạn có thể trải nghiệm cuộc sống thường nhật của người dân địa phương.',
         images: [
-          '/images/LongXuyenImgs/ChoLX/cho_lx_1.jpg',
-          '/images/LongXuyenImgs/ChoLX/cho_lx_2.jpg',
-          '/images/LongXuyenImgs/ChoLX/cho_lx_3.jpg',
-          '/images/LongXuyenImgs/ChoLX/cho_lx_4.jpg',
+          getImgUrl('LongXuyenImgs/ChoLX/cho_lx_1.jpg'),
+          getImgUrl('LongXuyenImgs/ChoLX/cho_lx_2.jpg'),
+          getImgUrl('LongXuyenImgs/ChoLX/cho_lx_3.jpg'),
+          getImgUrl('LongXuyenImgs/ChoLX/cho_lx_4.jpg'),
         ],
         location: '2 Nguyễn Trãi, Mỹ Long, Thành phố Long Xuyên, An Giang',
         video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
@@ -369,9 +373,9 @@ export const defaultDistricts: District[] = [
         description:
           'Những ngôi chùa cổ trong nội ô thành phố Long Xuyên có kiến trúc đẹp và mang đậm nét văn hóa Phật giáo của người dân vùng sông nước.',
         images: [
-          '/images/LongXuyenImgs/ChoNoiLX/cho_noi_1.jpg',
-          '/images/LongXuyenImgs/ChoNoiLX/cho_noi_2.jpg',
-          '/images/LongXuyenImgs/ChoNoiLX/cho_noi_3.jpg',
+          getImgUrl('LongXuyenImgs/ChoNoiLX/cho_noi_1.jpg'),
+          getImgUrl('LongXuyenImgs/ChoNoiLX/cho_noi_2.jpg'),
+          getImgUrl('LongXuyenImgs/ChoNoiLX/cho_noi_3.jpg'),
         ],
         location: '22 Ngô Thời Nhậm, Thành phố Long Xuyên, tỉnh An Giang',
         video: 'https://www.youtube.com/embed/S_8S3-0W_Kk',
@@ -381,9 +385,9 @@ export const defaultDistricts: District[] = [
         description:
           'Chùa Ông Bắc là một trong những địa điểm du lịch Long Xuyên được nhiều du khách ghé tham quan. Chùa có lịch sử lâu đời và thường được biết đến với một tên gọi khác là Quảng Đông tỉnh Hội Quán.',
         images: [
-          '/images/LongXuyenImgs/ChuaOngBac/chua_ong_bac_1.jpg',
-          '/images/LongXuyenImgs/ChuaOngBac/chua_ong_bac_2.jpg',
-          '/images/LongXuyenImgs/ChuaOngBac/chua_ong_bac_3.jpg',
+          getImgUrl('LongXuyenImgs/ChuaOngBac/chua_ong_bac_1.jpg'),
+          getImgUrl('LongXuyenImgs/ChuaOngBac/chua_ong_bac_2.jpg'),
+          getImgUrl('LongXuyenImgs/ChuaOngBac/chua_ong_bac_3.jpg'),
         ],
         location:
           '68 Phạm Hồng Thái, phường Mỹ Long, thành phố Long Xuyên, tỉnh An Giang',
@@ -393,11 +397,11 @@ export const defaultDistricts: District[] = [
         description:
           'Bảo tàng An Giang là nơi trưng bày hiện vật và các tư liệu lịch sử, văn hóa của tỉnh An Giang.',
         images: [
-          '/images/LongXuyenImgs/BaoTangAG/bao_tang_AG_1.jpg',
-          '/images/LongXuyenImgs/BaoTangAG/bao_tang_AG_2.jpg',
-          '/images/LongXuyenImgs/BaoTangAG/bao_tang_AG_3.jpg',
-          '/images/LongXuyenImgs/BaoTangAG/bao_tang_AG_4.jpg',
-          '/images/LongXuyenImgs/BaoTangAG/bao_tang_AG_5.jpg',
+          getImgUrl('LongXuyenImgs/BaoTangAG/bao_tang_AG_1.jpg'),
+          getImgUrl('LongXuyenImgs/BaoTangAG/bao_tang_AG_2.jpg'),
+          getImgUrl('LongXuyenImgs/BaoTangAG/bao_tang_AG_3.jpg'),
+          getImgUrl('LongXuyenImgs/BaoTangAG/bao_tang_AG_4.jpg'),
+          getImgUrl('LongXuyenImgs/BaoTangAG/bao_tang_AG_5.jpg'),
         ],
         location:
           '11 Tôn Đức Thắng, phường Mỹ Bình, thành phố Long Xuyên, tỉnh An Giang.',
@@ -408,7 +412,7 @@ export const defaultDistricts: District[] = [
         name: 'Bún cá Long Xuyên',
         description:
           'Đặc sản nổi tiếng với nước lèo ngọt, chả cá, bún mềm, thêm bông diêu điền, rau sống.',
-        images: ['/images/LongXuyenImgs/Foods/bun_ca_long_xuyen_1.jpg'],
+        images: [getImgUrl('LongXuyenImgs/Foods/bun_ca_long_xuyen_1.jpg')],
         video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
         badge: 'HOT',
       },
@@ -416,16 +420,16 @@ export const defaultDistricts: District[] = [
         name: 'Cơm tấm Long Xuyên',
         description:
           'Món cơm tấm đặc trưng của vùng Nam bộ, được phục vụ với sườn nướng, bì, chả, trứng và đồ chua.',
-        images: ['/images/LongXuyenImgs/Foods/com-tam-LX.jpg'],
+        images: [getImgUrl('LongXuyenImgs/Foods/com-tam-LX.jpg')],
       },
     ],
-    video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    video: getVideoUrl('Long_Xuyen/gioi-thieu-long-xuyen.mp4'),
   },
   // châu đốc
   {
     id: 'chau-doc',
     name: 'Thành phố Châu Đốc',
-    image: '/images/ChauDocImgs/tuong_dai_ca_ba_cd.jpg',
+    image: getImgUrl('ChauDocImgs/tuong_dai_ca_ba_cd.jpg'),
     description:
       'Thành phố Châu Đốc nằm ven biên giới Việt Nam - Campuchia, nổi tiếng với khu di tích Núi Sam và Miếu Bà Chúa Xứ.',
     attractions: [
@@ -434,13 +438,13 @@ export const defaultDistricts: District[] = [
         description:
           'Tượng Phật Thích Ca cao 81m được đặt trên khu đất rộng 5.500m2, với chi phí đầu tư khoảng 255 tỷ đồng. Sau khi hoàn thành, đây là "tượng Phật ngồi thiền, khắc vào vách đá" cao nhất thế giới.',
         images: [
-          '/images/ChauDocImgs/tuong-phat-nui-sam.jpg',
-          '/images/ChauDocImgs/tuong-phat-nui-sam-2.png',
-          '/images/ChauDocImgs/tuong-phat-nui-sam-3.jpg',
-          '/images/ChauDocImgs/tuong-phat-nui-sam-4.jpg',
+          getImgUrl('ChauDocImgs/tuong-phat-nui-sam.jpg'),
+          getImgUrl('ChauDocImgs/tuong-phat-nui-sam-2.png'),
+          getImgUrl('ChauDocImgs/tuong-phat-nui-sam-3.jpg'),
+          getImgUrl('ChauDocImgs/tuong-phat-nui-sam-4.jpg'),
         ],
         location: '731 Tân Lộ Kiều Lương, phường Núi Sam, Châu Đốc, An Giang',
-        video: '/videos/Chau_Doc/gioi-thieu-tuong-phat.mp4',
+        video: getVideoUrl('Chau_Doc/gioi-thieu-tuong-phat.mp4'),
         badge: 'HOT',
       },
       {
@@ -448,23 +452,23 @@ export const defaultDistricts: District[] = [
         description:
           'Khu di tích linh thiêng với Miếu Bà Chúa Xứ nổi tiếng, là điểm hành hương quan trọng của người dân Nam bộ.',
         images: [
-          '/images/ChauDocImgs/Chua-Ba-Chau-Doc-An-Giang-1.jpg',
-          '/images/ChauDocImgs/nui_sam_1.jpg',
-          '/images/ChauDocImgs/nui_sam_2.jpg',
-          '/images/ChauDocImgs/nui_sam_3.jpg',
-          '/images/ChauDocImgs/nui-sam-5.jpg',
-          '/images/ChauDocImgs/Nui-Sam-8.jpg',
-          '/images/ChauDocImgs/nui_sam_9.jpg',
+          getImgUrl('ChauDocImgs/Chua-Ba-Chau-Doc-An-Giang-1.jpg'),
+          getImgUrl('ChauDocImgs/nui_sam_1.jpg'),
+          getImgUrl('ChauDocImgs/nui_sam_2.jpg'),
+          getImgUrl('ChauDocImgs/nui_sam_3.jpg'),
+          getImgUrl('ChauDocImgs/nui-sam-5.jpg'),
+          getImgUrl('ChauDocImgs/Nui-Sam-8.jpg'),
+          getImgUrl('ChauDocImgs/nui_sam_9.jpg'),
         ],
         location: 'thuộc phường Núi Sam, thành phố Châu Đốc, tỉnh An Giang',
-        video: '/videos/Chau_Doc/gioi-thieu-mieu-ba.mp4',
+        video: getVideoUrl('Chau_Doc/gioi-thieu-mieu-ba.mp4'),
         badge: 'HOT',
       },
       {
         name: 'Chợ nổi Châu Đốc',
         description:
           'Khu chợ nổi trên sông, nơi diễn ra các hoạt động giao thương truyền thống của người dân vùng sông nước.',
-        images: ['/images/ChauDocImgs/cho-noi-CD.jpg'],
+        images: [getImgUrl('ChauDocImgs/cho-noi-CD.jpg')],
         location: 'P498+86R, Đa Phước, Châu Đốc, An Giang',
         video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
       },
@@ -473,7 +477,7 @@ export const defaultDistricts: District[] = [
         name: 'Khu du lịch cáp treo Núi Sam',
         description:
           'Khu du lịch cáp treo Núi Sam là hệ thống cáp treo được đầu tư bởi công ty MGA Việt Nam và do các kiến trúc sư Cộng hòa Áo xây dựng. Hệ thống cáp có chiều dài 900m với 37 cabin. Mỗi cabin của khu cáp treo chở được tối đa 8 khách và di chuyển liên tục đưa mọi người lên Núi Sam.',
-        images: ['/images/ChauDocImgs/cap-treo-nui-sam.jpg'],
+        images: [getImgUrl('ChauDocImgs/cap-treo-nui-sam.jpg')],
         location:
           'Khóm Vĩnh Tây 3, phường Núi Sam, Thành phố Châu Đốc, tỉnh An Giang.',
       },
@@ -481,21 +485,21 @@ export const defaultDistricts: District[] = [
         name: 'Chùa Tây An Núi Sam',
         description:
           'Chùa Tây An được Tổ chức Kỷ lục Việt Nam xác nhận là "ngôi chùa có kiến trúc kết hợp phong cách nghệ thuật Ấn Độ và kiến trúc cổ dân tộc đầu tiên tại Việt Nam" vào năm 1980.',
-        images: ['/images/ChauDocImgs/chua-tay-an.jpg'],
+        images: [getImgUrl('ChauDocImgs/chua-tay-an.jpg')],
         location: 'Đường Vòng Núi Sam, phường Núi Sam, Châu Đốc, An Giang',
       },
       {
         name: 'Chùa hang',
         description:
           'Chùa Hang (Phước Điền Tự) tọa lạc trên triền núi Sam, là một trong những địa điểm du lịch Châu Đốc cho tín đồ hành hương đến chiêm bái. Xung quanh ngôi chùa được bao bọc bởi núi non hùng vĩ cùng nhiều loài hoa khoe sắc thắm quanh năm, tạo thành một bức tranh nên thơ cho chùa Hang cổ kính.',
-        images: ['/images/ChauDocImgs/chua-hang-AG.jpg'],
+        images: [getImgUrl('ChauDocImgs/chua-hang-AG.jpg')],
         location: 'phường Núi Sam, thành phố Châu Đốc, tỉnh An Giang',
       },
       {
         name: 'Chùa Huỳnh Đạo',
         description:
           'Chùa Huỳnh Đạo sở hữu khuôn viên rộng đến 3.000 m2 với hơn 50 bức tượng Phật bằng đá với nhiều tư thế dáng vẻ khác nhau. Trong đó, phải nhắc đến bức tượng Phật bà Quan âm trong tư thế ngồi thiền cao hơn 30 mét, càng tạo thêm vẻ uy nghi, trang trọng cho ngôi chùa.',
-        images: ['/images/ChauDocImgs/chua-huynh-dao-chau-doc-1.jpg'],
+        images: [getImgUrl('ChauDocImgs/chua-huynh-dao-chau-doc-1.jpg')],
         location:
           'Quốc lộ 91 Tân Lộ Kiều Lương, Vĩnh Đông 2, Châu Đốc, An Giang',
       },
@@ -504,21 +508,21 @@ export const defaultDistricts: District[] = [
         name: 'Victoria Núi Sam Lodge',
         description:
           'Tọa lạc trên sườn núi Sam hùng vĩ, Victoria Nui Sam Lodge sở hữu vị trí đắc địa để du khách hòa mình vào thiên nhiên nguyên sơ, hít thở không khí trong lành và tận hưởng những trải nghiệm độc đáo.',
-        images: ['/images/ChauDocImgs/victoria-nui-sam.jpg'],
+        images: [getImgUrl('ChauDocImgs/victoria-nui-sam.jpg')],
         location: 'Khóm Vĩnh Đông 1 , Phường Núi Sam, Châu Đốc, Tỉnh An Giang',
       },
       {
         name: 'Chùa Long Sơn Núi Sam',
         description:
           'Chùa Long Sơn Núi Sam nằm trên đường lên đỉnh Núi Sam, ngôi chùa là một trong những địa điểm du lịch Châu Đốc.',
-        images: ['/images/ChauDocImgs/chua-long-son.jpg'],
+        images: [getImgUrl('ChauDocImgs/chua-long-son.jpg')],
         location: 'Xã Vĩnh Phước, Châu Đốc, An Giang',
       },
       {
         name: 'Biệt thự bác sĩ Nu - Địa điểm du lịch Châu Đốc đầy ma mị',
         description:
           'Biệt thự Bác sĩ Nu nằm trên sườn núi Sam, được xây dựng trước năm 1975, ban đầu nơi đây được dùng để nghỉ mát và dưỡng bệnh cho bệnh nhân.',
-        images: ['/images/ChauDocImgs/biet-thu-bac-si-Nu.jpg'],
+        images: [getImgUrl('ChauDocImgs/biet-thu-bac-si-Nu.jpg')],
         location: 'phường Núi Sam, thành phố Châu Đốc, tỉnh An Giang',
       },
     ],
@@ -526,34 +530,84 @@ export const defaultDistricts: District[] = [
       {
         name: 'Lẩu mắm Châu Đốc',
         description:
-          'Món ăn đặc sản từ cá linh kho với mắm, ăn kèm nhiều loại rau và bún.',
+          'Lẩu mắm là đặc sản Châu Đốc không còn xa lạ với tín đồ du lịch. Nguyên liệu chính để nấu món lẩu này là mắm cá chốt và mắm cá sặc tươi ngon. Nước lẩu mắm thơm nồng, nêm nếm vừa miệng khi kết hợp với các món ăn kèm như chả, thịt heo, hải sản… và đa dạng loại rau đặc trưng của miền Tây mang đến bữa tiệc vị giác đầy ấn tượng.',
         images: [
-          'https://statics.vinpearl.com/lau-mam-chau-doc-2_1632307614.png',
+          getImgUrl('ChauDocImgs/Foods/lau-mam.jpeg'),
         ],
-        video: 'https://www.youtube.com/embed/S_8S3-0W_Kk',
+        video: getVideoUrl('Chau_Doc/lau-mam-chau-doc.mp4'),
       },
       {
-        name: 'Gỏi sầu đâu',
+        name: 'Lẩu cá bông lau',
         description:
-          'Món gỏi độc đáo được làm từ lá và hoa sầu đâu, chấm cá kho Châu Đốc.',
-        images: ['https://i.ytimg.com/vi/-MFuQO3YPzE/maxresdefault.jpg'],
+          'Đứng đầu trong danh sách đặc sản Châu Đốc là món lẩu cá bông lau ngon trứ danh. Lẩu được nấu bằng nước dừa tươi và me nên có vị chua thanh hấp dẫn. Khi ăn thêm vào đó cá bông lau chiên giòn và các loại rau đặc trưng của miền Tây như dừa nước, rau đắng, bông so đũa… Thịt cá bông lau ngon ngọt, có độ béo nhẹ hòa quyện cùng nước lẩu chua chua, chấm nước mắm ớt thì còn gì bằng.',
+        images: [
+          getImgUrl('ChauDocImgs/Foods/lau-ca-bong-lau.jpeg'),
+        ],
+      },
+      {
+        name: 'Cá lóc nướng trui',
+        description:
+          'Miền Tây nổi tiếng với đa dạng món cuốn độc đáo. Châu Đốc cũng không ngoại lệ khi có món cá lóc nướng trui cuốn bánh tráng khiến ai từng thử qua đều thích mê. Sau khi chọn được cá lóc đồng ưng ý, người địa phương sẽ sơ chế sạch sẽ rồi mang đi nước trui. Cá khi chín có thịt trắng, dậy hương thơm lừng, ăn kèm với bánh tráng, bún tươi và các loại rau thơm để làm nổi bật lên hương vị.',
+        images: [
+          getImgUrl('ChauDocImgs/Foods/ca-loc-nuong-chui.jpeg'),
+        ],
       },
       {
         name: 'Bò bảy món Núi Sam',
         description:
-          'Gồm lòng bò, bò lúc lắc, bò khìa bánh mì, cháo bò, bò xào lá giang và các món khác từ thịt bò.',
+          'Bò bảy món núi Sam là món ngon làm nên tên tuổi ẩm thực Châu Đốc. Đúng như cái tên, món ăn gồm 7 món khác nhau làm từ loại thịt bò ngon nhất vùng Thất Sơn. Đó là bò xào lá giang, lòng bò luộc, bò khìa bánh mì, bò bít tết, bò lúc lắc và cháo bò. Thông thường, người địa phương ít khi mua bò theo kg để chế biến mà sử dụng cả một con bò. Đó là lý do món ăn sở hữu hương vị thơm ngon, hội tụ tất cả tinh túy của giống bò nổi tiếng.',
         images: [
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTxpPzZsEd1fzOYlNQyoZN0YRoKukMd_6b_A&usqp=CAU',
+          getImgUrl('ChauDocImgs/Foods/bo-7-mon-nui-sam.jpeg'),
+        ],
+      },
+      {
+        name: 'Gỏi bưởi khô cá lóc',
+        description:
+          'Nếu đã quá quen với gỏi rau củ, MIA.vn mách bạn đổi gió với món gỏi bưởi khô cá lóc dễ ăn, dễ làm. Sau khi mua khô cá lóc về chỉ cần nướng lên, xé theo từng thớ nhỏ rồi trộn với tép bưởi và các loại rau thơm bằng nước mắm tỏi ớt. Ấy vậy là đã có ngay món ăn quen thuộc, bình dị mà thơm ngon khó cưỡng của người Châu Đốc - An Giang.',
+        images: [
+          getImgUrl('ChauDocImgs/Foods/goi-buoi-kho-ca-loc.jpeg'),
+        ],
+      },
+      {
+        name: 'Bún cá Châu Đốc',
+        description:
+          'Bún cá Châu Đốc còn được biết đến với tên gọi khác là bún nước lèo. Món bún có phần nước ninh từ xương heo, thịt cá lóc xào nghệ, các loại mắm cá linh, mắm ruốc và cuối cùng là tôm khô. Được tạo nên từ nguyên liệu đặc trưng của miền Tây nước lèo ăn vào cảm nhận được độ ngọt thanh, thơm nồng vị mắm và mang sắc vàng nghệ bắt mắt. Hương vị món bún càng thêm tròn đầy khi có một đĩa đầy đủ các loại rau đắng, rau nhút, bông điên điển, bắp chuối… và bát nước mắm hoặc muối ớt nhỏ để chấm thịt cá tươi ngon.',
+        images: [
+          getImgUrl('ChauDocImgs/Foods/bun-ca-chau-doc.jpeg'),
+        ],
+      },
+      {
+        name: 'Mắm đặc sản Châu Đốc',
+        description:
+          'Châu Đốc - An Giang là vùng đất có sản lượng cá tôm dồi dào, do đó để bảo quản được lâu hơn, người dân địa phương đã sáng tạo nên món mắm với hương vị thơm nồng hấp dẫn. Mắm ở đây có đủ loại từ mắm cá, tôm, ba khía đến mắm đu đủ. Món ăn dân dã này có thể thưởng thức theo nhiều cách khác nhau như ăn tươi, làm mắm chưng, chiên, kho, nấu lẩu hay bún nước lèo. Mắm Châu Đốc ngon nhất khi ăn kèm rau sống tươi xanh, ngon ngọt.',
+        images: [
+          getImgUrl('ChauDocImgs/Foods/mam-dac-san-chau-doc.jpeg'),
+        ],
+      },
+      {
+        name: 'Khô',
+        description:
+          'Dạo quanh chợ Châu Đốc, bên cạnh đủ loại mắm, bạn còn dễ dàng bắt gặp các hàng khô thơm ngon. Khô Châu Đốc có nhiều loại, chủ yếu là khô bò và khô cá. Mỗi loại mang hương vị đặc trưng riêng biệt, tùy theo khẩu vị của người ăn. Món khô bảo quản được lâu, do đó có thể mua về làm quà du lịch. Vào những ngày mưa rả rích, còn gì bằng nhâm nhi món khô dai giòn với chút bia tươi.',
+        images: [
+          getImgUrl('ChauDocImgs/Foods/kho-chau-doc.jpeg'),
+        ],
+      },
+      {
+        name: 'Tung lò mò',
+        description:
+          'Tung lò mò hay lạp xưởng bò là đặc sản nổi tiếng của dân tộc Chăm. Khác với các loại lạp xưởng thông thường, tung lò mò được chế biến hoàn toàn bằng thịt bò, sở hữu hương vị độc đáo. Món này dù chiên bằng nước hay nướng than hoa đều dai giòn, thơm ngon, hợp khẩu vị của nhiều người.',
+        images: [
+          getImgUrl('ChauDocImgs/Foods/tung-lo-mo.jpeg'),
         ],
       },
     ],
-    video: '/videos/Chau_Doc/mot_ngay_o_chau_doc.mp4',
+    video: getVideoUrl('Chau_Doc/mot_ngay_o_chau_doc.mp4'),
   },
   // tân châu
   {
     id: 'tan-chau',
     name: 'Thị xã Tân Châu',
-    image: '/images/TanChauImgs/tan-chau-1.jpg',
+    image: getImgUrl('TanChauImgs/tan-chau-banner-2.jpg'),
     description:
       'Thị xã Tân Châu nằm ở phía bắc tỉnh An Giang, giáp với Campuchia, nổi tiếng với nghề dệt lụa Tân Châu và các di tích lịch sử.',
     attractions: [
@@ -562,34 +616,34 @@ export const defaultDistricts: District[] = [
         description:
           'Chùa Núi Nổi (tên chữ là Phù Sơn Tự) là một ngôi chùa độc đáo tọa lạc tại ấp Núi Nổi, xã Tân Thạnh, thị xã Tân Châu, tỉnh An Giang. Ngôi chùa này nổi tiếng với vị trí nằm trên ngọn núi "thấp nhất Việt Nam" và hiện tượng thiên nhiên kỳ thú khi mùa nước nổi về.',
         images: [
-          '/images/TanChauImgs/Chua_nui_noi/chua_nui_noi_1.jpg',
-          '/images/TanChauImgs/Chua_nui_noi/chua_nui_noi_2.jpg',
-          '/images/TanChauImgs/Chua_nui_noi/chua_nui_noi_3.jpg',
-          '/images/TanChauImgs/Chua_nui_noi/chua_nui_noi_4.jpg',
-          '/images/TanChauImgs/Chua_nui_noi/chua_nui_noi_5.jpg',
-          '/images/TanChauImgs/Chua_nui_noi/chua_nui_noi_6.jpg',
-          '/images/TanChauImgs/Chua_nui_noi/chua_nui_noi_7.jpg',
-          '/images/TanChauImgs/Chua_nui_noi/chua_nui_noi_8.jpg',
+          getImgUrl('TanChauImgs/Chua_nui_noi/chua_nui_noi_1.jpg'),
+          getImgUrl('TanChauImgs/Chua_nui_noi/chua_nui_noi_2.jpg'),
+          getImgUrl('TanChauImgs/Chua_nui_noi/chua_nui_noi_3.jpg'),
+          getImgUrl('TanChauImgs/Chua_nui_noi/chua_nui_noi_4.jpg'),
+          getImgUrl('TanChauImgs/Chua_nui_noi/chua_nui_noi_5.jpg'),
+          getImgUrl('TanChauImgs/Chua_nui_noi/chua_nui_noi_6.jpg'),
+          getImgUrl('TanChauImgs/Chua_nui_noi/chua_nui_noi_7.jpg'),
+          getImgUrl('TanChauImgs/Chua_nui_noi/chua_nui_noi_8.jpg'),
         ],
         location: 'ấp Núi Nổi, xã Tân Thạnh, thị xã Tân Châu, tỉnh An Giang',
-        video: '/videos/Tan_Chau/gioi-thieu-chua-nui-noi.mp4',
+        video: getVideoUrl('Tan_Chau/gioi-thieu-chua-nui-noi.mp4'),
       },
       {
         name: 'Làng Chăm Châu Giang',
         description:
           'Ngôi làng người Chăm Châu Giang là điểm tham quan mà hội xê dịch muốn khám phá nét đẹp văn hóa độc đáo xứ này không thể bỏ qua trong hành trình du lịch miền đất Tây Nam. Tọa lạc tại xã Châu Phong, thị trấn Tân Châu, Làng Chăm Châu Giang nổi bật với tín ngưỡng Hồi giáo, tập tục ở nhà sàn và nghề dệt thổ cẩm lưu truyền qua nhiều thế hệ. Dừng chân nơi đây, bạn không chỉ có cơ hội hiểu thêm về đời sống vật chất lẫn tinh thần của người dân địa phương mà còn có thể rời xa phố thị đông đúc và sống chậm lại từng phút giây cùng ngôi làng yên bình, hiền hòa.',
         images: [
-          '/images/TanChauImgs/Lang_cham/lang-cham-1.jpeg',
-          '/images/TanChauImgs/Lang_cham/lang-cham-2.jpg',
-          '/images/TanChauImgs/Lang_cham/lang-cham-3.jpg',
-          '/images/TanChauImgs/Lang_cham/lang-cham-4.jpg',
-          '/images/TanChauImgs/Lang_cham/lang-cham-5.jpg',
-          '/images/TanChauImgs/Lang_cham/lang-cham-6.jpg',
-          '/images/TanChauImgs/Lang_cham/lang-cham-7.jpg',
+          getImgUrl('TanChauImgs/Lang_cham/lang-cham-1.jpeg'),
+          getImgUrl('TanChauImgs/Lang_cham/lang-cham-2.jpg'),
+          getImgUrl('TanChauImgs/Lang_cham/lang-cham-3.jpg'),
+          getImgUrl('TanChauImgs/Lang_cham/lang-cham-4.jpg'),
+          getImgUrl('TanChauImgs/Lang_cham/lang-cham-5.jpg'),
+          getImgUrl('TanChauImgs/Lang_cham/lang-cham-6.jpg'),
+          getImgUrl('TanChauImgs/Lang_cham/lang-cham-7.jpg'),
         ],
         location:
           'xã Châu Phong, thị trấn Tân Châu, huyện Tân Châu, tỉnh An Giang',
-        video: '/videos/Tan_Chau/gioi-thieu-lang-cham.mp4',
+        video: getVideoUrl('Tan_Chau/gioi-thieu-lang-cham.mp4'),
       },
       {
         name: 'Núi Đèn',
@@ -632,13 +686,13 @@ export const defaultDistricts: District[] = [
         images: ['https://i.ytimg.com/vi/Hx-PwK3oras/maxresdefault.jpg'],
       },
     ],
-    video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    video: getVideoUrl('Tan_Chau/gioi-thieu-tan-chau.mp4'),
   },
   // tịnh biên
   {
     id: 'tinh-bien',
     name: 'Thị xã Tịnh Biên',
-    image: '/images/TinhBienImgs/tinh_bien_1.jpg',
+    image: getImgUrl('TinhBienImgs/tinh_bien_1.jpg'),
     description:
       'Thị xã Tịnh Biên nằm ở phía Tây của tỉnh An Giang, giáp với Campuchia và huyện Tri Tôn, nổi tiếng với chợ biên giới và cảnh quan thiên nhiên.',
     attractions: [
@@ -648,13 +702,13 @@ export const defaultDistricts: District[] = [
         description:
           'Núi Cấm (Thiên Cấm Sơn) tọa lạc tại xã An Hảo, thị xã Tịnh Biên, tỉnh An Giang, là ngọn núi cao nhất (705m-710m) và hùng vĩ nhất trong dãy Thất Sơn. Được mệnh danh là "nóc nhà miền Tây", nơi đây nổi tiếng với cảnh quan thiên nhiên hoang sơ, khí hậu mát mẻ quanh năm, cùng các điểm du lịch tâm linh đặc sắc như Chùa Vạn Linh, Phật Lớn, tượng Phật Di Lặc, và hồ Thủy Liêm',
         images: [
-          '/images/TinhBienImgs/Nui_cam/nui-cam-1.jpg',
-          '/images/TinhBienImgs/Nui_cam/nui-cam-2.jpg',
-          '/images/TinhBienImgs/Nui_cam/nui-cam-3.jpg',
-          '/images/TinhBienImgs/Nui_cam/nui-cam-4.jpg',
-          '/images/TinhBienImgs/Nui_cam/nui-cam-5.jpg',
-          '/images/TinhBienImgs/Nui_cam/nui-cam-6.jpg',
-          '/images/TinhBienImgs/Nui_cam/nui-cam-7.jpg',
+          getImgUrl('TinhBienImgs/Nui_cam/nui-cam-1.jpg'),
+          getImgUrl('TinhBienImgs/Nui_cam/nui-cam-2.jpg'),
+          getImgUrl('TinhBienImgs/Nui_cam/nui-cam-3.jpg'),
+          getImgUrl('TinhBienImgs/Nui_cam/nui-cam-4.jpg'),
+          getImgUrl('TinhBienImgs/Nui_cam/nui-cam-5.jpg'),
+          getImgUrl('TinhBienImgs/Nui_cam/nui-cam-6.jpg'),
+          getImgUrl('TinhBienImgs/Nui_cam/nui-cam-7.jpg'),
         ],
         location: 'Khu du lịch Núi Cấm, An Hòa, Tịnh Biên, An Giang',
         video: 'https://www.youtube.com/embed/9XvYfS2-q-0',
@@ -665,7 +719,7 @@ export const defaultDistricts: District[] = [
         name: 'Chợ Tịnh Biên',
         description:
           'Chợ Tịnh Biên là một trong những khu chợ đầu mối sầm uất nhất vùng Đồng bằng sông Cửu Long. Với vị trí đặc biệt cách cửa khẩu quốc tế Tịnh Biên – Phnom Den (Campuchia) chỉ khoảng 2km, chợ Tịnh Biên An Giang từ lâu đã trở thành điểm giao thương nhộn nhịp giữa Việt Nam và Campuchia.',
-        images: ['/images/TinhBienImgs/cho-tinh-bien-1.jpg'],
+        images: [getImgUrl('TinhBienImgs/cho-tinh-bien-1.jpg')],
         location:
           '350 khóm Xuân Hòa, thị trấn Tịnh Biên, huyện Tịnh Biên, An Giang',
         video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
@@ -676,10 +730,10 @@ export const defaultDistricts: District[] = [
         description:
           'Cái tên “Núi Dài” bắt nguồn từ dáng hình đặc trưng của ngọn núi, trải dài như một dải lụa mềm mại, ôm trọn vùng đất Tịnh Biên trù phú. Núi dài là núi dài nhất trong vùng Thất Sơn (Bảy Núi) An Giang.',
         images: [
-          '/images/TinhBienImgs/Nui_dai/nui-dai-1.jpg',
-          '/images/TinhBienImgs/Nui_dai/nui-dai-2.jpg',
-          '/images/TinhBienImgs/Nui_dai/nui-dai-3.jpg',
-          '/images/TinhBienImgs/Nui_dai/nui-dai-4.jpg',
+          getImgUrl('TinhBienImgs/Nui_dai/nui-dai-1.jpg'),
+          getImgUrl('TinhBienImgs/Nui_dai/nui-dai-2.jpg'),
+          getImgUrl('TinhBienImgs/Nui_dai/nui-dai-3.jpg'),
+          getImgUrl('TinhBienImgs/Nui_dai/nui-dai-4.jpg'),
         ],
         location: 'Khu du lịch Núi Dài, Tịnh Biên, An Giang',
       },
@@ -689,12 +743,12 @@ export const defaultDistricts: District[] = [
         description:
           'Chùa Bánh Xèo còn được biết đến với tên gọi là Thiền viện Đông Lai hay Chùa Phật Nằm. Ngôi cổ tự này tọa lạc tại địa phận khóm Xuân Phú, thị trấn Tịnh Biên, huyện Tịnh Biên, tỉnh An Giang. Sở dĩ cái tên Chùa Bánh Xèo (Thiền viện Đông Lai) trở nên nổi tiếng là vì mỗi ngày tại đây đều phục vụ cho mọi người đến thăm chùa hàng nghìn chiếc bánh xèo chay miễn phí.',
         images: [
-          '/images/TinhBienImgs/Chua_banh_xeo/chua_banh_xeo_1.jpeg',
-          '/images/TinhBienImgs/Chua_banh_xeo/chua_banh_xeo_2.jpeg',
-          '/images/TinhBienImgs/Chua_banh_xeo/chua_banh_xeo_3.jpeg',
-          '/images/TinhBienImgs/Chua_banh_xeo/chua_banh_xeo_4.jpeg',
-          '/images/TinhBienImgs/Chua_banh_xeo/chua_banh_xeo_5.jpeg',
-          '/images/TinhBienImgs/Chua_banh_xeo/chua_banh_xeo_6.jpg',
+          getImgUrl('TinhBienImgs/Chua_banh_xeo/chua_banh_xeo_1.jpeg'),
+          getImgUrl('TinhBienImgs/Chua_banh_xeo/chua_banh_xeo_2.jpeg'),
+          getImgUrl('TinhBienImgs/Chua_banh_xeo/chua_banh_xeo_3.jpeg'),
+          getImgUrl('TinhBienImgs/Chua_banh_xeo/chua_banh_xeo_4.jpeg'),
+          getImgUrl('TinhBienImgs/Chua_banh_xeo/chua_banh_xeo_5.jpeg'),
+          getImgUrl('TinhBienImgs/Chua_banh_xeo/chua_banh_xeo_6.jpg'),
         ],
         location: 'Khu du lịch Núi Dài, Tịnh Biên, An Giang',
       },
@@ -709,13 +763,13 @@ export const defaultDistricts: District[] = [
         ],
       },
     ],
-    video: '/videos/Tinh_Bien/dia_diem_di_choi_tinh_bien.mp4',
+    video: getVideoUrl('Tinh_Bien/dia_diem_di_choi_tinh_bien.mp4'),
   },
   // an phú
   {
     id: 'an-phu',
     name: 'Huyện An Phú',
-    image: '/images/AnPhuImgs/an_phu_1.jpg',
+    image: getImgUrl('AnPhuImgs/an_phu_1.jpg'),
     description:
       'Huyện An Phú nằm ở phía Đông Bắc tỉnh An Giang, giáp với Campuchia, thị xã Tân Châu và tỉnh Đồng Tháp, nổi tiếng với vùng sông nước và biên giới.',
     attractions: [
@@ -760,7 +814,7 @@ export const defaultDistricts: District[] = [
   {
     id: 'chau-phu',
     name: 'Huyện Châu Phú',
-    image: '/images/ChauPhuImgs/Tran-Van-Thanh.jpg',
+    image: getImgUrl('ChauPhuImgs/Tran-Van-Thanh.jpg'),
     description:
       'Huyện Châu Phú nằm ở trung tâm tỉnh An Giang, bên bờ sông Hậu. Đây là vùng đất giàu truyền thống lịch sử với phong trào kháng chiến Bảy Thưa và các di tích kiến trúc nghệ thuật cấp quốc gia.',
     attractions: [
@@ -768,7 +822,7 @@ export const defaultDistricts: District[] = [
         name: 'Di tích Quản cơ Trần Văn Thành',
         description:
           'Địa chỉ lịch sử - tâm linh quan trọng, gắn liền với thủ lĩnh cuộc khởi nghĩa Bảy Thưa chống Pháp vào cuối thế kỷ XIX.',
-        images: ['/images/ChauPhuImgs/Tran-Van-Thanh.jpg'],
+        images: [getImgUrl('ChauPhuImgs/Tran-Van-Thanh.jpg')],
         location: 'Xã Thạnh Mỹ Tây, huyện Châu Phú, tỉnh An Giang',
       },
       {
@@ -797,7 +851,7 @@ export const defaultDistricts: District[] = [
   {
     id: 'chau-thanh',
     name: 'Huyện Châu Thành',
-    image: '/images/ChauThanhImgs/huyen-chau-thanh_8.jpg',
+    image: getImgUrl('ChauThanhImgs/chau-thanh-banner.jpg'),
     description:
       'Huyện Châu Thành là cửa ngõ phía Tây Bắc của TP. Long Xuyên, nổi tiếng với các di tích lịch sử như Đình Sơn Trung và các làng nghề truyền thống làm lợp lươn, rập chuột.',
     attractions: [
@@ -836,7 +890,7 @@ export const defaultDistricts: District[] = [
   {
     id: 'phu-tan',
     name: 'Huyện Phú Tân',
-    image: '/images/PhuTanImgs/phu_tan_1.jpg',
+    image: getImgUrl('PhuTanImgs/phu-tan-banner-2.png'),
     description:
       'Phú Tân là huyện cù lao nằm giữa dòng sông Tiền và sông Hậu, là cái nôi của Phật giáo Hòa Hảo và nổi tiếng với các làng nghề bánh phồng, làng rèn.',
     attractions: [
@@ -875,7 +929,7 @@ export const defaultDistricts: District[] = [
   {
     id: 'thoai-son',
     name: 'Huyện Thoại Sơn',
-    image: '/images/ThoaiSonImgs/thoai-son-1.jpg',
+    image: getImgUrl('ThoaiSonImgs/thoai-son-banner-2.png'),
     description:
       'Huyện Thoại Sơn nằm ở phía nam tỉnh An Giang, nổi tiếng với danh thắng Núi Sập, di chỉ khảo cổ Óc Eo và công trình bia Thoại Sơn ghi dấu công trạng của danh thần Thoại Ngọc Hầu.',
     attractions: [
@@ -914,7 +968,7 @@ export const defaultDistricts: District[] = [
   {
     id: 'tri-ton',
     name: 'Huyện Tri Tôn',
-    image: '/images/TriTonImgs/tri_ton_1.jpg',
+    image: getImgUrl('TriTonImgs/tri_ton_1.jpg'),
     description:
       'Huyện Tri Tôn nằm ở phía Tây của tỉnh An Giang, giáp với Tịnh Biên và Thoại Sơn, là nơi có cụm núi Thất Sơn nổi tiếng với phong cảnh hùng vĩ và nhiều di tích văn hóa lịch sử.',
     attractions: [
@@ -923,19 +977,19 @@ export const defaultDistricts: District[] = [
         description:
           'Núi Cô Tô có khá nhiều tên như: Núi Tô, Phụng Hoàng Sơn và gọi theo tiếng Khmer là Phnom-Ktô. Núi Cô Tô (Phụng Hoàng Sơn) nằm trong dãy Thất Sơn - Bảy Núi nổi tiếng.',
         images: [
-          '/images/TriTonImgs/Nui_co_to/nui_co_to_1.jpg',
-          '/images/TriTonImgs/Nui_co_to/nui_co_to_2.jpg',
-          '/images/TriTonImgs/Nui_co_to/nui_co_to_3.jpg',
-          '/images/TriTonImgs/Nui_co_to/nui_co_to_4.jpg',
+          getImgUrl('TriTonImgs/Nui_co_to/nui_co_to_1.jpg'),
+          getImgUrl('TriTonImgs/Nui_co_to/nui_co_to_2.jpg'),
+          getImgUrl('TriTonImgs/Nui_co_to/nui_co_to_3.jpg'),
+          getImgUrl('TriTonImgs/Nui_co_to/nui_co_to_4.jpg'),
         ],
         location: 'Núi Cô Tô, Phú Thọ, Tri Tôn, An Giang',
-        video: '/videos/Tri_Ton/gioi-thieu-nui-co-to.mp4',
+        video: getVideoUrl('Tri_Ton/gioi-thieu-nui-co-to.mp4'),
       },
       {
         name: 'Hồ Tà Pạ',
         description:
           'Hồ nước trong vắt được bao bọc bởi những hàng cây, núi đá. Ngày nắng trong dưới nền trời xanh rọi xuống mặt hồ tạo nên khung cảnh đẹp lung linh. Mặt hồ bằng lặng, khung cảnh hoang sơ được ví như “Tuyệt tình Cốc” của miền Tây.',
-        images: ['/images/TriTonImgs/ho_ta_pa.jpg'],
+        images: [getImgUrl('TriTonImgs/ho_ta_pa.jpg')],
         location: 'Ta Pa, Núi Tô, Tri Tôn, An Giang',
       },
       {
@@ -943,27 +997,27 @@ export const defaultDistricts: District[] = [
         description:
           '“Con đường tơ lụa” là cái tên mà nhiều người đặt cho con đường quanh co uốn lượn chạy cắt ngang cánh đồng Tà Pạ và hàng cây trâm (gần hồ Soài Chek) ở huyện Tri Tôn. Con đường này đẹp nhất là những ngày lúa xanh mơn mởn hay khi lúa chín vàng, thu hút rất đông du khách trải nghiệm, khám phá, “check-in”.',
         images: [
-          '/images/TriTonImgs/con_duong_to_lua/con-duong-to-lua-1.jpg',
-          '/images/TriTonImgs/con_duong_to_lua/con-duong-to-lua-2.jpg',
-          '/images/TriTonImgs/con_duong_to_lua/con-duong-to-lua-3.jpg',
-          '/images/TriTonImgs/con_duong_to_lua/con-duong-to-lua-4.jpg',
+          getImgUrl('TriTonImgs/con_duong_to_lua/con-duong-to-lua-1.jpg'),
+          getImgUrl('TriTonImgs/con_duong_to_lua/con-duong-to-lua-2.jpg'),
+          getImgUrl('TriTonImgs/con_duong_to_lua/con-duong-to-lua-3.jpg'),
+          getImgUrl('TriTonImgs/con_duong_to_lua/con-duong-to-lua-4.jpg'),
         ],
         location:
           'Huyện Tri Tôn, tỉnh An Giang, gần khu vực hồ Soài Chek và đồng Tà Pạ',
-        video: '/videos/Tri_Ton/gioi-thieu-con-duong-lo-lua.mp4',
+        video: getVideoUrl('Tri_Ton/gioi-thieu-con-duong-lo-lua.mp4'),
       },
       {
         name: 'Cánh đồng Tà Pạ',
         description:
           'Theo Kinh nghiệm khám phá cánh đồng Tà Pạ, đến đây vào lúc này, bạn sẽ có cơ hội chiêm ngưỡng cảnh sắc thiên nhiên vô cùng mênh mông bát ngát, tha hồ mà chụp ảnh và tận hưởng mùi hương của lúa.',
-        images: ['/images/TriTonImgs/canh_dong_ta_pa.jpg'],
+        images: [getImgUrl('TriTonImgs/canh_dong_ta_pa.jpg')],
         location: 'Dưới chân núi Tà Pạ và Cô Tô, Huyện Tri Tôn, tỉnh An Giang.',
       },
       {
         name: 'Hồ Ô Thum',
         description:
           'Ô Thum được biết đến như một con hồ ngăn nước có nhiệm vụ chính là phục vụ cho việc sản xuất nông nghiệp với diện tích khá nhỏ.',
-        images: ['/images/TriTonImgs/ho_o_thum.jpg'],
+        images: [getImgUrl('TriTonImgs/ho_o_thum.jpg')],
         location:
           'xã Ô Lâm, huyện Tri Tôn, tỉnh An Giang (dưới chân núi Cô Tô)',
       },
@@ -971,37 +1025,37 @@ export const defaultDistricts: District[] = [
         name: 'Hồ Ô Tà Sóc',
         description:
           'Hồ Ô Tà Sóc An Giang là một trong những điểm đến du lịch nổi bật và kỳ vĩ của vùng Tây Nam Bộ, thu hút du khách bởi vẻ đẹp thiên nhiên hoang sơ, hùng vĩ.',
-        images: ['/images/TriTonImgs/ho-o-ta-soc.jpg'],
+        images: [getImgUrl('TriTonImgs/ho-o-ta-soc.jpg')],
         location: 'xã Lương Phi, huyện Tri Tôn, tỉnh An Giang',
       },
       {
         name: 'Chùa Xà Tón',
         description:
           'Chùa có tên Khmer là Xvayton, có lịch sử lâu đời hơn 200 năm là địa điểm du lịch Tri Tôn được nhiều du khách đến tham quan, hành hương.',
-        images: ['/images/TriTonImgs/chua-xa-ton.jpg'],
+        images: [getImgUrl('TriTonImgs/chua-xa-ton.jpg')],
         location: 'khóm 3, thị trấn Tri Tôn, Tri Tôn, An Giang',
       },
       {
         name: 'Chùa Koh Kas (Cổng trời Tri Tôn)',
         description:
           'Cổng trời Tri Tôn còn được biết đến với tên gọi cổng chùa Koh Kas, nằm tại xã Tri Tôn (trước kia là xã Châu Lăng, Tri Tôn), tỉnh An Giang. Cánh cổng nổi bật giữa nền trời trong xanh, tọa lạc dưới chân núi Dài hùng vĩ, với ba tháp nhỏ trên đỉnh được nâng đỡ bởi bốn trụ bê tông kiên cố. Nhờ vẻ đẹp độc đáo và vị trí ấn tượng, nơi đây được du khách ưu ái gọi là “cổng trời An Giang”. Đây cũng là điểm check-in lý tưởng mà những tín đồ du lịch không nên bỏ lỡ khi đến với vùng đất Tri Tôn.',
-        images: ['/images/TriTonImgs/cong-troi-tri-ton-7.jpg'],
+        images: [getImgUrl('TriTonImgs/cong-troi-tri-ton-7.jpg')],
         location: 'xã Châu Lăng, huyện Tri Tôn, tỉnh An Giang',
-        video: '/videos/Tri_Ton/gioi-thieu-cong-troi.mp4',
+        video: getVideoUrl('Tri_Ton/gioi-thieu-cong-troi.mp4'),
         badge: 'Hot Check-in',
       },
       {
         name: 'Chùa Tà Pạ',
         description:
           'Chùa Tà Pạ còn có tên khác là Chùa Núi hay Chùa Chưn - Num theo cách gọi của người Khmer. Chùa theo phái Nam tông hệ của Phật giáo tiểu thừa đặc trưng của văn hóa Khmer.',
-        images: ['/images/TriTonImgs/chua-ta-pa.jpg'],
+        images: [getImgUrl('TriTonImgs/chua-ta-pa.jpg')],
         location: 'Đồi Tà Pạ, xã Núi Tô, huyện Tri Tôn, tỉnh An Giang',
       },
       {
         name: 'Đồi Tức Dụp',
         description:
           'Tức Dụp là ngọn đồi có nhiều hang sâu, động lớn dựa lưng vào Núi Cô Tô có vị trí cách Thành phố Long Xuyên chừng 70km và biên giới Campuchia tầm 10km.',
-        images: ['/images/TriTonImgs/Tuc-Dup-Tu-Ngon-Doi.jpg'],
+        images: [getImgUrl('TriTonImgs/Tuc-Dup-Tu-Ngon-Doi.jpg')],
         location: 'xã An Tức, huyện Tri Tôn, tỉnh An Giang',
       },
     ],
@@ -1011,12 +1065,12 @@ export const defaultDistricts: District[] = [
         description:
           'Sở dĩ món đặc sản này có tên gọi như thế là vì nó có nhiều nhất ở khu vực Hồ Ô Thum thuộc địa phận huyện Tri Tôn, tỉnh An Giang. Nằm tựa lưng vào triền núi với mặt nước phẳng lặng, xanh biếc vô cùng nên thơ, nơi này thu hút đông đảo các bạn trẻ ghé thăm không chỉ bởi khung cảnh thiên nhiên tuyệt đẹp mà còn vì món gà đốt Ô Thum trứ danh.',
         images: [
-          '/images/TriTonImgs/Foods/Ga_dot/ga-dot-1.jpg',
-          '/images/TriTonImgs/Foods/Ga_dot/ga-dot-2.jpg',
-          '/images/TriTonImgs/Foods/Ga_dot/ga-dot-3.jpg',
-          '/images/TriTonImgs/Foods/Ga_dot/ga-dot-4.jpg',
+          getImgUrl('TriTonImgs/Foods/Ga_dot/ga-dot-1.jpg'),
+          getImgUrl('TriTonImgs/Foods/Ga_dot/ga-dot-2.jpg'),
+          getImgUrl('TriTonImgs/Foods/Ga_dot/ga-dot-3.jpg'),
+          getImgUrl('TriTonImgs/Foods/Ga_dot/ga-dot-4.jpg'),
         ],
-        video: '/videos/Tri_Ton/Food/gioi-thieu-ga-dot.mp4',
+        video: getVideoUrl('Tri_Ton/Food/gioi-thieu-ga-dot.mp4'),
         badge: 'Món đặc sản',
       },
       {
@@ -1024,47 +1078,47 @@ export const defaultDistricts: District[] = [
         description:
           'Gỏi đu đủ đâm Tri Tôn được chế biến từ những nguyên liệu rất dễ tìm. Món gỏi này có rau muống, đậu đũa, cà chua, rau thơm, chanh, củ hành hòa quyện với các loại gia vị như đường, ruốc, đậu phộng và đặc biệt là mắm ruốc được pha chế theo công thức riêng. Để món gỏi được ngon thì người chế biến phải ngâm đu đủ với nước muối loãng trước. Sau khi cho hết các nguyên liệu vào cối, đầu bếp sẽ dùng chày đâm và trộn cho đến khi sợi đu đủ thấm gia vị mới bày ra đĩa. Ăn kèm Gỏi đu đủ đâm Tri Tôn có thêm trứng luộc và xiên bò nướng.',
         images: [
-          '/images/TriTonImgs/Foods/Du_du_dam/du-du-dam-1.jpg',
-          '/images/TriTonImgs/Foods/Du_du_dam/du-du-dam-2.jpg',
-          '/images/TriTonImgs/Foods/Du_du_dam/du-du-dam-3.jpg',
-          '/images/TriTonImgs/Foods/Du_du_dam/du-du-dam-4.jpg',
+          getImgUrl('TriTonImgs/Foods/Du_du_dam/du-du-dam-1.jpg'),
+          getImgUrl('TriTonImgs/Foods/Du_du_dam/du-du-dam-2.jpg'),
+          getImgUrl('TriTonImgs/Foods/Du_du_dam/du-du-dam-3.jpg'),
+          getImgUrl('TriTonImgs/Foods/Du_du_dam/du-du-dam-4.jpg'),
         ],
-        video: '/videos/Tri_Ton/Food/gioi-thieu-du-du-dam.mp4',
+        video: getVideoUrl('Tri_Ton/Food/gioi-thieu-du-du-dam.mp4'),
         badge: 'HOT',
       },
       {
         name: 'Cháo bò Tri Tôn',
         description:
           'Cháo bò là một trong những món ăn nổi bật nhất ở thị trấn Tri Tôn, món cháo được nấu như cháo lòng lợn thông thường nhưng dùng lòng bò: lá sách, gan, phổi, phèo... thêm miếng huyết mềm và thịt bò tái chín.',
-        images: ['/images/TriTonImgs/Foods/chao-bo.jpg'],
+        images: [getImgUrl('TriTonImgs/Foods/chao-bo.jpg')],
       },
       {
         name: 'Bò nướng Tri Tôn',
         description:
           'Thịt bò tươi ngon được tẩm ướp gia vị đặc trưng khmer, nướng trên bếp than hồng, ăn kèm với mắm bò hóc hoặc muối kiến vàng.',
-        images: ['/images/TriTonImgs/Foods/bo-nuong.jpg'],
+        images: [getImgUrl('TriTonImgs/Foods/bo-nuong.jpg')],
       },
 
       {
         name: 'Thốt nốt sữa',
         description:
           'Nước thốt nốt để tủ đông lạnh cho đến khi sền sệt như đá bào, sau đó để ra ly cho vào đó cái thốt nốt, chế vào ly 1 ít sữa bò cùng đậu phộng.',
-        images: ['/images/TriTonImgs/Foods/thot-not-sua.jpeg'],
+        images: [getImgUrl('TriTonImgs/Foods/thot-not-sua.jpeg')],
       },
       {
         name: 'Bánh bò thốt nốt',
         description:
           'Bánh bò thốt nốt được làm từ cây thốt nốt – loài cây gắn liền với cuộc sống của người Khmer.',
-        images: ['/images/TriTonImgs/Foods/banh-bo-thot-not.jpeg'],
+        images: [getImgUrl('TriTonImgs/Foods/banh-bo-thot-not.jpeg')],
       },
     ],
-    video: '/videos/Tri_Ton/gioi_thieu_tri_ton_1.mp4',
+    video: getVideoUrl('Tri_Ton/gioi_thieu_tri_ton_1.mp4'),
   },
   // chợ mới
   {
     id: 'cho-moi',
     name: 'Huyện Chợ Mới',
-    image: '/images/ChoMoiImgs/cho-moi-1.jpg',
+    image: getImgUrl('ChoMoiImgs/cho-moi-banner.jpg'),
     description:
       'Huyện Chợ Mới là vùng đất cù lao trù phú nằm giữa hai dòng sông Tiền và sông Hậu, nổi tiếng với các làng nghề truyền thống lâu đời và quần thể di tích kiến trúc tôn giáo đặc sắc tại Cù Lao Giêng.',
     attractions: [
