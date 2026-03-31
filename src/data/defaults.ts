@@ -1048,11 +1048,19 @@ export const defaultDistricts: District[] = [
         name: 'Chùa Tà Pạ',
         description:
           'Chùa Tà Pạ còn có tên khác là Chùa Núi hay Chùa Chưn - Num theo cách gọi của người Khmer. Chùa theo phái Nam tông hệ của Phật giáo tiểu thừa đặc trưng của văn hóa Khmer.',
-        images: [getImgUrl('TriTonImgs/chua-ta-pa.jpg')],
+        badge: 'Hot Check-in',
+        images: [
+          getImgUrl('TriTonImgs/chua_ta_pa/1.jpg'),
+          getImgUrl('TriTonImgs/chua_ta_pa/2.jpg'),
+          getImgUrl('TriTonImgs/chua_ta_pa/3.jpg'),
+          getImgUrl('TriTonImgs/chua_ta_pa/4.jpg'),
+        ],
         location: 'Đồi Tà Pạ, xã Núi Tô, huyện Tri Tôn, tỉnh An Giang',
+        video: getVideoUrl('Tri_Ton/chua_ta_pa.mp4'),
       },
       {
         name: 'Đồi Tức Dụp',
+        
         description:
           'Tức Dụp là ngọn đồi có nhiều hang sâu, động lớn dựa lưng vào Núi Cô Tô có vị trí cách Thành phố Long Xuyên chừng 70km và biên giới Campuchia tầm 10km.',
         images: [getImgUrl('TriTonImgs/Tuc-Dup-Tu-Ngon-Doi.jpg')],
@@ -1112,7 +1120,7 @@ export const defaultDistricts: District[] = [
         images: [getImgUrl('TriTonImgs/Foods/banh-bo-thot-not.jpeg')],
       },
     ],
-    video: getVideoUrl('Tri_Ton/gioi_thieu_tri_ton_1.mp4'),
+    video: getVideoUrl('Tri_Ton/chua_ta_pa.mp4'),
   },
   // chợ mới
   {

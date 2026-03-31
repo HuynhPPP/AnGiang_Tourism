@@ -6,8 +6,7 @@ import { useDestinationsData } from '@/hooks/useData';
 
 import { HeroSection } from '@/components/home/HeroSection';
 import { DestinationSection } from '@/components/home/DestinationSection';
-import { FoodSection } from '@/components/home/FoodSection';
-import { ExperienceSection } from '@/components/home/ExperienceSection';
+import { TouristMoments } from '@/components/home/TouristMoments';
 
 const useDestinations = () => {
   const { items } = useDestinationsData();
@@ -74,9 +73,7 @@ export default function HomePage() {
             handleTabChange={handleTabChange}
           />
           
-          {/* <FoodSection foodHighlights={foodHighlights} />
-          
-          <ExperienceSection /> */}
+          <TouristMoments />
         </main>
       </TooltipProvider>
     </div>
