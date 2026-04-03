@@ -408,6 +408,7 @@ export const defaultDistricts: District[] = [
         location: 'Khu du lịch Núi Cấm, An Hòa, Tịnh Biên, An Giang',
         video: 'https://www.youtube.com/embed/9XvYfS2-q-0', 
       },
+      // Chùa Kim Tiên
       {
         name: 'Chùa Kim Tiên',
         badge: 'HOT Check-in',
@@ -428,6 +429,7 @@ export const defaultDistricts: District[] = [
         location: 'xã An Phú, thị trấn Nhà Bàng, huyện Tịnh Biên, tỉnh An Giang',
         video: getVideoUrl('Tinh_Bien/chua-kim-tien.mp4'),
       },
+      // Chùa Lầu - Phước Lâm Tự
       {
         name: 'Chùa Lầu - Phước Lâm Tự',
         badge: 'HOT Check-in',
@@ -464,6 +466,7 @@ export const defaultDistricts: District[] = [
         location: 'Khu du lịch Núi Dài, Tịnh Biên, An Giang',
         video: getVideoUrl('Tinh_Bien/chua-banh-xeo.mp4'),
       },
+      // Miếu Bà Chúa Xứ Bàu Mướp
       {
         name: 'Miếu Bà Chúa Xứ Bàu Mướp',
         badge: 'HOT Check-in',
@@ -479,6 +482,22 @@ export const defaultDistricts: District[] = [
         ],
         location: 'khóm Sơn Đông, thị trấn Nhà Bàng, huyện Tịnh Biên, tỉnh An Giang',
         video: getVideoUrl('Tinh_Bien/mieu-ba-chua-xu-bau-muop.mp4'),
+      },
+      // Núi ông két
+      {
+        name: 'Núi két - Anh Vũ Sơn',
+        badge: 'HOT Check-in',
+        description:
+          'Núi Két còn được gọi theo tên chữ là Anh Vũ Sơn, hay dân gian quen gọi là núi Ông Két, là một trong những ngọn núi thuộc dãy Thất Sơn (Bảy Núi). Núi tọa lạc tại phường Thới Sơn, tỉnh An Giang (trước đây thuộc thị xã Tịnh Biên). Dù không cao lớn hay hùng vĩ như núi Cấm, núi Dài hay núi Cô Tô, nhưng núi Ông Két ở An Giang vẫn mang trong mình vẻ đẹp riêng biệt, mộc mạc và đầy cuốn hút.',
+        images: [
+          getImgUrl('TinhBienImgs/nui-ong-ket/1.jpg'),
+          getImgUrl('TinhBienImgs/nui-ong-ket/2.jpg'),
+          getImgUrl('TinhBienImgs/nui-ong-ket/3.jpg'),
+          getImgUrl('TinhBienImgs/nui-ong-ket/4.jpg'),
+          getImgUrl('TinhBienImgs/nui-ong-ket/5.jpg'),
+        ],
+        location: 'phường Thới Sơn, thị xã Tịnh Biên, tỉnh An Giang',
+        video: getVideoUrl('Tinh_Bien/nui-ong-ket.mp4'),
       },
       // chợ tịnh biên
       {
@@ -793,6 +812,109 @@ export const defaultDistricts: District[] = [
     description:
       'Huyện Tri Tôn nằm ở phía Tây của tỉnh An Giang, giáp với Tịnh Biên và Thoại Sơn, là nơi có cụm núi Thất Sơn nổi tiếng với phong cảnh hùng vĩ và nhiều di tích văn hóa lịch sử.',
     attractions: [
+      // Chùa Koh Kas (Cổng trời Tri Tôn)
+      {
+        name: 'Chùa Koh Kas (Cổng trời Tri Tôn)',
+        description:
+          'Cổng trời Tri Tôn còn được biết đến với tên gọi cổng chùa Koh Kas, nằm tại xã Tri Tôn (trước kia là xã Châu Lăng, Tri Tôn), tỉnh An Giang. Cánh cổng nổi bật giữa nền trời trong xanh, tọa lạc dưới chân núi Dài hùng vĩ, với ba tháp nhỏ trên đỉnh được nâng đỡ bởi bốn trụ bê tông kiên cố. Nhờ vẻ đẹp độc đáo và vị trí ấn tượng, nơi đây được du khách ưu ái gọi là “cổng trời An Giang”. Đây cũng là điểm check-in lý tưởng mà những tín đồ du lịch không nên bỏ lỡ khi đến với vùng đất Tri Tôn.',
+        images: [getImgUrl('TriTonImgs/cong-troi-tri-ton-7.jpg')],
+        location: 'xã Châu Lăng, huyện Tri Tôn, tỉnh An Giang',
+        video: getVideoUrl('Tri_Ton/gioi-thieu-cong-troi.mp4'),
+        badge: 'Hot Check-in',
+      },
+      // Chùa Tà Pạ
+      {
+        name: 'Chùa Tà Pạ',
+        description:
+          'Chùa Tà Pạ còn có tên khác là Chùa Núi hay Chùa Chưn - Num theo cách gọi của người Khmer. Chùa theo phái Nam tông hệ của Phật giáo tiểu thừa đặc trưng của văn hóa Khmer.',
+        badge: 'Hot Check-in',
+        images: [
+          getImgUrl('TriTonImgs/chua_ta_pa/1.jpg'),
+          getImgUrl('TriTonImgs/chua_ta_pa/2.jpg'),
+          getImgUrl('TriTonImgs/chua_ta_pa/3.jpg'),
+          getImgUrl('TriTonImgs/chua_ta_pa/4.jpg'),
+          getImgUrl('TriTonImgs/chua_ta_pa/5.jpg'),
+          getImgUrl('TriTonImgs/chua_ta_pa/6.jpg'),
+          getImgUrl('TriTonImgs/chua_ta_pa/7.jpg'),
+        ],
+        location: 'Đồi Tà Pạ, xã Núi Tô, huyện Tri Tôn, tỉnh An Giang',
+        video: getVideoUrl('Tri_Ton/chua_ta_pa.mp4'),
+      },
+      // Hồ Tà Pạ
+      {
+        name: 'Hồ Tà Pạ',
+        badge: 'Hot Check-in',
+        description:
+          'Hồ nước trong vắt được bao bọc bởi những hàng cây, núi đá. Ngày nắng trong dưới nền trời xanh rọi xuống mặt hồ tạo nên khung cảnh đẹp lung linh. Mặt hồ bằng lặng, khung cảnh hoang sơ được ví như “Tuyệt tình Cốc” của miền Tây.',
+        images: [
+          getImgUrl('TriTonImgs/ho-ta-pa/1.jpg'),
+          getImgUrl('TriTonImgs/ho-ta-pa/2.jpg'),
+          getImgUrl('TriTonImgs/ho-ta-pa/3.jpg'),
+          getImgUrl('TriTonImgs/ho-ta-pa/4.jpg'),
+          getImgUrl('TriTonImgs/ho-ta-pa/5.jpg'),
+        ],
+        video: getVideoUrl('Tri_Ton/ho-ta-pa.mp4'),
+        location: 'Ta Pa, Núi Tô, Tri Tôn, An Giang',
+      },
+      // Con đường tơ lụa Tri Tôn
+      {
+        name: '"Con đường tơ lụa" Tri Tôn',
+        badge: 'Hot Check-in',
+        description:
+          '“Con đường tơ lụa” là cái tên mà nhiều người đặt cho con đường quanh co uốn lượn chạy cắt ngang cánh đồng Tà Pạ và hàng cây trâm (gần hồ Soài Chek) ở huyện Tri Tôn. Con đường này đẹp nhất là những ngày lúa xanh mơn mởn hay khi lúa chín vàng, thu hút rất đông du khách trải nghiệm, khám phá, “check-in”.',
+        images: [
+          getImgUrl('TriTonImgs/con_duong_to_lua/con-duong-to-lua-1.jpg'),
+          getImgUrl('TriTonImgs/con_duong_to_lua/con-duong-to-lua-2.jpg'),
+          getImgUrl('TriTonImgs/con_duong_to_lua/con-duong-to-lua-3.jpg'),
+          getImgUrl('TriTonImgs/con_duong_to_lua/con-duong-to-lua-4.jpg'),
+        ],
+        location:
+          'Huyện Tri Tôn, tỉnh An Giang, gần khu vực hồ Soài Chek và đồng Tà Pạ',
+        video: getVideoUrl('Tri_Ton/gioi-thieu-con-duong-lo-lua.mp4'),
+      },
+      // Cánh đồng Tà Pạ
+      {
+        name: 'Cánh đồng Tà Pạ',
+        badge: 'Hot Check-in',
+        description:
+          'Theo Kinh nghiệm khám phá cánh đồng Tà Pạ, đến đây vào lúc này, bạn sẽ có cơ hội chiêm ngưỡng cảnh sắc thiên nhiên vô cùng mênh mông bát ngát, tha hồ mà chụp ảnh và tận hưởng mùi hương của lúa.',
+        images: [
+          getImgUrl('TriTonImgs/canh-dong-ta-pa/1.jpg'),
+          getImgUrl('TriTonImgs/canh-dong-ta-pa/2.jpg'),
+          getImgUrl('TriTonImgs/canh-dong-ta-pa/3.jpg'),
+          getImgUrl('TriTonImgs/canh-dong-ta-pa/4.jpg'),
+          getImgUrl('TriTonImgs/canh-dong-ta-pa/5.jpg'),
+          getImgUrl('TriTonImgs/canh-dong-ta-pa/6.jpg'),
+        ],
+        video: getVideoUrl('Tri_Ton/canh-dong-ta-pa.mp4'),
+        location: 'Dưới chân núi Tà Pạ và Cô Tô, Huyện Tri Tôn, tỉnh An Giang.',
+      },
+      // Đồi Tức Dụp
+      {
+        name: 'Đồi Tức Dụp',
+        badge: 'Di tích lịch sử',
+        description:
+          'Tức Dụp là ngọn đồi có nhiều hang sâu, động lớn dựa lưng vào Núi Cô Tô có vị trí cách Thành phố Long Xuyên chừng 70km và biên giới Campuchia tầm 10km.',
+        images: [getImgUrl('TriTonImgs/Tuc-Dup-Tu-Ngon-Doi.jpg')],
+        location: 'xã An Tức, huyện Tri Tôn, tỉnh An Giang',
+      },
+      // Đồi Tức Dụp
+      {
+        name: 'Đá đầu voi',
+        badge: 'Hot',
+        description:
+          'Tảng đá đầu voi ở núi Cô Tô (huyện Tri Tôn, tỉnh An Giang.Đây cũng là một địa điểm check- in, sống ảo tuyệt đẹp trên cao với những tảng đá lớn xung quanh.',
+        images: [
+          getImgUrl('TriTonImgs/da-dau-voi/1.jpg'),
+          getImgUrl('TriTonImgs/da-dau-voi/2.jpg'),
+          getImgUrl('TriTonImgs/da-dau-voi/3.jpg'),
+          getImgUrl('TriTonImgs/da-dau-voi/4.jpg'),
+          getImgUrl('TriTonImgs/da-dau-voi/5.jpg'),
+        ],
+        video: getVideoUrl('Tri_Ton/da-dau-voi.mp4'),
+        location: 'xã An Tức, huyện Tri Tôn, tỉnh An Giang',
+      },
+      // Núi Cô Tô
       {
         name: 'Núi Cô Tô (Phụng Hoàng Sơn)',
         description:
@@ -806,34 +928,7 @@ export const defaultDistricts: District[] = [
         location: 'Núi Cô Tô, Phú Thọ, Tri Tôn, An Giang',
         video: getVideoUrl('Tri_Ton/gioi-thieu-nui-co-to.mp4'),
       },
-      {
-        name: 'Hồ Tà Pạ',
-        description:
-          'Hồ nước trong vắt được bao bọc bởi những hàng cây, núi đá. Ngày nắng trong dưới nền trời xanh rọi xuống mặt hồ tạo nên khung cảnh đẹp lung linh. Mặt hồ bằng lặng, khung cảnh hoang sơ được ví như “Tuyệt tình Cốc” của miền Tây.',
-        images: [getImgUrl('TriTonImgs/ho_ta_pa.jpg')],
-        location: 'Ta Pa, Núi Tô, Tri Tôn, An Giang',
-      },
-      {
-        name: '"Con đường tơ lụa" Tri Tôn',
-        description:
-          '“Con đường tơ lụa” là cái tên mà nhiều người đặt cho con đường quanh co uốn lượn chạy cắt ngang cánh đồng Tà Pạ và hàng cây trâm (gần hồ Soài Chek) ở huyện Tri Tôn. Con đường này đẹp nhất là những ngày lúa xanh mơn mởn hay khi lúa chín vàng, thu hút rất đông du khách trải nghiệm, khám phá, “check-in”.',
-        images: [
-          getImgUrl('TriTonImgs/con_duong_to_lua/con-duong-to-lua-1.jpg'),
-          getImgUrl('TriTonImgs/con_duong_to_lua/con-duong-to-lua-2.jpg'),
-          getImgUrl('TriTonImgs/con_duong_to_lua/con-duong-to-lua-3.jpg'),
-          getImgUrl('TriTonImgs/con_duong_to_lua/con-duong-to-lua-4.jpg'),
-        ],
-        location:
-          'Huyện Tri Tôn, tỉnh An Giang, gần khu vực hồ Soài Chek và đồng Tà Pạ',
-        video: getVideoUrl('Tri_Ton/gioi-thieu-con-duong-lo-lua.mp4'),
-      },
-      {
-        name: 'Cánh đồng Tà Pạ',
-        description:
-          'Theo Kinh nghiệm khám phá cánh đồng Tà Pạ, đến đây vào lúc này, bạn sẽ có cơ hội chiêm ngưỡng cảnh sắc thiên nhiên vô cùng mênh mông bát ngát, tha hồ mà chụp ảnh và tận hưởng mùi hương của lúa.',
-        images: [getImgUrl('TriTonImgs/canh_dong_ta_pa.jpg')],
-        location: 'Dưới chân núi Tà Pạ và Cô Tô, Huyện Tri Tôn, tỉnh An Giang.',
-      },
+      // Hồ Ô Thum
       {
         name: 'Hồ Ô Thum',
         description:
@@ -842,6 +937,7 @@ export const defaultDistricts: District[] = [
         location:
           'xã Ô Lâm, huyện Tri Tôn, tỉnh An Giang (dưới chân núi Cô Tô)',
       },
+      // Hồ Ô Tà Sóc
       {
         name: 'Hồ Ô Tà Sóc',
         description:
@@ -849,43 +945,59 @@ export const defaultDistricts: District[] = [
         images: [getImgUrl('TriTonImgs/ho-o-ta-soc.jpg')],
         location: 'xã Lương Phi, huyện Tri Tôn, tỉnh An Giang',
       },
+      // Chùa Xà Tón
       {
         name: 'Chùa Xà Tón',
+        badge: 'Chùa Khmer',
         description:
-          'Chùa có tên Khmer là Xvayton, có lịch sử lâu đời hơn 200 năm là địa điểm du lịch Tri Tôn được nhiều du khách đến tham quan, hành hương.',
-        images: [getImgUrl('TriTonImgs/chua-xa-ton.jpg')],
-        location: 'khóm 3, thị trấn Tri Tôn, Tri Tôn, An Giang',
-      },
-      {
-        name: 'Chùa Koh Kas (Cổng trời Tri Tôn)',
-        description:
-          'Cổng trời Tri Tôn còn được biết đến với tên gọi cổng chùa Koh Kas, nằm tại xã Tri Tôn (trước kia là xã Châu Lăng, Tri Tôn), tỉnh An Giang. Cánh cổng nổi bật giữa nền trời trong xanh, tọa lạc dưới chân núi Dài hùng vĩ, với ba tháp nhỏ trên đỉnh được nâng đỡ bởi bốn trụ bê tông kiên cố. Nhờ vẻ đẹp độc đáo và vị trí ấn tượng, nơi đây được du khách ưu ái gọi là “cổng trời An Giang”. Đây cũng là điểm check-in lý tưởng mà những tín đồ du lịch không nên bỏ lỡ khi đến với vùng đất Tri Tôn.',
-        images: [getImgUrl('TriTonImgs/cong-troi-tri-ton-7.jpg')],
-        location: 'xã Châu Lăng, huyện Tri Tôn, tỉnh An Giang',
-        video: getVideoUrl('Tri_Ton/gioi-thieu-cong-troi.mp4'),
-        badge: 'Hot Check-in',
-      },
-      {
-        name: 'Chùa Tà Pạ',
-        description:
-          'Chùa Tà Pạ còn có tên khác là Chùa Núi hay Chùa Chưn - Num theo cách gọi của người Khmer. Chùa theo phái Nam tông hệ của Phật giáo tiểu thừa đặc trưng của văn hóa Khmer.',
-        badge: 'Hot Check-in',
+          'Chùa Xà tón (Chùa Xvayton) tọa lạc tại thị trấn Tri Tôn, huyện Tri Tôn, được xây dựng cách đây hơn 300 năm. Tương truyền, từ thời Bảy Núi vẫn còn là rừng rậm, ít người ghé thăm. Khi ấy, lũ khỉ thường xuyên vào chùa, nhà dân nên chùa mới có tên gọi là Xvayton. Trong tiếng Khmer, “xvay” nghĩa là khỉ, còn “ton” nghĩa là đeo bám, níu kéo.',
         images: [
-          getImgUrl('TriTonImgs/chua_ta_pa/1.jpg'),
-          getImgUrl('TriTonImgs/chua_ta_pa/2.jpg'),
-          getImgUrl('TriTonImgs/chua_ta_pa/3.jpg'),
-          getImgUrl('TriTonImgs/chua_ta_pa/4.jpg'),
+          getImgUrl('TriTonImgs/chua-xa-ton/1.jpg'),
+          getImgUrl('TriTonImgs/chua-xa-ton/2.jpg'),
+          getImgUrl('TriTonImgs/chua-xa-ton/3.jpg'),
+          getImgUrl('TriTonImgs/chua-xa-ton/4.jpg'),
+          getImgUrl('TriTonImgs/chua-xa-ton/5.jpg'),
+          getImgUrl('TriTonImgs/chua-xa-ton/6.jpg'),
         ],
-        location: 'Đồi Tà Pạ, xã Núi Tô, huyện Tri Tôn, tỉnh An Giang',
-        video: getVideoUrl('Tri_Ton/chua_ta_pa.mp4'),
+        video: getVideoUrl('Tri_Ton/chua-xa-ton.mp4'),
+        location: 'khóm 3, xã Tri Tôn, tỉnh An Giang',
       },
+      // Chùa Hàng Còng (Chùa Krăng Krốch)
       {
-        name: 'Đồi Tức Dụp',
-        
+        name: 'Chùa Hàng Còng (Chùa Krăng Krốch)',
+        badge: 'Chùa Khmer',
         description:
-          'Tức Dụp là ngọn đồi có nhiều hang sâu, động lớn dựa lưng vào Núi Cô Tô có vị trí cách Thành phố Long Xuyên chừng 70km và biên giới Campuchia tầm 10km.',
-        images: [getImgUrl('TriTonImgs/Tuc-Dup-Tu-Ngon-Doi.jpg')],
-        location: 'xã An Tức, huyện Tri Tôn, tỉnh An Giang',
+          'Chùa Hàng Còng là tên gọi quen thuộc của chùa Prochum Meáp Chhưm Kiriram, hay còn được biết đến là chùa Krăng Krốch, nổi tiếng xứ Tri Tôn. Đây là ngôi chùa duy nhất tại An Giang có hàng cây còng cổ thụ nối dài từ cổng đến bên trong với bề dày lịch sử lên đến hàng trăm năm.',
+        images: [
+          getImgUrl('TriTonImgs/chua-hang-cong/1.jpg'),
+          getImgUrl('TriTonImgs/chua-hang-cong/2.jpg'),
+          getImgUrl('TriTonImgs/chua-hang-cong/3.jpg'),
+          getImgUrl('TriTonImgs/chua-hang-cong/4.jpg'),
+          getImgUrl('TriTonImgs/chua-hang-cong/5.jpg'),
+          getImgUrl('TriTonImgs/chua-hang-cong/6.jpg'),
+        ],
+        video: getVideoUrl('Tri_Ton/chua-hang-cong.mp4'),
+        location:
+          'ấp An Hòa, xã Châu Lăng, huyện Tri Tôn (nay thuộc xã Tri Tôn, tỉnh An Giang)',
+      },
+      // Chùa Tuk Phos
+      {
+        name: 'Chùa Tuk Phos',
+        badge: 'Chùa Khmer',
+        description:
+          'Chùa Tuk Phos là công trình kiến trúc mang đậm nét đặc trưng về văn hóa của người Khmer Nam Bộ. Tọa lạc dưới chân núi Nam Qui thuộc thị trấn Tri Tôn, huyện Châu Lăng,  Chùa Tuk Phos từ lâu đã là điểm sinh hoạt văn hóa của rất nhiều bà con dân tộc tại vùng Thất Sơn lừng danh. Tuk Phos trong tiếng Khmer có nghĩa là giếng nước phun.',
+        images: [
+          getImgUrl('TriTonImgs/chua-tuk-phos/1.jpg'),
+          getImgUrl('TriTonImgs/chua-tuk-phos/2.jpg'),
+          getImgUrl('TriTonImgs/chua-tuk-phos/3.jpg'),
+          getImgUrl('TriTonImgs/chua-tuk-phos/4.jpg'),
+          getImgUrl('TriTonImgs/chua-tuk-phos/5.jpg'),
+          getImgUrl('TriTonImgs/chua-tuk-phos/6.jpg'),
+          getImgUrl('TriTonImgs/chua-tuk-phos/7.jpg'),
+        ],
+        video: getVideoUrl('Tri_Ton/chua-tuk-phos.mp4'),
+        location:
+          'ấp An Hòa, xã Châu Lăng, huyện Tri Tôn (nay thuộc xã Tri Tôn, tỉnh An Giang)',
       },
     ],
     cuisine: [

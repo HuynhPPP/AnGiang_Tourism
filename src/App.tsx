@@ -9,6 +9,7 @@ import Food from './pages/Food';
 import Districts from './pages/Districts';
 import NotFound from './pages/NotFound';
 import Admin from './pages/Admin';
+import Festivals from './pages/Festivals';
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const App = () => (
             <Route path='/about' element={<About />} />
             <Route path='/food' element={<Food />} />
             <Route path='/districts' element={<Districts />} />
+            <Route path='/festivals' element={<Festivals />} />
             <Route path='/admin' element={<Admin />} />
             {/* <Route path='*' element={<NotFound />} /> */}
           </Routes>

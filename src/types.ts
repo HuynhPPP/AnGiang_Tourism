@@ -62,3 +62,15 @@ export type District = {
   cuisine: Dish[];
   video?: string; // URL to local video or YouTube link
 };
+
+export type Festival = {
+  id: string;
+  name: string;
+  date: string;
+  month: number;
+  location: string;
+  description: string;
+  images: string[];
+  videoUrl?: string;
+  badge?: string;
+};

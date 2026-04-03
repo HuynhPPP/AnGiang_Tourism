@@ -68,7 +68,7 @@ export function TouristMoments() {
                           src={video} 
                           controls
                           controlsList="nodownload"
-                          className="w-full h-full object-cover scale-105"
+                          className="w-full h-full object-contain"
                         />
                       </CardContent>
                     </Card>

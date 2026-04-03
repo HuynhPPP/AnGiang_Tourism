@@ -1,10 +1,11 @@
 import { useCallback, useMemo, useState } from 'react';
-import type { Destination, District, FoodCategory } from '@/types';
+import type { Destination, District, FoodCategory, Festival } from '@/types';
 import { storage } from '@/lib/storage';
 import {
   defaultDestinations,
   defaultDistricts,
   defaultFoodCategories,
+  defaultFestivals,
 } from '@/data/defaults';
 
 export function useDestinationsData() {
@@ -107,6 +108,40 @@ export function useDistrictsData() {
   const remove = useCallback(
     (id: string) => {
       persist(items.filter((d) => d.id !== id));
+    },
+    [items, persist]
+  );
+
+  return { items, setItems: persist, add, update, remove };
+}
+
+export function useFestivalsData() {
+  const [items, setItems] = useState<Festival[]>(() =>
+    storage.loadFestivals(defaultFestivals)
+  );
+
+  const persist = useCallback((next: Festival[]) => {
+    setItems(next);
+    storage.saveFestivals(next);
+  }, []);
+
+  const add = useCallback(
+    (item: Festival) => {
+      persist([...items, item]);
+    },
+    [items, persist]
+  );
+
+  const update = useCallback(
+    (id: string, patch: Partial<Festival>) => {
+      persist(items.map((f) => (f.id === id ? { ...f, ...patch } : f)));
+    },
+    [items, persist]
+  );
+
+  const remove = useCallback(
+    (id: string) => {
+      persist(items.filter((f) => f.id !== id));
     },
     [items, persist]
   );

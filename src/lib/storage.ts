@@ -1,8 +1,9 @@
-import type { Destination, District, FoodCategory } from '@/types';
+import type { Destination, District, FoodCategory, Festival } from '@/types';
 
 const KEY_DESTINATIONS = 'ag_destinations';
 const KEY_FOOD_CATEGORIES = 'ag_food_categories';
 const KEY_DISTRICTS = 'ag_districts';
+const KEY_FESTIVALS = 'ag_festivals';
 
 function parse<T>(raw: string | null, fallback: T): T {
   if (!raw) return fallback;
@@ -33,6 +34,13 @@ export const storage = {
   },
   saveDistricts(data: District[]) {
     localStorage.setItem(KEY_DISTRICTS, JSON.stringify(data));
+  },
+
+  loadFestivals(defaultValue: Festival[]): Festival[] {
+    return parse<Festival[]>(localStorage.getItem(KEY_FESTIVALS), defaultValue);
+  },
+  saveFestivals(data: Festival[]) {
+    localStorage.setItem(KEY_FESTIVALS, JSON.stringify(data));
   },
 };
 

@@ -7,6 +7,7 @@ const navItems = [
   { path: '/about', label: 'Giới Thiệu' },
   { path: '/food', label: 'Ẩm Thực' },
   { path: '/districts', label: 'Huyện/Thị' },
+  { path: '/festivals', label: 'Lễ Hội' },
 ];
 
 const headerHighlights = [
