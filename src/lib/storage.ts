@@ -3,7 +3,7 @@ import type { Destination, District, FoodCategory, Festival } from '@/types';
 const KEY_DESTINATIONS = 'ag_destinations';
 const KEY_FOOD_CATEGORIES = 'ag_food_categories';
 const KEY_DISTRICTS = 'ag_districts';
-const KEY_FESTIVALS = 'ag_festivals';
+const KEY_FESTIVALS = 'ag_festivals_v2';
 
 function parse<T>(raw: string | null, fallback: T): T {
   if (!raw) return fallback;

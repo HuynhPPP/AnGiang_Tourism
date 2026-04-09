@@ -62,11 +62,10 @@ export function Header() {
                   >
                     <Button
                       variant='ghost'
-                      className={`rounded-full px-3 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-medium transition ${
-                        active
+                      className={`rounded-full px-3 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-medium transition ${active
                           ? 'bg-white text-amber-800 shadow-lg hover:bg-white'
                           : 'text-white/80 hover:bg-white/20 hover:text-white'
-                      }`}
+                        }`}
                     >
                       {label}
                     </Button>
