@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { getImgUrl } from '@/data/defaults';
+import { VisitorCounter } from './VisitorCounter';
 
 export function Footer() {
   return (
@@ -131,10 +132,16 @@ export function Footer() {
           </div>
         </div>
 
-        <div className='mt-6 sm:mt-8 border-t border-white/15 pt-4 sm:pt-6 text-center text-xs sm:text-sm text-emerald-100/80'>
-          “Đến với An Giang, khách du lịch được hòa mình vào thiên nhiên kỳ vĩ
-          với núi non hùng vĩ, đồng bằng xanh tươi và các di tích lịch sử văn
-          hóa đặc sắc.”
+        <div className='mt-10 flex flex-col items-center justify-between gap-6 border-t border-white/10 pt-8 lg:flex-row'>
+          <div className='max-w-md text-center lg:text-left'>
+            <p className='text-xs sm:text-sm text-emerald-100/80 italic'>
+              “Đến với An Giang, khách du lịch được hòa mình vào thiên nhiên kỳ vĩ
+              với núi non hùng vĩ, đồng bằng xanh tươi và các di tích lịch sử văn
+              hóa đặc sắc.”
+            </p>
+          </div>
+          
+          <VisitorCounter />
         </div>
       </div>
     </footer>

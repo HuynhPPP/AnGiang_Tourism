@@ -30,6 +30,7 @@ import type {
   FoodCategory as FullFoodCategory,
   District,
 } from '@/types';
+import SEO from '@/components/seo/SEO';
 
 type DestinationItem = Destination;
 type FoodCategory = FullFoodCategory;
@@ -78,6 +79,7 @@ export default function AdminPage() {
 
   return (
     <div className='min-h-screen bg-amber-50'>
+      <SEO title="Quản Trị" noindex={true} />
       <main className='mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8'>
         <div className='mb-8'>
           <h2 className='text-3xl font-bold text-amber-900'>

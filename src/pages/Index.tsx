@@ -7,6 +7,7 @@ import { useDestinationsData } from '@/hooks/useData';
 import { HeroSection } from '@/components/home/HeroSection';
 import { DestinationSection } from '@/components/home/DestinationSection';
 import { TouristMoments } from '@/components/home/TouristMoments';
+import SEO from '@/components/seo/SEO';
 
 const useDestinations = () => {
   const { items } = useDestinationsData();
@@ -61,6 +62,10 @@ export default function HomePage() {
 
   return (
     <div className='font-sans-soft min-h-screen bg-gradient-to-b from-[#fffdf5] via-[#fff4df] to-[#ffe6c9] text-[#6b4525]'>
+      <SEO 
+        title="Trang Chủ" 
+        description="Chào mừng bạn đến với An Giang - Vùng đất Thất Sơn huyền bí với nhiều danh lam thắng cảnh và văn hóa đặc sắc."
+      />
       <TooltipProvider>
         <main className='mx-auto max-w-6xl space-y-12 px-4 py-12 sm:px-6 lg:px-8'>
           <HeroSection />

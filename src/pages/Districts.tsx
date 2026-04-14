@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom';
 import { useDistrictsData } from '@/hooks/useData';
 import { DistrictGrid } from '@/components/districts/DistrictGrid';
 import { DistrictDetail } from '@/components/districts/DistrictDetail';
+import SEO from '@/components/seo/SEO';
 
 const useDistricts = () => {
   const { items } = useDistrictsData();
@@ -46,6 +47,10 @@ export default function DistrictsPage() {
 
   return (
     <div className='font-sans-soft min-h-screen bg-gradient-to-b from-[#fffdf5] via-[#fff4df] to-[#ffe6c9] text-[#6b4525]'>
+      <SEO 
+        title="Địa Danh" 
+        description="Khám phá các huyện, thị xã và thành phố tại An Giang. Thông tin chi tiết về địa lý, văn hóa và các điểm tham quan nổi bật."
+      />
       <main className='mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8'>
         <div className='mb-10'>
           <h2 className='text-3xl font-display font-bold text-[#b25a13] mb-4'>

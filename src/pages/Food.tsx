@@ -2,6 +2,7 @@ import { useSearchParams } from 'react-router-dom';
 import { useFoodCategoriesData } from '@/hooks/useData';
 import { FoodCategories } from '@/components/food/FoodCategories';
 import { FoodGuide } from '@/components/food/FoodGuide';
+import SEO from '@/components/seo/SEO';
 
 const useFoodCategories = () => {
   const { items } = useFoodCategoriesData();
@@ -26,6 +27,10 @@ export default function FoodPage() {
 
   return (
     <div className='font-sans-soft min-h-screen bg-gradient-to-b from-[#fffdf5] via-[#fff4df] to-[#ffe6c9] text-[#6b4525]'>
+      <SEO 
+        title="Ẩm Thực" 
+        description="Khám phá tinh hoa ẩm thực An Giang với những món ăn đặc sản nổi tiếng như bún cá, lẩu mắm, thốt nốt và bánh bò."
+      />
       <main className='mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8'>
         <div className='space-y-12'>
           <FoodCategories 

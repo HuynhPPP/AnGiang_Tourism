@@ -26,6 +26,7 @@ import {
 import { Button } from "@/components/ui/button";
 
 import { allFestivalsTimeline } from '@/data/festivals';
+import SEO from '@/components/seo/SEO';
 
 export default function FestivalsPage() {
   const { items: festivals } = useFestivalsData();
@@ -47,6 +48,10 @@ export default function FestivalsPage() {
 
   return (
     <div className='font-sans-soft min-h-screen bg-gradient-to-b from-[#fffdf5] via-[#fff4df] to-[#ffe6c9]'>
+      <SEO 
+        title="Lễ Hội" 
+        description="Tham gia những lễ hội văn hóa, tâm linh đặc sắc tại An Giang như Lễ hội Vía Bà Chúa Xứ, Lễ hội đua bò Bảy Núi."
+      />
       
       {/* Hero Section with Glassmorphism */}
       <section className='relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden'>

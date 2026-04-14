@@ -3,10 +3,15 @@ import { AboutCulture } from '@/components/about/AboutCulture';
 import { AboutMap } from '@/components/about/AboutMap';
 import { AboutQuickInfo } from '@/components/about/AboutQuickInfo';
 import { AboutBestTime } from '@/components/about/AboutBestTime';
+import SEO from '@/components/seo/SEO';
 
 export default function AboutPage() {
   return (
     <div className='font-sans-soft min-h-screen bg-gradient-to-b from-[#fffdf5] via-[#fff4df] to-[#ffe6c9] text-[#6b4525]'>
+      <SEO 
+        title="Giới Thiệu" 
+        description="Tìm hiểu về lịch sử, văn hóa, bản đồ và những thông tin du lịch hữu ích về tỉnh An Giang."
+      />
       <main className='mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8'>
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
           {/* Main content area */}
