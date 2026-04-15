@@ -24,8 +24,10 @@ interface FestivalCardProps {
 
 export function FestivalCard({ festival }: FestivalCardProps) {
   const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
-  const [count, setCount] = useState(0);
+  const [current, setCurrent] = useState(1);
+
+  // Lấy tổng ảnh trực tiếp từ data, không phụ thuộc vào Embla API (tránh count = 0 khi chưa init)
+  const count = festival.images?.length ?? 0;
 
   const plugin = useRef(
     Autoplay({ delay: 4000, stopOnInteraction: true })
@@ -34,7 +36,6 @@ export function FestivalCard({ festival }: FestivalCardProps) {
   useEffect(() => {
     if (!api) return;
 
-    setCount(api.scrollSnapList().length);
     setCurrent(api.selectedScrollSnap() + 1);
 
     api.on("select", () => {
