@@ -11,6 +11,7 @@ import Districts from './pages/Districts';
 import NotFound from './pages/NotFound';
 import Admin from './pages/Admin';
 import Festivals from './pages/Festivals';
+import AboutNew from './pages/AboutNew';
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
             <Routes>
               <Route path='/' element={<Index />} />
               <Route path='/about' element={<About />} />
+              <Route path='/about-new' element={<AboutNew />} />
               <Route path='/food' element={<Food />} />
               <Route path='/districts' element={<Districts />} />
               <Route path='/festivals' element={<Festivals />} />
